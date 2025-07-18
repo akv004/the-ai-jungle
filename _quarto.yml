@@ -16,7 +16,7 @@ book:
 
 website:
   title: "The AI Jungle"
-  output-dir: _site # <-- THIS IS THE CORRECT PLACE FOR THE WEBSITE'S OUTPUT DIRECTORY
+  output-dir: _site
   navbar:
     left:
       - text: "Home"
