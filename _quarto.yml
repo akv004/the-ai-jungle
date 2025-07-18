@@ -5,8 +5,8 @@ project:
   output-dir: docs
 
 book:
-  title: "The Quantum Mirror"
-  subtitle: "AI’s Hidden Reality"
+  title: "The AI Jungle"
+  subtitle: "Learn AI & ML with Nature's Wisdom"
   author: "Amit Verma"
   date: "2025-07-18"
   chapters:
@@ -17,7 +17,7 @@ book:
 
 
 website:
-  title: "The Quantum Mirror"
+  title: "The AI Jungle"
   repo-url: https://github.com/amitverma/TheQuantumMirror
   repo-actions: [edit, issue]
   site-url: https://amitverma.github.io/TheQuantumMirror/
