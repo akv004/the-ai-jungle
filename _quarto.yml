@@ -1,36 +1,40 @@
-# _quarto.yml
+# _quarto-alt.yml
 
 project:
-  type: book # Defines the project primarily as a book
-  output-dir: _book # <-- THIS IS THE CORRECT PLACE FOR THE BOOK'S OUTPUT DIRECTORY
+  type: book
+  output-dir: docs
 
 book:
-  title: "The AI Jungle"
-  subtitle: "Learn AI & ML with Nature's Wisdom"
+  title: "The Quantum Mirror"
+  subtitle: "AI’s Hidden Reality"
   author: "Amit Verma"
-  date: "2025-07-17"
+  date: "2025-07-18"
   chapters:
     - index.qmd
-    - chapter1.qmd
-    - chapter2.qmd
+    - intro.qmd
+    - mirror_ai.qmd
 
 website:
-  title: "The AI Jungle"
-  output-dir: _site
+  title: "The Quantum Mirror"
+  repo-url: https://github.com/amitverma/TheQuantumMirror
+  repo-actions: [edit, issue]
+  site-url: https://amitverma.github.io/TheQuantumMirror/
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Chapter 1: Foundations"
-        href: chapter1.qmd
-      - text: "Chapter 2: Algorithms in Nature"
-        href: chapter2.qmd
+      - text: "Intro"
+        href: intro.qmd
+      - text: "Mirror AI"
+        href: mirror_ai.qmd
 
 format:
   html:
     theme: cosmo
     toc: true
     css: styles.css
+    number-sections: true
+    self-contained: true
   pdf:
     documentclass: scrreprt
   epub: default
