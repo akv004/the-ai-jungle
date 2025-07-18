@@ -1,43 +1,48 @@
-# .github/workflows/quarto-publish.yml
-
 name: Quarto Publish
 
 on:
   push:
     branches:
-      - main # Trigger this action whenever changes are pushed to the 'main' branch
+      - main  # Run when changes are pushed to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Grant write permission to the GITHUB_TOKEN
-      pages: write    # Grant write permission to deploy GitHub Pages
-      id-token: write # Grant ID token permission for OIDC
+      contents: write     # Allow commits (optional)
+      pages: write        # Allow publishing to GitHub Pages
+      id-token: write     # Required for deployment OIDC
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2 # Use the official Quarto action to set up Quarto CLI
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install LaTeX (for PDF support, optional)
+        uses: teatimeguest/setup-texlive-action@v2
+        with:
+          packages: >-
+            scheme-basic
+            latexmk
+            xetex
+            fontspec
+            titling
+            amsmath
+            geometry
+            hyperref
+            parskip
 
       - name: Render Quarto project
         run: |
-          quarto render # This command will render both your book (to _book) and website (to _site)
+          quarto render
 
-      # --- Deployment for the WEBSITE ---
-      - name: Upload website artifact
+      - name: Upload site artifact (docs/)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site/ # Upload the _site directory for GitHub Pages
-
-      # --- Deployment for the BOOK (Optional - for direct access if you want it) ---
-      # If you want the book to be directly browseable via a subpath of your website,
-      # you can adjust the website artifact path or upload the _book too.
-      # For simplicity and typical GitHub Pages setup, the website artifact is primary.
-      # The book's HTML will be available within the _site/ folder if you link to it.
+          path: docs/
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Deploy the uploaded artifact to GitHub Pages
+        uses: actions/deploy-pages@v4
