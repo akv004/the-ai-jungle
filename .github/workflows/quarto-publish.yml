@@ -1,9 +1,11 @@
-name: Quarto Publish
+# .github/workflows/quarto-pages-only.yml
+
+name: Quarto Pages Only # Your chosen workflow name
 
 on:
   push:
     branches:
-      - main
+      - main # Trigger on push to main branch
 
 jobs:
   deploy:
@@ -20,24 +22,13 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install LaTeX for PDF rendering
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-xetex \
-            texlive-fonts-recommended \
-            texlive-plain-generic \
-            texlive-latex-recommended \
-            texlive-latex-extra \
-            fonts-freefont-ttf
+      - name: Render Quarto website
+        run: quarto render # This will now output the website to 'docs/' because of _quarto.yml
 
-      - name: Render Quarto project (HTML, PDF, EPUB)
-        run: |
-          quarto render
-
-      - name: Upload website (docs/)
+      - name: Upload site (docs/)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/
+          path: docs/ # <--- CRITICAL FIX: Ensure this path is 'docs/'
 
       - name: Deploy to GitHub Pages
         id: deployment
