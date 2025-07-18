@@ -1,3 +1,9 @@
+# _quarto-alt.yml
+
+project:
+  type: book
+  output-dir: docs
+
 book:
   title: "The Quantum Mirror"
   subtitle: "AI’s Hidden Reality"
@@ -5,8 +11,9 @@ book:
   date: "2025-07-18"
   chapters:
     - index.qmd
+    - intro.qmd
     - chapter1.qmd
-    - chapter2.qmd
+
 
 website:
   title: "The Quantum Mirror"
@@ -17,7 +24,19 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Chapter 1"
+      - text: "Intro"
+        href: intro.qmd
+      - text: chapter1
         href: chapter1.qmd
-      - text: "Chapter 2"
-        href: chapter2.qmd
+
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    css: styles.css
+    number-sections: true
+    self-contained: true
+  pdf:
+    documentclass: scrreprt
+  epub: default
