@@ -2,13 +2,13 @@
 
 project:
   type: book # Defines the project primarily as a book
+  output-dir: _book # <-- THIS IS THE CORRECT PLACE FOR THE BOOK'S OUTPUT DIRECTORY
 
 book:
   title: "The AI Jungle"
   subtitle: "Learn AI & ML with Nature's Wisdom"
   author: "Amit Verma"
   date: "2025-07-17"
-  output-dir: _book # Correctly indented under 'book'
   chapters:
     - index.qmd
     - chapter1.qmd
@@ -16,7 +16,7 @@ book:
 
 website:
   title: "The AI Jungle"
-  output-dir: _site # Correctly indented under 'website'
+  output-dir: _site # <-- THIS IS THE CORRECT PLACE FOR THE WEBSITE'S OUTPUT DIRECTORY
   navbar:
     left:
       - text: "Home"
