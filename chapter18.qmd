@@ -1,4 +1,4 @@
-# Chapter 18: Generative AI & Creative Applications
+# Generative AI & Creative Applications
 
 ## The Artistic Bird
 
@@ -8,7 +8,7 @@
 
 ---
 
-### 18.1 The Jungle’s New Dawn: Creation Unbound
+###  The Jungle’s New Dawn: Creation Unbound
 
 In the days following the Transparent River’s astonishing revelation, the Jungle seems to hold its breath—every leaf, every vine, every creature poised for something extraordinary. At dawn, the expectation is met. A dazzling **Bird**, with feathers pulsing in a kaleidoscope of shifting patterns, appears amid the canopy. Each plume seems alive with dancing shades: blues turning to golds, greens melting into lavender. This Bird does not merely reflect its environment like the Watchful Owl might, nor does it strategize and adapt like the Cunning Fox. Instead, it creates, transforming every moment it touches into a singular work of art.
 
@@ -22,7 +22,7 @@ But how, exactly, does this Bird perform its magic? To understand, we need a bri
 
 ---
 
-### 18.2: What is Generative AI?
+### What is Generative AI?
 
 #### A Jungle of Imagination
 
