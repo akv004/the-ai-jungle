@@ -3,15 +3,15 @@ name: Quarto Publish
 on:
   push:
     branches:
-      - main  # Run when changes are pushed to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write     # Allow commits (optional)
-      pages: write        # Allow publishing to GitHub Pages
-      id-token: write     # Required for deployment OIDC
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -20,25 +20,21 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install LaTeX (for PDF support, optional)
-        uses: teatimeguest/setup-texlive-action@v2
-        with:
-          packages: >-
-            scheme-basic
-            latexmk
-            xetex
-            fontspec
-            titling
-            amsmath
-            geometry
-            hyperref
-            parskip
+      - name: Install LaTeX for PDF rendering
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-plain-generic \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            fonts-freefont-ttf
 
-      - name: Render Quarto project
+      - name: Render Quarto project (HTML, PDF, EPUB)
         run: |
           quarto render
 
-      - name: Upload site artifact (docs/)
+      - name: Upload website (docs/)
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/
