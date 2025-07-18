@@ -1,21 +1,22 @@
 # _quarto.yml
 
 project:
-  type: book # Primary project type
+  type: book # Defines the project primarily as a book
   output-dir: _book # Output directory for the book version
 
 book:
   title: "The AI Jungle"
   subtitle: "Learn AI & ML with Nature's Wisdom"
-  author: "Your Name" # <--- IMPORTANT: Replace with your actual name!
-  date: "2025-07-17" # <--- IMPORTANT: Update to today's date or leave as desired
+  author: "Amit Verma" # Your name as the author
+  date: "2025-07-17" # Current date
   chapters:
-    - index.qmd # Your introduction/front matter
-    - chapter1.qmd # Example chapter
-    - chapter2.qmd # Another example chapter
-    # Add all your .qmd files here in the order you want them to appear in the book
-    # e.g., - path/to/your/chapter3.qmd
-    #         - section/another-topic.qmd
+    - index.qmd # Your introduction/homepage for both book and website
+    - chapter1.qmd # First main chapter
+    - chapter2.qmd # Second main chapter
+    # Add all your .qmd files here in the sequential order you want them
+    # to appear in your book. Example:
+    # - chapter3-advanced-topics.qmd
+    # - appendix-references.qmd
 
 website:
   title: "The AI Jungle"
@@ -24,19 +25,30 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Chapter 1: Foundations" # Example navigation text
+      - text: "Chapter 1: Foundations" # Navigation link for Chapter 1
         href: chapter1.qmd
-      - text: "Chapter 2: Algorithms in Nature"
+      - text: "Chapter 2: Algorithms in Nature" # Navigation link for Chapter 2
+      # Add more entries here for each chapter or main page you want in the website's navigation bar
         href: chapter2.qmd
-      # Add more navbar items corresponding to your chapters/pages
-  # Add other website-specific options here if needed, like sidebar, etc.
+  # You can add more website-specific options here, such as a sidebar:
+  # sidebar:
+  #   - title: "Sections"
+  #     style: "docked"
+  #     contents:
+  #       - section: "Introduction"
+  #         contents:
+  #           - index.qmd
+  #       - section: "Core Concepts"
+  #         contents:
+  #           - chapter1.qmd
+  #           - chapter2.qmd
 
 format:
   html:
-    theme: cosmo # A clean, modern theme
+    theme: cosmo # A clean, modern HTML theme for both book and website
     toc: true # Include a Table of Contents
-    css: styles.css # Optional: Link to a custom CSS file for styling
+    css: styles.css # Optional: Link to a custom CSS file for additional styling
   pdf:
-    documentclass: scrreprt # Common LaTeX document class for books
-    # Add any other PDF specific options here if you have them
-  epub: default # Generates an ePub version for e-readers
+    documentclass: scrreprt # A common LaTeX document class for PDF book output
+    # You can add other PDF-specific options here, e.g., to customize fonts or margins
+  epub: default # Generates an ePub version for e-readers, useful for your book
