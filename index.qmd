@@ -1,7 +1,8 @@
-![](cover.png){width=400px align=center}
+:::{.no-number}
+![](cover){width=100% height=auto}
+:::
 ---
 title: "The AI Jungle"
-format: pdf
 ---
 
 # The AI Jungle  
