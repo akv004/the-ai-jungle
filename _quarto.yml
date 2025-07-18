@@ -13,7 +13,7 @@ book:
     - index.qmd
     - intro.qmd
     - chapter1.qmd
-
+    - chapter18.qmd
 
 website:
   title: "The Quantum Mirror"
