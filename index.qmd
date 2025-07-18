@@ -1,3 +1,4 @@
+![](cover.jpg){width=400px align=center}
 ---
 title: "The AI Jungle"
 format: pdf

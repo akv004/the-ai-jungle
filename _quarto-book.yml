@@ -1,0 +1,19 @@
+project:
+  type: book
+  output-dir: book_output  # You can change this if needed
+
+book:
+  title: "The Quantum Mirror"
+  subtitle: "AI’s Hidden Reality"
+  author: "Amit Verma"
+  date: "2025-07-18"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - chapter1.qmd
+    - chapter2.qmd
+
+format:
+  pdf:
+    documentclass: scrreprt
+  epub: default
