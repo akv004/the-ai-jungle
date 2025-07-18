@@ -37,6 +37,3 @@ format:
     css: styles.css
     number-sections: true
     self-contained: true
-  pdf:
-    documentclass: scrreprt
-  epub: default
