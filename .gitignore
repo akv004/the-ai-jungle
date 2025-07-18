@@ -1,0 +1,76 @@
+# ----------------------------------------------------------------
+# Quarto / R / Python
+# ----------------------------------------------------------------
+
+# Quarto specific outputs and caches
+.Rproj.user/
+.Rhistory
+.Rdata
+_site/
+_freeze/
+_book/
+.quarto/
+
+# Cache directories for individual documents (e.g., from code execution)
+*_cache/
+
+# Supporting files for individual HTML documents (e.g., plots)
+*_files/
+
+# Rendered output files (often generated during `quarto preview`)
+*.html
+*.pdf
+*.docx
+*.epub
+
+# R specific
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Python specific
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+/venv/
+/.venv/
+/env/
+/.env/
+*.egg-info/
+
+
+# ----------------------------------------------------------------
+# Editor & OS Files
+# ----------------------------------------------------------------
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# ----------------------------------------------------------------
+# Other
+# ----------------------------------------------------------------
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*~
+/.quarto/
