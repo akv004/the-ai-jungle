@@ -28,6 +28,8 @@ website:
         href: intro.qmd
       - text: chapter1
         href: chapter1.qmd
+      - text: chapter18
+        href: chapter18.qmd
 
 
 format:
