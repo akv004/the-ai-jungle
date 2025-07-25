@@ -123,7 +123,7 @@ Imagine two students in an art class. One paints portraits (the Generator), and 
 
 ##### Famous Example
 
-`StyleGAN`, developed by NVIDIA, is a GAN-based model that generates highly realistic human faces—faces that do not correspond to any real person. The website [ThisPersonDoesNotExist.com](https://thispersondoesnotexist.com) showcases images produced by `StyleGAN`.
+**StyleGAN** developed by NVIDIA, is a GAN-based model that generates highly realistic human faces—faces that do not correspond to any real person.
 
 #### Variational Autoencoders (VAEs)
 
