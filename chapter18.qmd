@@ -22,6 +22,7 @@ But how, exactly, does this Bird perform its magic? To understand, we need a bri
 
 ---
 
+
 ### What is Generative AI?
 
 #### A Jungle of Imagination
@@ -96,11 +97,13 @@ The availability of enormous datasets (containing millions of images, videos, an
 
 > **Takeaway:** Generative AI is a natural evolution from older AI methods—less about labeling or predicting, and more about inventing. With the combination of fast hardware, clever algorithms, and huge training data, the “Artistic Bird” was able to take flight.
 
+---
+
 ### Core Concepts and Architectures
 
 To truly understand how the Artistic Bird conjures new illusions, we must examine the main types of generative models that have emerged in the field. These models represent different creative strategies, each with unique strengths and applications. Here are four foundational approaches to generative AI, explained intuitively and illustrated with real-world examples.
 
-#### Generative Adversarial Networks (GANs)
+#### ***Generative Adversarial Networks (GANs)***
 
 ##### Concept: A Creative Duel
 ::: {.callout-note icon="🎨"}
@@ -125,7 +128,7 @@ Imagine two students in an art class. One paints portraits (the Generator), and 
 
 **StyleGAN** developed by NVIDIA, is a GAN-based model that generates highly realistic human faces—faces that do not correspond to any real person.
 
-#### Variational Autoencoders (VAEs)
+#### ***Variational Autoencoders (VAEs)***
 
 ##### Concept in Simple Terms
 
@@ -135,7 +138,7 @@ A Variational Autoencoder, or VAE, consists of two main components: an Encoder t
 
 VAEs are particularly useful for morphing between ideas (such as smoothly transforming a cat into a lion) and for controlling specific attributes like color, style, or size. They are generally easier to train than GANs, though their outputs may be blurrier.
 
-#### Diffusion Models
+#### ***Diffusion Models***
 
 ##### Concept in Simple Terms
 
@@ -145,7 +148,7 @@ Diffusion models generate images by starting with pure random noise and then gra
 
 Diffusion models, such as `Stable Diffusion` and `DALL·E 2`, are currently the leading technique for text-to-image generation tasks. They are favored for their ability to produce high-quality, detailed, and reliable images from text prompts.
 
-#### Transformer-Based Generators
+#### ***Transformer-Based Generators***
 
 ##### Concept in Simple Terms
 
