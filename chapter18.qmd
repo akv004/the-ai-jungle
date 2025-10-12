@@ -30,17 +30,17 @@ But how, exactly, does this Bird perform its magic? To understand, we need a bri
 
 
 In this chapter’s artwork, the **Artistic Bird** you see above was generated using **Qwen-Image**, a diffusion-based AI image model capable of transforming text prompts into vivid, cinematic imagery.  
-Running locally on my AI workstation (RTX 5090 GPU + 128 GB RAM + AMD Ryzen 9 9950X3D), this system leverages Hugging Face’s `DiffusionPipeline` to produce high-fidelity art directly from Python.
+Running locally on my AI workstation (RTX 5090 GPU + 64 GB RAM + AMD Ryzen 9 9950X3D), this system leverages Hugging Face’s `DiffusionPipeline` to produce high-fidelity art directly from Python.
 
 
 ::: note
-**Local Setup (Workstation)**
-
-- GPU: NVIDIA RTX 5090 (32 GB)
-- CPU: AMD Ryzen 9 9950X3D · RAM: 128 GB
-- OS/Stack: Ubuntu 24.04, CUDA 12.5, PyTorch 2.4, diffusers 0.30
-
+**Local Setup (Amit’s Workstation)**
+- **GPU:** NVIDIA RTX 5090 (32 GB)
+- **CPU:** AMD Ryzen 9 9950X3D
+- **RAM:** ~64 GB (MemTotal ≈ 63.4 GB) + **Swap:** 8 GB
+- **OS/Stack:** Ubuntu 24.04, CUDA 12.x, PyTorch 2.4, diffusers 0.30, FastAPI
 :::
+
 
 
 #### The Script
