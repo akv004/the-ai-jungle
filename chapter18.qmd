@@ -2,13 +2,12 @@
 
 ## The Artistic Bird
 
-:::{.no-number}
 ![The Artistic Bird](images/chapter18_images/chapter18Peacock.png){width=100% height=auto}
-:::
 
 ---
 
-###  The Jungle’s New Dawn: Creation Unbound
+### The Jungle’s New Dawn: Creation Unbound
+
 
 In the days following the Transparent River’s astonishing revelation, the Jungle seems to hold its breath—every leaf, every vine, every creature poised for something extraordinary. At dawn, the expectation is met. A dazzling **Bird**, with feathers pulsing in a kaleidoscope of shifting patterns, appears amid the canopy. Each plume seems alive with dancing shades: blues turning to golds, greens melting into lavender. This Bird does not merely reflect its environment like the Watchful Owl might, nor does it strategize and adapt like the Cunning Fox. Instead, it creates, transforming every moment it touches into a singular work of art.
 
@@ -21,6 +20,59 @@ Unlike the Owl (who predicts and observes) or the Fox (who strategizes and adapt
 But how, exactly, does this Bird perform its magic? To understand, we need a brief look at what Generative AI actually is—both in the Jungle’s metaphorical sense and in our own modern world.
 
 ---
+
+
+### From Prompt to Pixels: Generating the Artistic Bird with Qwen-Image
+
+![Generated with Qwen-Image — cinematic concept art](images/chapter18_images/artisticBirdQwenImage.png){width=100% fig-number=false fig-align="center" fig-cap="Artistic Bird generated with Qwen-Image (local inference)."}
+
+
+
+
+In this chapter’s artwork, the **Artistic Bird** you see above was generated using **Qwen-Image**, a diffusion-based AI image model capable of transforming text prompts into vivid, cinematic imagery.  
+Running locally on my AI workstation (RTX 5090 GPU + 128 GB RAM + AMD Ryzen 9 9950X3D), this system leverages Hugging Face’s `DiffusionPipeline` to produce high-fidelity art directly from Python.
+
+
+::: note
+**Local Setup (Workstation)**
+
+- GPU: NVIDIA RTX 5090 (32 GB)
+- CPU: AMD Ryzen 9 9950X3D · RAM: 128 GB
+- OS/Stack: Ubuntu 24.04, CUDA 12.5, PyTorch 2.4, diffusers 0.30
+
+:::
+
+
+#### The Script
+The following FastAPI service powers Qwen-Image generation on my system:
+
+```python
+from fastapi import FastAPI
+from diffusers import DiffusionPipeline
+# simplified example
+pipe = DiffusionPipeline.from_pretrained("Qwen/Qwen-Image", trust_remote_code=True)
+pipe.to("cuda")
+
+image = pipe(
+  prompt="A majestic AI-generated bird with bioluminescent feathers reflecting streams of data...",
+  negative_prompt="no text, no watermark, no blur",
+  width=1792, height=1024, num_inference_steps=30
+).images[0]
+image.save("artistic_bird.png")
+```
+**The Prompt That Created It**
+
+>A majestic AI-generated bird inspired by a peacock, spreading its wings into a brilliant fractal explosion of color and light...
+>(Negative prompt: “no text, no watermark, no blur, lowres”)
+
+***From Data to Art: The Meaning Behind the Image***
+This image isn’t just decoration—it embodies the beautiful fusion of imagination and computation.
+Just as the Artistic Bird brings color and life to the jungle, AI models like Qwen-Image transform structured data and precise code into expressive visual worlds.
+In this harmony of logic and creativity, data becomes pigment, algorithms become brushstrokes, and every generated scene reveals a deeper truth:
+
+>creativity itself can emerge from the language of learning systems.
+
+
 
 
 ### What is Generative AI?
