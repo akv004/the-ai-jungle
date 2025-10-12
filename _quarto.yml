@@ -43,8 +43,11 @@ format:
     css: styles.css
     number-sections: false
     self-contained: true
+    cover-image: cover.png
 
   pdf:
     number-sections: false
+    cover-image: cover.png
   epub:
     number-sections: false
+    cover-image: cover.png
