@@ -43,12 +43,7 @@ Letting it explore **without labels** is like sending it into a new jungle to di
 
 Supervised learning relies on labeled data, which guides the tiger’s hunting instincts—each label acts as a clue to distinguish prey from non-prey. Unsupervised learning, on the other hand, allows the tiger to roam freely, discovering hidden patterns and structures in its environment without explicit guidance. This exploratory behavior is crucial when labels are scarce or unavailable.
 
-### AI-generated image prompt
-```text
-PROMPT: Two robotic tigers in a dense jungle; one reads a glowing manual with labels (supervised learning), the other explores mysterious, uncharted paths discovering hidden patterns (unsupervised learning). Cinematic 16:9 lighting, vibrant colors, ultra-detailed.
-NEGATIVE: no text, no watermark, lowres, blur
-SIZE: 1664x928
-```
+![The Stone of Knowledge: The Tiger’s First Lesson](images/chapter3_images/learning_tiger.png){width=100% height=auto}
 
 ---
 

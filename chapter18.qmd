@@ -62,8 +62,22 @@ image.save("artistic_bird.png")
 ```
 **The Prompt That Created It**
 
->A majestic AI-generated bird inspired by a peacock, spreading its wings into a brilliant fractal explosion of color and light...
->(Negative prompt: “no text, no watermark, no blur, lowres”)
+```json
+{
+  "prompt": "A majestic AI-generated bird inspired by a peacock, spreading its wings into a brilliant fractal explosion of color and light.
+  Each feather morphs into swirling data streams, pixels, and brushstrokes blending nature with code. The jungle canopy glows around it
+  — bioluminescent vines, glowing flowers, and digital dust fill the air. The horizon burns with dawn light as if creativity itself is awakening.
+  The bird’s body is a fusion of organic feathers and iridescent circuitry — one eye biological, the other softly glowing like an AI lens.
+  The atmosphere should feel mystical, artistic, and transcendent — symbolizing the fusion of art and algorithm. Cinematic lighting,
+  ultra-detailed, 8K, volumetric light, ethereal mist, concept art style.",
+  "negative_prompt": "no text, no frame, no watermark, no signature, lowres, blur, extra limbs, mutation, deformed face, noise, bad composition",
+  "aspect": "16:9",
+  "steps": 24,
+  "guidance": 8,
+  "true_cfg_scale": 4.0,
+  "seed": 42
+}
+```
 
 ***From Data to Art: The Meaning Behind the Image***
 This image isn’t just decoration—it embodies the beautiful fusion of imagination and computation.
