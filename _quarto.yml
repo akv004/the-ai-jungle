@@ -13,6 +13,7 @@ book:
     - index.qmd
     - intro.qmd
     - chapter1.qmd
+    - chapter2.qmd
     - chapter18.qmd
 
 
@@ -29,6 +30,8 @@ website:
         href: intro.qmd
       - text: "chapter1"
         href: chapter1.qmd
+      - text: "chapter2"
+        href: chapter2.qmd
       - text: "chapter18"
         href: chapter18.qmd
 
@@ -38,5 +41,10 @@ format:
     theme: cosmo
     toc: true
     css: styles.css
-    number-sections: true
+    number-sections: false
     self-contained: true
+
+  pdf:
+    number-sections: false
+  epub:
+    number-sections: false

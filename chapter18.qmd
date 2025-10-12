@@ -3,7 +3,7 @@
 ## The Artistic Bird
 
 :::{.no-number}
-![The Artistic Bird](chapter18_images/chapter18Peacock.png){width=100% height=auto}
+![The Artistic Bird](images/chapter18_images/chapter18Peacock.png){width=100% height=auto}
 :::
 
 ---
