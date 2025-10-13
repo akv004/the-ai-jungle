@@ -1,5 +1,6 @@
 
 # Traditional Machine Learning Methods
+
 ## The Tiger’s Foundational Instincts
 
 ### The First Hunting Strategies
@@ -23,25 +24,31 @@ Now it is time to peer closer at these instinctual algorithms themselves. In the
 
 ## Supervised vs. Unsupervised Learning
 
-::: tip
+
+::: {.callout-tip}
 **Key Analogy**
+
 Training the tiger with **labels** is like giving it a field guide: *prey / not-prey*.
 Letting it explore **without labels** is like sending it into a new jungle to discover patterns on its own.
 :::
 
+
+
 | Aspect | **Supervised Learning** | **Unsupervised Learning** |
 |---|---|---|
-| Goal | Learn mapping from inputs → labels | Discover structure without labels |
-| Example Tasks | Regression, classification | Clustering, anomaly detection, dimensionality reduction |
-| Tiger Analogy | Flashcards with answers: *gazelle / rock* | Grouping creatures by similarity: size, movement, sounds |
+| Goal | Learn mapping from inputs → output(labels) | Discover structure in data without labels |
+| Example Tasks | Regression, classification (predict known outcomes)  | Clustering, anomaly detection, dimensionality reduction (find hidden patterns) |
+| Tiger Analogy | Flashcards with answers: *gazelle / rock* | Grouping creatures by similarity: size, speed, sounds |
+
 
 **Examples**
-- **Regression** (Supervised): Predict housing price from location, size, age.
-- **Classification** (Supervised): Email spam vs. not spam.
-- **Clustering** (Unsupervised): Group shoppers with similar behavior.
-- **Anomaly Detection** (Unsupervised): Flag unusual sensor readings.
 
-Supervised learning relies on labeled data, which guides the tiger’s hunting instincts—each label acts as a clue to distinguish prey from non-prey. Unsupervised learning, on the other hand, allows the tiger to roam freely, discovering hidden patterns and structures in its environment without explicit guidance. This exploratory behavior is crucial when labels are scarce or unavailable.
+- **Regression** (Supervised): Predict a continuous value. E.g., forecasting housing price from location, size, age.
+- **Classification** (Supervised): Predict a category. E.g., classify email as spam vs. not spam.
+- **Clustering** (Unsupervised): Discover groups in data. E.g., group shoppers with similar behavior.
+- **Anomaly Detection** (Unsupervised):  Detect outliers. E.g., flag unusual sensor readings.
+
+Supervised learning relies on labeled data, which guides the tiger’s hunting instincts—each label acts as a clue to distinguish prey from non-prey . The model learns the relationship between inputs and outputs so it can predict new outcomes (like identifying an email as spam from its features). Unsupervised learning, on the other hand, allows the tiger to roam freely, discovering hidden patterns and structures in its environment without explicit guidance. It finds natural groupings or signals in data (for example, grouping customers by purchasing habits or finding unusual network activity) without anyone saying what to look for. This exploratory behavior is crucial when labels are scarce or unavailable, enabling discovery of new prey patterns the tiger might otherwise miss.
 
 ![The Stone of Knowledge: The Tiger’s First Lesson](images/chapter3_images/learning_tiger.png){width=100% height=auto}
 

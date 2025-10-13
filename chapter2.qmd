@@ -2,9 +2,7 @@
 
 ## Feeding the Robotic Tiger
 
-:::{.no-number}
 ![Feeding the Robotic Tiger](images/chapter2_images/chapter2Tiger.png){width=100% height=auto}
-:::
 
 ### Overview
 In the previous chapter, we introduced our robotic AI tiger—a mechanical predator designed to mimic nature’s most intelligent hunter. Cameras and microphones gave it sight and hearing, but real tigers also rely on smell, balance, and intuition.
