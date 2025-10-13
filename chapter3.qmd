@@ -60,35 +60,6 @@ Supervised learning relies on labeled data, which guides the tiger’s hunting i
 
 Use this quick map when you’re unsure where to start:
 
-
-
-Problem Type
-Typical Baselines
-When to Prefer
-Watch-outs
-Numeric prediction (regression)
-Linear Regression; Ridge/Lasso (regularized linear)
-Interpretable coefficients, fast to train
-Scale features; check residuals for patterns
-Binary/multi-class classification
-Logistic Regression; Decision Tree
-Fast baseline, clear decision boundaries
-Calibrate probabilities; watch class imbalance
-Tabular data with interactions
-Random Forest; Gradient Boosting (XGBoost/LightGBM)
-Strong accuracy with minimal feature engineering
-Tune depth & learning rate; avoid data leakage
-Unlabeled data exploration
-K-Means clustering; PCA
-Discover latent groups or reduce noise
-Choose k (clusters) wisely; standardize features first
-Structure visualization
-t‑SNE; UMAP
-Reveal clusters/manifolds in high-dim data
-For insight only (not supervised training); sensitive to parameters
-
-
-
 | Problem Type | Typical Baselines | When to Prefer | Watch-outs |
 |---|---|---|---|
 | Numeric prediction (regression) | Linear Regression; Ridge/Lasso (regularized linear) | Interpretable coefficients, fast to train | Scale features; check residuals for patterns |
