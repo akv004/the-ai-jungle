@@ -60,15 +60,44 @@ Supervised learning relies on labeled data, which guides the tiger’s hunting i
 
 Use this quick map when you’re unsure where to start:
 
+
+
+Problem Type
+Typical Baselines
+When to Prefer
+Watch-outs
+Numeric prediction (regression)
+Linear Regression; Ridge/Lasso (regularized linear)
+Interpretable coefficients, fast to train
+Scale features; check residuals for patterns
+Binary/multi-class classification
+Logistic Regression; Decision Tree
+Fast baseline, clear decision boundaries
+Calibrate probabilities; watch class imbalance
+Tabular data with interactions
+Random Forest; Gradient Boosting (XGBoost/LightGBM)
+Strong accuracy with minimal feature engineering
+Tune depth & learning rate; avoid data leakage
+Unlabeled data exploration
+K-Means clustering; PCA
+Discover latent groups or reduce noise
+Choose k (clusters) wisely; standardize features first
+Structure visualization
+t‑SNE; UMAP
+Reveal clusters/manifolds in high-dim data
+For insight only (not supervised training); sensitive to parameters
+
+
+
 | Problem Type | Typical Baselines | When to Prefer | Watch-outs |
 |---|---|---|---|
-| Numeric prediction (regression) | Linear Regression, Ridge/Lasso | Interpretable coefficients, fast | Scale features; check residuals |
-| Binary/multi-class classification | Logistic Regression, Decision Tree | Fast baseline, clear thresholds | Calibrate probabilities; class imbalance |
-| Tabular data with interactions | Random Forest, Gradient Boosting (XGBoost/LightGBM) | Strong accuracy with minimal feature engineering | Tune depth/learning rate; avoid leakage |
-| Unlabeled exploration | K-Means, PCA | Discover structure, reduce noise | Choose `k` sensibly; standardize first |
-| Visualization of structure | t‑SNE, UMAP | Reveal clusters/manifolds | Not for supervised training; sensitive to params |
+| Numeric prediction (regression) | Linear Regression; Ridge/Lasso (regularized linear) | Interpretable coefficients, fast to train | Scale features; check residuals for patterns |
+| Binary/multi-class classification | Logistic Regression, Decision Tree | Fast baseline, clear decision boundaries | Calibrate probabilities; watch class imbalance |
+| Tabular data with interactions | Random Forest, Gradient Boosting (XGBoost/LightGBM) | Strong accuracy with minimal feature engineering | Tune depth & learning rate; avoid data leakage |
+| Unlabeled data exploration | K-Means clustering; PCA | Discover latent groups or reduce noise | Choose k (clusters) wisely; standardize features first |
+| Structure visualization | t‑SNE, UMAP | Reveal clusters/manifolds in high-dim data | For insight only (not supervised training); sensitive to parameters |
 
-**Rule of Thumb:** start simple, measure honestly, then graduate to ensembles. Let the tiger learn to walk before it sprints.
+**Rule of Thumb:** Start simple, measure honestly, then graduate to ensembles or more complex models. Let the tiger learn to walk before it sprints.
 
 ### AI-generated image prompt
 ```text
