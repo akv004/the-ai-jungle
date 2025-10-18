@@ -168,12 +168,7 @@ clf = Pipeline([
 clf.fit(X_train, y_train)
 ```
 
-### AI-generated image prompt
-```text
-PROMPT: The tiger carefully aligning sensor dials (feature scales) before a hunt; cables route into a single clean harness (pipeline). Futuristic lab-in-jungle, cinematic 16:9.
-NEGATIVE: no text, no watermark, lowres, blur
-SIZE: 1664x928
-```
+
 
 ---
 
