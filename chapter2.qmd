@@ -220,15 +220,7 @@ Version each transformation—so you can trace every “instinct” the tiger le
 ---
 
 ### Visualizing the Data Pipeline
-
-```mermaid
-graph LR
-A[Collect Data] --> B[Clean Data]
-B --> C[Feature Engineering]
-C --> D[Validation & Storage]
-D --> E[Model Training]
-E --> F[Performance Feedback]
-```
+![Basic ML Workflow](images/chapter2_images/basic_ml_workflow.png){width=100% height=auto}
 
 The cycle never truly ends—the tiger keeps learning, refining, and adapting through every new hunt.
 
