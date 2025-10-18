@@ -15,6 +15,7 @@ book:
     - chapter1.qmd
     - chapter2.qmd
     - chapter3.qmd
+    - chapter4.qmd
     - chapter18.qmd
 
 
@@ -35,6 +36,8 @@ website:
         href: chapter2.qmd
       - text: "chapter3"
         href: chapter3.qmd
+      - text: "chapter4"
+        href: chapter4.qmd
       - text: "chapter18"
         href: chapter18.qmd
 
