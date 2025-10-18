@@ -24,6 +24,7 @@ website:
   repo-url: https://github.com/amitverma/TheQuantumMirror
   repo-actions: [edit, issue]
   site-url: https://amitverma.github.io/TheQuantumMirror/
+  twitter-card: true
   navbar:
     left:
       - text: "Home"
@@ -49,7 +50,6 @@ format:
     css: styles.css
     number-sections: false
     self-contained: true
-    cover-image: cover.png
 
   pdf:
     number-sections: false

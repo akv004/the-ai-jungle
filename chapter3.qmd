@@ -316,12 +316,8 @@ plt.show()
 - **Reduce wisely:** Use PCA for speed/denoising; t‑SNE/UMAP for insight.
 - **Reproducibility:** Seeds, versioning, and experiment tracking pay off.
 
-### AI-generated image prompt
-```text
-PROMPT: The robotic tiger atop a ridge at sunset, with labeled constellations of “Data, Models, Metrics, Ethics, Reproducibility” glowing across the sky. Cinematic 16:9, inspiring, ultra-detailed.
-NEGATIVE: no text, no watermark, lowres, blur
-SIZE: 1664x928
-```
+
+![](images/chapter3_images/tiger_sunset.png){width=100% height=auto}
 
 ---
 
