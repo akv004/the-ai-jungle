@@ -22,6 +22,13 @@ At its core, RL addresses a single profound question:
 
 The answer unfolds not from pre-written rules but from *trial, feedback, and adaptation*—a dance as old as life itself.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Cinematic sunrise in the Jungle, Robotic Fox emerging from fallen log, glowing metallic fur, atmospheric light shafts._
+
+:::
+
 ---
 
 ## The Landscape of Reinforcement Learning
@@ -99,6 +106,13 @@ Greatness lies in balance.
 
 Modern RL algorithms mathematically encode this struggle, guiding agents toward strategies that mix caution with boldness.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox at forked jungle path: one safe and familiar, one mysterious and glowing with unknown rewards._
+
+:::
+
 ---
 
 ## The Temporal Credit Assignment Problem
@@ -121,6 +135,13 @@ Mathematically, this is addressed using:
 
 Without solving credit assignment, the Fox can never refine its instincts.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox surrounded by ghostly echoes of its past actions, each glowing differently to represent delayed credit._
+
+:::
+
 ---
 
 ## Policy & Value Functions
@@ -137,6 +158,13 @@ Its internal values encode these lessons.
 
 As these values sharpen, the Fox’s instincts become wisdom.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Robotic Fox visualizing branching light-paths representing future rewards and action consequences._
+
+:::
+
 ---
 
 ## Q-Learning — The Fox’s Ledger of Lessons
@@ -150,6 +178,13 @@ But the Jungle is vast. Not every path can be written down.
 Thus Q-learning struggles when the Fox’s world becomes continuous, complex, infinite.
 
 Yet, as a conceptual foundation, it remains one of the pillars of RL.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox studying a glowing scroll or ledger floating in the Jungle representing Q-values._
+
+:::
 
 ---
 
@@ -169,6 +204,13 @@ Conceptually:
 - The Owl helps it distill patterns from these memories, creating a stable internal intelligence.
 
 This synergy allowed RL to master Atari games, robotics control, and industrial decision systems.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox consulting with Owl projecting holographic memory den showing replay buffer and neural patterns._
+
+:::
 
 ---
 
@@ -190,6 +232,13 @@ This approach works beautifully for:
 
 Where Q-learning is analytical, policy gradients are intuitive.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox training its instincts, surrounded by flowing lines of motion representing gradient-based learning._
+
+:::
+
 ---
 
 ## Actor–Critic Methods — A Dialogue in the Jungle
@@ -206,6 +255,13 @@ This division mirrors natural learning:
 
 Advanced forms like PPO and SAC blend stability with bold exploration, producing behavior both robust and efficient.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox and Owl acting as Actor and Critic in a cooperative stance, one choosing actions, the other evaluating._
+
+:::
+
 ---
 
 ## Model-Based RL — Predicting the Future
@@ -218,6 +274,13 @@ This is **model-based RL**, the foundation of MuZero and modern planning algorit
 The Fox no longer reacts to the present—it anticipates the future.
 
 This ability elevates RL from instinct to strategy.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox projecting future Jungle states like holographic simulations, multiple possible futures branching outward._
+
+:::
 
 ---
 
@@ -236,6 +299,13 @@ It empowers agents to:
 Thousands of virtual Foxes can be trained in simulation before deployment in the real world.
 
 This is the Fox’s evolution from a curious wanderer into a master strategist.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox training inside a virtual jungle simulation chamber with thousands of virtual foxes learning simultaneously._
+
+:::
 
 ---
 
@@ -256,6 +326,13 @@ Examples:
 - Entire ecosystems of agents learning simultaneously
 
 Game theory meets machine intelligence.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox, Owl, Tiger interacting strategically: cooperation, competition, and swarm dynamics represented visually._
+
+:::
 
 ---
 
@@ -280,6 +357,13 @@ Good reward design requires:
 
 Curriculum learning—teaching the Fox simple tasks before complex ones—often yields remarkable results.
 
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Fox confronted by tempting shortcuts and dangerous traps glowing with deceptive reward signals._
+
+:::
+
 ---
 
 ## Real-World Applications — Where the Fox Thrives
@@ -303,6 +387,109 @@ Dynamic routing, warehouse automation, real-time scheduling.
 Drug discovery, dosing strategies, personalized treatment optimization.
 
 Reinforcement learning shapes the future far beyond the Jungle’s borders.
+
+---
+
+## Reinforcement Learning in 2025 — Modern Tools, Systems, and Real‑World Technologies
+
+As the Robotic Fox’s instincts grow sharper in the Jungle, the real world mirrors this evolution. Modern reinforcement learning has advanced far beyond early algorithms, powering autonomous systems, robotics, and industrial intelligence across the globe.
+
+### Modern RL Frameworks (2025)
+
+Today’s practitioners rely on highly optimized frameworks:
+
+- **Google DeepMind Acme** — modular, research‑grade RL used for successors of MuZero, AlphaStar, and world‑model agents.
+- **Ray RLlib 3.0** — enterprise‑scale RL deployed in autonomous fleets, logistics routing, telecom bandwidth planning, and real‑time decision systems.
+- **Stable Baselines3 + SBX Extensions** — widely used in robotics labs, course curricula, and sim‑to‑real locomotion tasks.
+- **NVIDIA Isaac Gym / OmniIsaacLab** — GPU‑accelerated simulators enabling tens of thousands of parallel robot environments on a single RTX 5090 or Blackwell GPU.
+- **JAX‑RL, Brax, MuJoCo** — differentiable physics and ultra‑fast simulation for real‑time robotics and advanced RL research.
+
+These frameworks allow the Fox—in metaphorical and engineering form—to train faster, adapt deeper, and generalize across environments previously unreachable.
+
+### Hardware That Powers RL in 2025
+
+The Jungle of computation has evolved:
+
+- **NVIDIA RTX 5090 / 5090 Ti** — the standard for independent researchers and advanced RL prototyping.
+- **NVIDIA Blackwell B200 / GB200 Superchips** — powering industrial RL agents in factories, autonomous mobility, and energy grid optimization.
+- **TPU v5** — underpinning large‑scale multi‑agent RL such as AlphaStar‑type systems.
+- **Tesla Dojo (2025 revision)** — specialized for training fleet‑learning policies used in self‑driving vehicles.
+
+### Where RL Is Actually Used in 2025
+
+The Fox’s instincts now guide entire industries:
+
+#### Autonomous Vehicles
+Used for high‑risk, high‑precision decisions:
+- intersection negotiation
+- merging and yielding
+- pedestrian avoidance
+- difficult lane‑changing behavior
+
+#### Robotics
+Companies train robots to:
+- walk across uneven terrain
+- grasp delicate objects
+- coordinate with humans
+- adapt to dynamic factory floors
+
+#### Energy Optimization
+Google’s historic *40% data‑center cooling savings* was only the beginning.
+Modern RL now stabilizes:
+- smart buildings
+- HVAC systems
+- national power grids
+
+#### Warehouses & Logistics
+RL governs:
+- robotic picker arms
+- drone‑based inventory checks
+- real‑time routing of thousands of packages
+- global supply‑chain optimization
+
+#### Finance
+Hedge funds apply RL to:
+- execution policy optimization
+- portfolio hedging
+- market‑making strategies
+while ensuring safety through risk‑aware distributional RL.
+
+#### Healthcare
+RL assists with:
+- real‑time insulin dosing
+- adaptive cancer treatment schedules
+- MRI scan path optimization
+- accelerated drug‑molecule exploration
+
+### Model‑Based RL in 2025 — From MuZero to DreamerV4
+
+The Fox’s ability to *predict the future* is reflected in today’s world‑model RL:
+
+- **MuZero‑XL (2024–2025)** — hybrid transformer world models used in logistics planning and large‑scale simulation.
+- **DreamerV4 (JAX)** — state‑of‑the‑art for training robots entirely from imagination before touching the real world.
+- **TD‑MPC2 and PlaNet** — industry standards for real‑time control in robotics and autonomous drones.
+
+These systems allow agents to visualize possible futures—just as the Robotic Fox projects multiple Jungle outcomes before acting.
+
+### RLHF — Reinforcement Learning from Human Feedback (How LLMs Learn)
+
+Large language models—including GPT‑5.1, Claude 3, Gemini Ultra, and Qwen—use RL to align model behavior with human preferences:
+
+1. Human evaluators rank model responses.
+2. A **reward model** is trained to predict these rankings.
+3. PPO‑based policy optimization adjusts the model to produce more aligned responses.
+4. Safety layers ensure the model avoids harmful or biased behaviors.
+
+This connects the Fox’s learning-by-feedback directly to the modern AI systems powering our digital world.
+
+### Deep RL Algorithms Dominating 2025
+
+- **PPO (Proximal Policy Optimization):** still the backbone of stable policy training.
+- **SAC (Soft Actor‑Critic):** state‑of‑the‑art for continuous control.
+- **QR‑DQN, TQC, TD7:** distributional RL methods modeling uncertainty and risk.
+- **IMPALA, R2D2:** large‑scale distributed RL.
+
+In both the Jungle and the real world, survival depends not just on instinct—but on scalable, stable learning architectures.
 
 ---
 
@@ -369,3 +556,10 @@ Far beyond the clearing, a new rustle emerges—one the Fox has never heard befo
 A new challenge awaits.
 
 And the Fox, forged in the fires of trial and reward, is ready.
+
+:::{.figure-placeholder}
+**Image Placeholder — To Be Generated**
+
+**Prompt:** _Cinematic final scene of Fox standing confidently on moss-covered stone, dawn breaking, Jungle awakening._
+
+:::
