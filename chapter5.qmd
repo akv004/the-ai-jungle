@@ -1,8 +1,8 @@
-Chapter 5
-Reinforcement Learning
-- The Cunning Robotic Fox
+# Reinforcement Learning
 
-## Introduction — Learning Through Trial & Error
+## The Cunning Robotic Fox
+
+### Introduction — Learning Through Trial & Error
 
 The first light of dawn drapes itself across the Jungle, and with it comes a rustle—quiet, deliberate, almost calculated. From beneath a fallen log emerges the Robotic Fox, its metallic fur shimmering like brushed copper, its optical sensors adjusting to the glow. Unlike the Tiger, whose instincts are forged from patterns and labels, or the Owl, whose deep neural vision sees layers of meaning in every shadow, the Fox carries no map, no instructions, no list of correct answers.
 
@@ -23,10 +23,7 @@ At its core, RL addresses a single profound question:
 The answer unfolds not from pre-written rules but from *trial, feedback, and adaptation*—a dance as old as life itself.
 
 :::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Cinematic sunrise in the Jungle, Robotic Fox emerging from fallen log, glowing metallic fur, atmospheric light shafts._
-
+![](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
 :::
 
 ---
@@ -69,11 +66,35 @@ Rewards guide behavior the way evolution guides species: slowly, iteratively, un
 #### Observation
 The Fox senses its surroundings.
 
+:::{.figure-placeholder}
+![](images/chapter5/fox_observer_state.png){fig-align="center" width="80%"}
+:::
+
+---
+
 #### Decision
 It selects an action—sometimes from knowledge, sometimes from curiosity.
 
+:::{.figure-placeholder}
+![](images/chapter5/FoxAndLPathAward.png){fig-align="center" width="80%"}
+:::
+
+---
+
 #### Consequence
 The Jungle responds with reward or punishment.
+
+:::{.figure-placeholder}
+![](images/chapter5/fox_reward_catch_rabbit.png){fig-align="center" width="80%"}
+:::
+
+---
+
+:::{.figure-placeholder}
+![](images/chapter5/fox_penalty.png){fig-align="center" width="80%"}
+:::
+
+---
 
 #### Learning
 The Fox refines its own internal decision-making mechanism.
@@ -107,12 +128,8 @@ Greatness lies in balance.
 Modern RL algorithms mathematically encode this struggle, guiding agents toward strategies that mix caution with boldness.
 
 :::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox at forked jungle path: one safe and familiar, one mysterious and glowing with unknown rewards._
-
+![](images/chapter5/fox_at_forked_jungle_path.png){fig-align="center" width="80%"}
 :::
-
 ---
 
 ## The Temporal Credit Assignment Problem
