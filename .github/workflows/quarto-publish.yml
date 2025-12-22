@@ -27,7 +27,7 @@ jobs:
 
       - name: Increase memory for Deno
         run: |
-          echo "QUARTO_DENO_EXTRA_OPTIONS=--v8-flags=--max-old-space-size=8192" >> $GITHUB_ENV
+          echo "DENO_V8_FLAGS=--max-old-space-size=8192" >> $GITHUB_ENV
 
       - name: Render Quarto website
         run: quarto render
