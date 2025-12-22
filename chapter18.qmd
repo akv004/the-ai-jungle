@@ -49,16 +49,22 @@ The following FastAPI service powers Qwen-Image generation on my system:
 ```python
 from fastapi import FastAPI
 from diffusers import DiffusionPipeline
+
+app = FastAPI()
+
 # simplified example
 pipe = DiffusionPipeline.from_pretrained("Qwen/Qwen-Image", trust_remote_code=True)
 pipe.to("cuda")
 
-image = pipe(
-  prompt="A majestic AI-generated bird with bioluminescent feathers reflecting streams of data...",
-  negative_prompt="no text, no watermark, no blur",
-  width=1792, height=1024, num_inference_steps=30
-).images[0]
-image.save("artistic_bird.png")
+@app.post("/generate")
+async def generate(prompt: str):
+    image = pipe(
+        prompt=prompt,
+        negative_prompt="no text, no watermark, no blur",
+        width=1792, height=1024, num_inference_steps=30
+    ).images[0]
+    image.save("artistic_bird.png")
+    return {"status": "success"}
 ```
 **The Prompt That Created It**
 
