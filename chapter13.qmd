@@ -182,11 +182,19 @@ A financial institution processing live market data may experience sudden surges
 - The MLOps Agent integrates insights into real-time dashboards. 
 
 - Outcome: Improved operational efficiency, reduced waste, and agile responses to supply chain fluctuations. 
-13.8.4.3 Quick Reference Table: Case Studies 
-Case Study  Agetn Involved  Key Challenge  OutCome  
-Healthcare Data Deluge  Symbolic, Deep, RL, MLOps  Rapid diagnosis with massive data surge  Reduced diagnostic turnaround, adaptive triage  
-Smart City Traffic  Symbolic, Deep, RL, MLOps  Real-time congestion analysis  Dynamic signal timing, lower congestion  
-Supply Chain Optimization  Symbolic, Deep, RL, MLOps  Volatile demand & logistics  Agile strategies, minimized waste, improved forecasting  
+### Quick Reference Table: Case Studies
+
+::: {#tbl-case-studies .column-page}
+::: {tbl-colwidths="[20,20,30,30]"}
+| Case Study | Agent Involved | Key Challenge | Outcome |
+|:---|:---|:---|:---|
+| Healthcare Data Deluge | Symbolic, Deep, RL, MLOps | Rapid diagnosis with massive data surge | Reduced diagnostic turnaround, adaptive triage |
+| Smart City Traffic | Symbolic, Deep, RL, MLOps | Real-time congestion analysis | Dynamic signal timing, lower congestion |
+| Supply Chain Optimization | Symbolic, Deep, RL, MLOps | Volatile demand & logistics | Agile strategies, minimized waste, improved forecasting |
+:::
+
+: Case Studies {.striped .hover}
+:::
 
 ### Future Directions and External Integration 
 #### Overview 
