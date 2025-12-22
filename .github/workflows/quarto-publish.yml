@@ -26,7 +26,8 @@ jobs:
         run: quarto install tinytex
 
       - name: Increase memory for Deno
-        run: echo "DENO_MAX_MEMORY_SIZE=4096" >> $GITHUB_ENV
+        run: |
+          echo "QUARTO_DENO_EXTRA_OPTIONS=--v8-flags=--max-old-space-size=8192" >> $GITHUB_ENV
 
       - name: Render Quarto website
         run: quarto render
