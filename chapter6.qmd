@@ -5,7 +5,14 @@ Advanaced AI VigilA
 ## Introduction: A Heightened Threat in the Jungle 
 Deep within the nature reserve, unexplained disturbances stir the night. Tracks appear where no animals should tread; camera traps vanish without a trace. Poachers, illegal loggers, and other intruders encroach upon the habitat, threatening to upend the delicate balance of life here. The Robotic Owl, already versed in basic vision and classification, now faces a far greater task: upgrade its intelligence to safeguard the wildlife it has pledged to protect. In this chapter, we’ll explore the advanced AI and ML techniques that empower the Owl to detect hidden dangers, adapt to shifting threats, and maintain peace in its jungle domain. 
 
-The Owl’s Night Watch 
+
+
+
+:::{.figure-placeholder}
+![Figure 6.2 — The Owl’s Night Watch](images/chapter6_images/Moonlit_jungle_watchman_and_intruders.png){fig-align="center" width="80%"}
+:::
+
+
 
 ## Expanded Sensor Fusion: Seeing Beyond the Shadows 
 To rise to these new challenges, the Owl relies on a suite of enhanced sensors: 
@@ -20,6 +27,15 @@ To rise to these new challenges, the Owl relies on a suite of enhanced sensors:
 3. Chemical/Olfactory Sensors 
 - Purpose: Sniff out atypical scents, such as spilled fuel or chemical residues left by intruders. 
 - ML Angle: Unsupervised clustering differentiates routine forest smells from 
+
+
+
+
+:::{.figure-placeholder}
+![Figure 6.2 — Expanded Sensor Fusion: Seeing Beyond the Shadows](images/chapter6_images/Moonlit_jungle_watchman_and_intruders_sensor.png){fig-align="center" width="80%"}
+:::
+
+
 
 suspicious outliers. By blending these data streams, the Owl gains a rich, multi-layered perspective of its environment—vital for spotting threats invisible to a single sensor. 
 
@@ -36,6 +52,14 @@ suspicious outliers. By blending these data streams, the Owl gains a rich, multi
 Definition: As new wildlife arrives, weather changes, or intruders use stealthier tactics, the environment’s data distribution shifts. 
 Adaptive Response: Online or incremental learning keeps the Owl’s model updated without retraining from scratch, so it never grows outdated. 
 Outcome: Even if poachers switch from noisy trucks to quieter electric bikes, the Owl’s updated model continues to catch these changes. 
+
+![Figure 6.3 — Concept Drift in the Wild: Adapting to Evolving Threats. The Robotic Owl observes how intrusion patterns change over time—from noisy vehicles to silent electric bikes—while continuously updating its understanding of the jungle without halting its mission.](images/chapter6_images/Concept_Drift1.png)
+
+
+![Figure 6.4 —Concept Drift and Online Model Adaptation Incoming sensor data shifts as environments evolve. Through incremental learning, the Owl’s model detects anomalies and updates itself to maintain accurate threat detection without full retraining.](images/chapter6_images/ConceptDrift.png)
+
+
+
 
 ## Intelligent Patrol: Reinforcement Learning for Route Optimization 
 1.Dynamic Flight Paths 
