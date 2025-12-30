@@ -43,6 +43,9 @@ By blending these data streams, the Owl gains a multi-layered understanding of i
   - Autoencoder: Learns to reconstruct normal sensor data; unusual inputs produce higher reconstruction errors.
 - Jungle Example: If the Owl suddenly picks up chain-link rattling or unfamiliar vehicle engines, anomaly detection flags it so the Owl can investigate.
 
+**Design Intuition:**  
+In real-world systems, anomaly detection deliberately prioritizes coverage over certainty. The goal is not perfect classification, but early signal discovery. Higher false positives are acceptable initially, because missing rare or novel threats is often more costly than investigating benign alerts. Over time, human feedback and contextual filtering reduce noise without sacrificing sensitivity.
+
 ### Concept Drift
 **Definition:**  
 As wildlife migrates, seasons shift, or intruders adopt stealthier tactics, the statistical properties of sensor data evolve over time.
