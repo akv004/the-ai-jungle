@@ -56,6 +56,9 @@ Online or incremental learning allows the Owl’s models to update continuously 
 **Outcome:**  
 Even when poachers transition from loud trucks to near-silent electric bikes, the Owl continues to detect emerging threat patterns.
 
+**Failure Mode to Watch:**  
+Concept drift is often “silent”—the system may keep producing confident outputs while accuracy degrades because the world has changed. This is why drift monitoring is typically paired with rolling-window evaluation (recent data vs. historical baseline), alert thresholds on error/uncertainty, and periodic calibration so performance doesn’t decay unnoticed.
+
 ![Figure 6.3 — Concept Drift in the Wild: Adapting to Evolving Threats. The Robotic Owl observes how intrusion patterns change over time—from noisy vehicles to silent electric bikes—while continuously updating its understanding of the jungle without halting its mission.](images/chapter6_images/Concept_Drift1.png)
 
 ![Figure 6.4 — Concept Drift and Online Model Adaptation. Incoming sensor data shifts as environments evolve. Through incremental learning, the Owl’s model detects anomalies and updates itself to maintain accurate threat detection without full retraining.](images/chapter6_images/ConceptDrift.png)
@@ -65,6 +68,9 @@ Even when poachers transition from loud trucks to near-silent electric bikes, th
 **Dynamic Flight Paths**
 - Challenge: The Owl can’t be everywhere at once. It must plan routes for maximum coverage and minimal wasted energy.
 - Technique: Reinforcement Learning (RL), where the Owl’s system tries different flight patterns, earning “rewards” if threats are detected, “penalties” if critical events are missed.
+
+**Why Reinforcement Learning:**  
+Static or rule-based patrol heuristics work only in predictable environments. In dynamic settings like this jungle, threat locations, timing, and behavior evolve continuously. Reinforcement learning reframes patrol planning as a sequential decision problem, allowing the system to balance exploration (checking rarely visited areas) with exploitation (revisiting high-risk zones) while adapting its strategy based on observed outcomes.
 
 **Potential Multi-Agent Collaboration**
 - If desired, smaller scout drones or ground-based sensors can coordinate with the Owl using multi-agent RL.
@@ -82,6 +88,9 @@ Advanced sensing is crucial, but so is transparency about each alert:
 
 **Human-in-the-Loop**
 - Rangers can label false positives or confirm real incidents, refining the model incrementally. This clarity fosters confidence that the Owl’s advanced capabilities aren’t a “black box” but a collaborative tool.
+
+**Engineering Insight:**  
+In practice, explainability is not only about user trust—it is a critical debugging tool. Feature attribution and saliency maps help engineers identify sensor failures, data leakage, spurious correlations, or drift-induced misbehavior. Many production issues are discovered not through accuracy metrics, but by inspecting *why* a model made a particular decision.
 
 ## Practical Considerations
 
