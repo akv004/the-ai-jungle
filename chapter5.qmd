@@ -26,6 +26,34 @@ The answer unfolds not from pre-written rules but from *trial, feedback, and ada
 ![](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
 :::
 
+### Technical Sidebar — Where RL Shows Up in Modern AI
+
+Reinforcement Learning is not “one model” — it’s a **training loop**. The agent acts, gets feedback, and updates its behavior to do better over time.
+
+In modern systems, RL shows up in a few common patterns:
+
+#### 1) Control Policies (Robotics, Simulators, Games)
+A **policy network** maps observations → actions (walk, steer, grasp, aim).  
+Rewards encode goals like *stay balanced*, *finish the route*, or *minimize energy*.
+
+#### 2) Planning Agents (Policy + Value + Search)
+Some agents learn a **policy** and a **value function**, then combine them with **planning** (like searching possible futures) before acting.
+
+#### 3) World-Model Agents (Learned Simulation)
+Instead of learning only from real interaction, an agent learns a **world model** (a predictor of next states/rewards) and practices “in imagination” before acting in reality.
+
+#### 4) Preference-Aligned Language Models (RLHF-Style)
+For many chat models, RL appears as alignment:
+- collect human preferences (which answer is better)
+- train a **reward model**
+- optimize the language model to produce higher-reward responses (often with PPO-style updates)
+
+#### 5) Contextual Bandits (One-Step RL)
+Many production “RL” problems are actually single-step:
+choose an action now → see reward now (ranking, ads, simple recommendations).
+
+**Rule of thumb:** Choose RL when actions change future outcomes and you care about **long-term** success — not just single-step accuracy.
+
 ---
 
 ## The Landscape of Reinforcement Learning
@@ -409,104 +437,135 @@ Reinforcement learning shapes the future far beyond the Jungle’s borders.
 
 ## Reinforcement Learning in 2025 — Modern Tools, Systems, and Real‑World Technologies
 
-As the Robotic Fox’s instincts grow sharper in the Jungle, the real world mirrors this evolution. Modern reinforcement learning has advanced far beyond early algorithms, powering autonomous systems, robotics, and industrial intelligence across the globe.
+As the Robotic Fox’s instincts grow sharper in the Jungle, real engineering mirrors the same pattern: agents learn by acting, collecting feedback, and updating behavior. What’s changed is not the definition of RL — it’s the **scale**, the **stability tricks**, and the **ecosystem** around it.
 
-### Modern RL Frameworks (2025)
+### What “a Model” Means in RL (More Than One Network)
 
-Today’s practitioners rely on highly optimized frameworks:
+In practice, modern RL systems often train multiple models at once:
 
-- **Google DeepMind Acme** — modular, research‑grade RL used for successors of MuZero, AlphaStar, and world‑model agents.
-- **Ray RLlib 3.0** — enterprise‑scale RL deployed in autonomous fleets, logistics routing, telecom bandwidth planning, and real‑time decision systems.
-- **Stable Baselines3 + SBX Extensions** — widely used in robotics labs, course curricula, and sim‑to‑real locomotion tasks.
-- **NVIDIA Isaac Gym / OmniIsaacLab** — GPU‑accelerated simulators enabling tens of thousands of parallel robot environments on a single RTX 5090 or Blackwell GPU.
-- **JAX‑RL, Brax, MuJoCo** — differentiable physics and ultra‑fast simulation for real‑time robotics and advanced RL research.
+- **Policy model (Actor):** chooses actions given observations.
+- **Value model (Critic):** predicts long‑term return from a state (or state–action pair).
+- **World model (optional):** predicts how the environment evolves (next state, reward).
+- **Reward model (alignment / RLHF):** predicts “preference” or “quality” from examples.
 
-These frameworks allow the Fox—in metaphorical and engineering form—to train faster, adapt deeper, and generalize across environments previously unreachable.
+So when people say “the RL model,” they often mean a **stack** of models working together.
 
-### Hardware That Powers RL in 2025
+### Common Training Setups Used Today
 
-The Jungle of computation has evolved:
+#### Online RL (Interact → Learn → Repeat)
+The Fox learns directly by acting inside the environment (often a simulator first).  
+This works well when interaction is cheap and safe.
 
-- **NVIDIA RTX 5090 / 5090 Ti** — the standard for independent researchers and advanced RL prototyping.
-- **NVIDIA Blackwell B200 / GB200 Superchips** — powering industrial RL agents in factories, autonomous mobility, and energy grid optimization.
-- **TPU v5** — underpinning large‑scale multi‑agent RL such as AlphaStar‑type systems.
-- **Tesla Dojo (2025 revision)** — specialized for training fleet‑learning policies used in self‑driving vehicles.
+Typical use cases:
+- simulation‑trained robotics
+- games
+- control tasks with fast resets
 
-### Where RL Is Actually Used in 2025
+#### Offline RL (Learn From Logs)
+The Fox learns from **recorded experience** (logs / trajectories) without active exploration.  
+This is critical when exploration is unsafe, expensive, or regulated.
 
-The Fox’s instincts now guide entire industries:
+Typical use cases:
+- robotics logs
+- recommendation logs
+- operations / supply chain logs
+- healthcare‑style decision support (with heavy constraints)
 
-#### Autonomous Vehicles
-Used for high‑risk, high‑precision decisions:
-- intersection negotiation
-- merging and yielding
-- pedestrian avoidance
-- difficult lane‑changing behavior
+Key technical challenge: **distribution shift** — the agent may try actions that were rarely (or never) seen in the dataset.
 
-#### Robotics
-Companies train robots to:
-- walk across uneven terrain
-- grasp delicate objects
-- coordinate with humans
-- adapt to dynamic factory floors
+#### Human‑in‑the‑Loop RL (Preferences + Safety)
+When rewards are hard to define (like “helpful answers” or “good behavior”), humans provide feedback:
+- compare two outputs
+- rank which is better
+- train a reward model
+- optimize the policy to score higher
 
-#### Energy Optimization
-Google’s historic *40% data‑center cooling savings* was only the beginning.
-Modern RL now stabilizes:
-- smart buildings
-- HVAC systems
-- national power grids
+This is the bridge from the Fox’s reward signals to modern aligned assistants.
 
-#### Warehouses & Logistics
-RL governs:
-- robotic picker arms
-- drone‑based inventory checks
-- real‑time routing of thousands of packages
-- global supply‑chain optimization
+### Modern RL Toolchains (What Practitioners Actually Use)
 
-#### Finance
-Hedge funds apply RL to:
-- execution policy optimization
-- portfolio hedging
-- market‑making strategies
-while ensuring safety through risk‑aware distributional RL.
+- **RL libraries (algorithms + training loops):**
+  - Stable Baselines‑style toolkits (clean baselines for PPO/SAC/DQN)
+  - Distributed RL stacks (for multi‑GPU / multi‑node training)
+  - Research‑grade agent libraries (modular actor/learner architectures)
 
-#### Healthcare
-RL assists with:
-- real‑time insulin dosing
-- adaptive cancer treatment schedules
-- MRI scan path optimization
-- accelerated drug‑molecule exploration
+- **Simulators (where the Fox trains safely):**
+  - Physics simulators for robotics and control
+  - GPU‑accelerated parallel environments (thousands of rollouts at once)
+  - Game engines for vision + planning + navigation tasks
 
-### Model‑Based RL in 2025 — From MuZero to DreamerV4
+- **Experiment infrastructure:**
+  - replay buffers / trajectory stores
+  - evaluation harnesses + safety checks
+  - monitoring for reward hacking and regressions
 
-The Fox’s ability to *predict the future* is reflected in today’s world‑model RL:
+### When to Choose Reinforcement Learning (Decision Checklist)
 
-- **MuZero‑XL (2024–2025)** — hybrid transformer world models used in logistics planning and large‑scale simulation.
-- **DreamerV4 (JAX)** — state‑of‑the‑art for training robots entirely from imagination before touching the real world.
-- **TD‑MPC2 and PlaNet** — industry standards for real‑time control in robotics and autonomous drones.
+Choose RL when most of these are true:
 
-These systems allow agents to visualize possible futures—just as the Robotic Fox projects multiple Jungle outcomes before acting.
+- Your problem is **sequential** (today’s action changes tomorrow’s options).
+- You can define success as a **reward signal** (even if noisy or delayed).
+- Correct “labels” are not available (there’s no single right action per state).
+- You care about **long‑term return** (not just next-step accuracy).
+- You can train safely: simulation, sandboxing, constraints, or offline logs.
 
-### RLHF — Reinforcement Learning from Human Feedback (How LLMs Learn)
+Prefer supervised learning (or imitation learning) when:
+- you already have reliable “correct action” examples
+- actions do not meaningfully affect future states
+- exploration would be unsafe or too costly
 
-Large language models—including GPT‑5.1, Claude 3, Gemini Ultra, and Qwen—use RL to align model behavior with human preferences:
+A practical hybrid pattern:
+1) start with imitation learning (behavior cloning) for stability  
+2) then use RL to go beyond the demonstrations
 
-1. Human evaluators rank model responses.
-2. A **reward model** is trained to predict these rankings.
-3. PPO‑based policy optimization adjusts the model to produce more aligned responses.
-4. Safety layers ensure the model avoids harmful or biased behaviors.
+### Choosing a Base Model (What You Start From)
 
-This connects the Fox’s learning-by-feedback directly to the modern AI systems powering our digital world.
+There are two common meanings of “base model” in RL.
 
-### Deep RL Algorithms Dominating 2025
+#### Base Model for Control / Games (Policy & Value Networks)
 
-- **PPO (Proximal Policy Optimization):** still the backbone of stable policy training.
-- **SAC (Soft Actor‑Critic):** state‑of‑the‑art for continuous control.
-- **QR‑DQN, TQC, TD7:** distributional RL methods modeling uncertainty and risk.
-- **IMPALA, R2D2:** large‑scale distributed RL.
+Here, “base model” means the **neural architecture** you choose for the policy/value function:
 
-In both the Jungle and the real world, survival depends not just on instinct—but on scalable, stable learning architectures.
+- **MLP (dense network):** best for numeric state vectors (positions, speeds, sensors).
+- **CNN:** best for pixel observations (images, depth maps).
+- **RNN / LSTM / GRU:** best for partial observability (when the agent needs memory).
+- **Transformer policy:** useful for long contexts, complex histories, multi‑agent logs.
+
+Algorithm rule‑of‑thumb:
+- **Discrete actions:** DQN‑style methods are a common starting point.
+- **Continuous actions:** SAC is a strong default.
+- **Robust general baseline:** PPO is widely used because it is stable and predictable.
+
+#### Base Model for RLHF / Language (Preference‑Aligned LLMs)
+
+Here, “base model” is a pretrained language model checkpoint that you refine:
+
+- Start from a pretrained (often instruction-tuned) LLM.
+- Then apply preference learning (reward model / preference optimization).
+- Then optimize the model to better match human preferences under constraints.
+
+Common open‑weight families people choose from include:
+- Llama‑family models
+- Qwen‑family models
+- Gemma‑family models
+- Mistral‑family models
+
+Practical selection criteria:
+- license constraints
+- model size vs available GPUs
+- context length needs
+- whether you need multimodal inputs (text + images)
+- quality of instruction tuning and tool‑use behavior
+
+### Where RL Is Commonly Applied (Real Systems, Real Constraints)
+
+- **Robotics:** locomotion, grasping, manipulation, recovery behaviors
+- **Autonomy:** negotiation, merging/yielding strategies, complex edge cases (often trained in simulation)
+- **Optimization:** routing, scheduling, warehouse coordination, energy/HVAC control
+- **Finance:** execution policies and risk-aware decisions (with strict guardrails)
+- **Healthcare‑adjacent decision support:** only when safety, auditing, and constraints are first‑class citizens
+
+In both the Jungle and industry, the hardest part is rarely the math — it’s the **reward design**, **safety**, and **operational reliability**.
 
 ---
 
@@ -520,6 +579,11 @@ Q(s, a) ← Q(s, a) + α [ r + γ max_a' Q(s', a') − Q(s, a) ]
 ```
 
 This captures the essence of learning from experience.
+
+**The Fox's Translation:**
+*   **New Instinct** = Old Instinct + **(Learning Rate)** × **(Surprise!)**
+*   **Surprise** = (Actual Reward + Future Promise) − What I Expected
+*   **$\gamma$ (Gamma)**: The Fox's *Patience*. If high, it works for future rewards; if low, it only cares about food *now*.
 
 ### Simplified DQN Loop
 
@@ -541,18 +605,80 @@ for each episode:
 θ ← θ + α ∇θ log πθ(a | s) * G
 ```
 
+### Practical Data Formats — JSONL for Offline RL and RLHF
+
+Most RL training happens by interacting with an environment.  
+But JSONL becomes very useful for **offline RL**, **logging trajectories**, and **preference datasets** (RLHF-style).
+
+Below are common JSONL patterns (1 JSON object per line).
+
+#### 1) Offline RL Transition Format: The "Experience" Tuple
+
+In Reinforcement Learning, an agent learns from "experiences." Each experience is a small step of interaction with the environment, captured in a format known as a **transition**. This is often abbreviated as `(s, a, r, s', done)`.
+
+This format is the fundamental building block for many RL algorithms. Let's break down what each part means and map it to the JSON example below.
+
+*   `s` (State): A snapshot of the environment at a specific moment. It's what the agent "sees." In the JSON, this is the `obs` object.
+*   `a` (Action): The action the agent took in that state. This is the `action` object.
+*   `r` (Reward): The feedback the environment provides after the action. This is the `reward` number.
+*   `s'` (Next State): The *new* state of the environment after the agent's action. This is the `next_obs` object.
+*   `done`: A boolean flag (`true` or `false`) indicating if this transition was the last one in an episode (e.g., the game ended, the robot fell, or the goal was reached).
+
+```json
+{"episode_id":"hunt_001","t":0,"obs":{"prey_dist":15.0,"wind":"north"},"action":{"mode":"stalk","speed":0.5},"reward":0.1,"next_obs":{"prey_dist":14.5,"wind":"north"},"done":false}
+{"episode_id":"hunt_001","t":45,"obs":{"prey_dist":2.0,"wind":"north"},"action":{"mode":"crouch","speed":0.0},"reward":0.5,"next_obs":{"prey_dist":2.0,"wind":"north"},"done":false}
+{"episode_id":"hunt_001","t":46,"obs":{"prey_dist":2.0,"wind":"north"},"action":{"mode":"pounce","speed":12.0},"reward":100.0,"next_obs":{"status":"captured"},"done":true}
+```
+
+**Decoding the Data — The Fox's Hunting Log:**
+
+This JSON isn't just abstract numbers; it's a diary of the Fox's decisions.
+
+*   `episode_id`: "hunt_001" marks this as a specific hunting attempt.
+*   `obs` (Observation): The Fox senses the world. It smells the wind and gauges the distance to its target (`prey_dist: 15.0`).
+*   `action`: Based on that, it chooses a strategy. It decides to `stalk` slowly (`speed: 0.5`) rather than run.
+*   `reward`: It gets a small positive signal (`0.1`) for closing the distance without being seen.
+*   `next_obs`: The environment updates. The prey is now closer (`14.5`).
+*   `done`: In the final line, the Fox captures the target (`reward: 100.0`!), and the episode ends (`done: true`).
+
+By feeding millions of these logs into a model, the Fox learns *which* actions (stalking vs. rushing) lead to that final `+100` reward.
+
+#### 2) Offline RL Episode Format (whole trajectory per line)
+
+```json
+{"episode_id":"ep_0042","observations":[[0.0,1.0],[0.1,0.9],[0.2,0.8]],"actions":[0,1,1],"rewards":[0.0,0.0,1.0],"dones":[false,false,true]}
+```
+
+Use this when sequence structure matters (RNN/Transformer policies, return-to-go, long-horizon credit).
+
+#### 3) RLHF-Style Preference Pair (prompt + chosen vs rejected)
+
+```json
+{"prompt":"The Fox hears a rustle in the tall grass. How should it react?","chosen":"Freeze and listen carefully to distinguish between prey and predator before moving.","rejected":"Immediately jump into the grass to investigate."}
+```
+
+Use this to train a reward model that aligns the agent's behavior with "survival instincts" (or human safety guidelines).
+
+#### 4) Contextual Bandit Log (one-step decision + immediate reward)
+
+```json
+{"context":{"season":"dry","time_of_day":"dusk"},"action":"wait_by_waterhole","reward":10,"propensity":0.12}
+```
+
+Use this when actions are single-step and feedback is immediate (e.g., choosing a hunting ground vs. serving an ad).
+
 These equations give RL its mathematical heartbeat.
 
 ---
 
 ## Common Pitfalls — And How the Fox Avoids Them
 
-- Overestimation bias
-- Catastrophic forgetting
-- Insufficient exploration
-- Misaligned incentives
-- Unstable training
-- Distribution shift
+*   **Overestimation Bias:** The Fox thinking a lucky catch means a path is *always* full of prey.
+*   **Catastrophic Forgetting:** Learning to fish in the river, but in doing so, forgetting how to hunt rabbits.
+*   **Insufficient Exploration:** Sticking to the safe berry bushes and missing the feast in the valley.
+*   **Misaligned Incentives (Reward Hacking):** Chasing windblown leaves because they move like prey, even though they provide no food.
+*   **Unstable Training:** Changing strategies so drastically every hour that no habit ever forms.
+*   **Distribution Shift:** Trying to use summer hunting strategies in the middle of a snowy winter.
 
 Modern algorithms include stabilizers like entropy bonuses, target networks, clipped updates, and advantage normalization.
 
