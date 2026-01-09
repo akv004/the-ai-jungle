@@ -19,11 +19,9 @@ Rather than mixing brains, you now have two distinct robots in one ecosystem, ea
 
 Late at night, while the Tiger rests, the Owl quietly scans the forest floor, catching every twitch of movement through its advanced multi-layered vision. With this layered intelligence, it can distinguish real threats or prey from mere shadows swaying in the moonlight. The Tiger might see a moving shape and react, but the Owl analyzes what that shape truly is – for instance, differentiating a camouflaged gazelle from leaves in the wind by recognizing intricate patterns.
 
-> **💡 Tip**
-> **Key Analogy**
->
-> The Owl builds complex ideas from simple parts. In a deep neural network, early layers detect basic features (like edges or dots), middle layers combine them into meaningful shapes or textures, and later layers recognize whole objects or concepts—like building a detailed map from many small landmarks. The Owl’s mind layers simple cues into rich understanding.
+**Key Analogy**
 
+The Owl builds complex ideas from simple parts. In a deep neural network, early layers detect basic features (like edges or dots), middle layers combine them into meaningful shapes or textures, and later layers recognize whole objects or concepts—like building a detailed map from many small landmarks. The Owl’s mind layers simple cues into rich understanding.
 ### The Building Blocks of Neural Networks
 
 #### Neurons: Tiny Decision Nodes
@@ -61,11 +59,9 @@ When the Robotic Owl encounters a problem (say, identifying creatures on the for
 
 Over time, the Owl’s deep learning model generalizes its experience to handle new scenarios. The more data (observations of the jungle) it gets, the more it hones its ability to detect and classify whatever it might see. This feedback-driven learning is what sets the Owl apart from the Tiger’s more static, rule-based knowledge.
 
-> **📝 Note**
-> **Overfitting – When the Owl Gets Overly Confident in Shadows:**
->
-> There is a risk that the Owl becomes too sure about patterns it saw during training and fails to generalize to new jungles or new conditions. In other words, it might start seeing phantom gazelles in every shadow because it memorized the training examples too specifically. This is called overfitting. To prevent the Owl from becoming a narrow-minded expert on the training data but a poor generalist, we use techniques like regularization (adding slight penalties for overly complex internal models), dropout (making neurons occasionally “ignore” some signals during training so the network doesn’t rely on any one detail too much), early stopping (halting training at the point when validation performance stops improving), and ensuring a diverse training dataset. These strategies keep the Owl’s mind sharp yet flexible, so it truly learns the underlying patterns of the jungle, not just the exact scenes it saw yesterday.
+**Overfitting – When the Owl Gets Overly Confident in Shadows:**
 
+There is a risk that the Owl becomes too sure about patterns it saw during training and fails to generalize to new jungles or new conditions. In other words, it might start seeing phantom gazelles in every shadow because it memorized the training examples too specifically. This is called overfitting. To prevent the Owl from becoming a narrow-minded expert on the training data but a poor generalist, we use techniques like regularization (adding slight penalties for overly complex internal models), dropout (making neurons occasionally “ignore” some signals during training so the network doesn’t rely on any one detail too much), early stopping (halting training at the point when validation performance stops improving), and ensuring a diverse training dataset. These strategies keep the Owl’s mind sharp yet flexible, so it truly learns the underlying patterns of the jungle, not just the exact scenes it saw yesterday.
 ### Specialties Among Robotic Birds & Beasts
 
 Not all neural networks are identical. Just as jungle creatures have different specialties, deep learning has spawned architectures tailored to particular kinds of data. In our robotic wildlife park, we introduce a couple more cyber-creatures to illustrate specialized deep nets:
@@ -83,10 +79,7 @@ Not all neural networks are identical. Just as jungle creatures have different s
 - **Task Specialty:** Our Owl not only has sharp vision but also an exceptional memory for sequences. This makes the Owl (when powered by Recurrent Neural Networks like LSTMs) excel at handling sequential data: time-series signals, language, or any information that unfolds over time. Whenever context and history matter, the Owl’s RNN brain shines.
 - **Analogy:** The owl’s wisdom in folklore comes from its ability to observe silently and remember. A real owl can listen to a series of twigs snapping and infer the presence of a moving creature. In the same way, a ***Recurrent Neural Network (RNN)*** processes one step at a time while retaining a memory of previous steps. It’s as if the Robotic Owl, while listening to the forest, keeps an internal state (short-term memory) of what happened moments before. An advanced form of RNN, the ***LSTM (Long Short-Term Memory)*** network, gives the Owl an even longer memory with gates that learn what to keep or forget. This is crucial for tasks like language understanding, where the meaning of a word can depend on earlier words in a sentence. For example, to the Owl, the meaning at the end of the sequence “the owl watches the tiger because it knows…” depends on remembering who “it” refers to earlier. Because the Owl can recall context, it interprets ongoing sequences wisely (e.g., it knows if a creature’s footsteps are pacing back and forth or suddenly sprinting, by recalling the pattern of steps). In practical terms, RNNs and LSTMs have been used for things like speech recognition, language translation, and even financial forecasting—situations where the order of information is key.
 
-> **📝 Note**
-> You might wonder, aren’t there other birds in this jungle? Indeed, there are even more specialized “species” of neural networks. For example, **Transformers** (which we’ll meet later) have become master linguists and multitaskers in the AI world, and new architectures appear as AI evolves. For now, our Owl and Hawk (RNN and CNN) cover two fundamental specialties: sequence memory and visual perception.
-
-
+You might wonder, aren’t there other birds in this jungle? Indeed, there are even more specialized “species” of neural networks. For example, **Transformers** (which we’ll meet later) have become master linguists and multitaskers in the AI world, and new architectures appear as AI evolves. For now, our Owl and Hawk (RNN and CNN) cover two fundamental specialties: sequence memory and visual perception.
 ### Real-World Use Cases
 Deep learning isn’t just a theoretical jungle story—it powers many aspects of the modern world. Here are a few domains where our robotic Owl (and its specialized cousins like the Hawk) are making a profound impact:
 
@@ -140,10 +133,7 @@ If you run this, you’ll see a summary of the model’s layers and number of pa
 - **No Brain Fusion Needed (Divide and Conquer):** In our analogy, we kept the Tiger and Owl as separate agents, each with its own training and purpose. This isn’t just for storytelling clarity—it reflects a practical point in AI system design: it’s often beneficial to keep separate specialized models rather than trying to mash everything into one uber-model. By maintaining distinct “robots” in your AI ecosystem, you can leverage the particular strengths of each approach without confusion. They can coexist and even cooperate (passing information or outputs amongst each other) to solve complex tasks. The takeaway is that diversity in AI approaches can be a strength, and understanding each technique’s niche will help you build better solutions. You wouldn’t ask an owl to run fast or a tiger to see in the dark—similarly, use each AI tool for what it’s best at.
 
 
-> **📝 Note**
-> Deep learning’s power comes with the cost of needing lots of data and computation. Training the Owl’s brain requires feeding it many examples (the jungle is vast and varied!) and often specialized hardware (GPUs) for the heavy math. This is why deep learning surged only in the last decade when big data and GPU computing became widely available. But once trained, these models can perform wonders.
-
-
+Deep learning’s power comes with the cost of needing lots of data and computation. Training the Owl’s brain requires feeding it many examples (the jungle is vast and varied!) and often specialized hardware (GPUs) for the heavy math. This is why deep learning surged only in the last decade when big data and GPU computing became widely available. But once trained, these models can perform wonders.
 ### Chapter 4 Story Wrap-Up & Teaser
 
 **Story Wrap-Up:**

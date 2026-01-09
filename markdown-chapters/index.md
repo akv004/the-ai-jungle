@@ -1,9 +1,4 @@
-:::{.no-number}
 ![](cover)
----
-title: "The AI Jungle"
----
-
 # The AI Jungle  
 ### Learn AI & ML with Nature's Wisdom  
 **First Edition (Version 1.0)**

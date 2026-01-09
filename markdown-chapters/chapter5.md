@@ -51,74 +51,11 @@ choose an action now → see reward now (ranking, ads, simple recommendations).
 
 **Rule of thumb:** Choose RL when actions change future outcomes and you care about **long-term** success — not just single-step accuracy.
 
----
-
-## The Landscape of Reinforcement Learning
-
-To understand the Fox’s world, we must understand the architecture of RL itself. The Jungle—the environment—is not static. Winds shift. Predators move. Seasons change. Each encounter reshapes tomorrow’s choices.
-
-### Agent — The Fox
-The learner, explorer, decision-maker.
-It has motivations but no instructions.
-
-### Environment — The Jungle
-A living, breathing world where every stone, breeze, and distant growl carries information—sometimes helpful, sometimes deceptive.
-
-### State
-The Fox’s perception:
-Is the ground damp?
-Is there prey nearby?
-Is danger hiding behind the bush?
-
-In the real world, this may be incomplete or noisy—what RL researchers call **partial observability**.
-
-### Action
-Choices the Fox may take: explore deeper, stalk prey, flee, climb, rest.
-Every decision alters its path.
-
-### Reward
-Positive or negative signals from the Jungle:
-
-- Finding water (+10)
-- Catching prey (+20)
-- Falling into a muddy pit (–15)
-- Alerting a Tiger (–50)
-
-Rewards guide behavior the way evolution guides species: slowly, iteratively, unavoidably.
-
-### The Feedback Cycle
-
-#### Observation
-The Fox senses its surroundings.
-
-![](images/chapter5/fox_observer_state.png)
----
-
 #### Decision
 It selects an action—sometimes from knowledge, sometimes from curiosity.
 
 ![](images/chapter5/FoxAndLPathAward.png)
----
-
-#### Consequence
-The Jungle responds with reward or punishment.
-
-![](images/chapter5/fox_reward_catch_rabbit.png)
----
-
 ![](images/chapter5/fox_penalty.png)
----
-
-#### Learning
-The Fox refines its own internal decision-making mechanism.
-
-#### Continuation
-The process repeats. Over time, instinct emerges.
-
-This adaptive loop is the beating heart of RL.
-
----
-
 ## Exploration vs Exploitation
 
 The Fox pauses at the fork of two paths.
@@ -141,34 +78,6 @@ Greatness lies in balance.
 Modern RL algorithms mathematically encode this struggle, guiding agents toward strategies that mix caution with boldness.
 
 ![](images/chapter5/fox_at_forked_jungle_path.png)
----
-
-## The Temporal Credit Assignment Problem
-
-Imagine the Fox spots a rabbit and begins stalking it silently. After minutes of careful movement, it leaps—and succeeds.
-
-But *which* decision truly earned the success?
-
-- The choice to move silently?
-- The earlier decision to approach from downwind?
-- The moment it decided to explore this part of the Jungle at all?
-
-This challenge is known in RL as **credit assignment**: identifying which past actions deserve reinforcement for current rewards.
-
-Mathematically, this is addressed using:
-
-- **Discounted returns**, which weigh immediate rewards more heavily than distant ones.
-- **Value functions**, which predict long-term benefit of states.
-- **Action-value functions (Q-values)**, which evaluate the expected future reward of an action in a given state.
-
-Without solving credit assignment, the Fox can never refine its instincts.
-
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox surrounded by ghostly echoes of its past actions, each glowing differently to represent delayed credit._
-
----
-
 ## Policy & Value Functions
 
 Over time, the Fox develops a strategy—its policy. In RL:
@@ -186,26 +95,6 @@ As these values sharpen, the Fox’s instincts become wisdom.
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Robotic Fox visualizing branching light-paths representing future rewards and action consequences._
-
----
-
-## Q-Learning — The Fox’s Ledger of Lessons
-
-Q-learning is one of the simplest and most famous RL algorithms.
-It is as if the Fox maintains a mental notebook listing every situation it encounters, each action it tried, and the outcomes that followed.
-
-Over time, this notebook becomes a guide.
-
-But the Jungle is vast. Not every path can be written down.
-Thus Q-learning struggles when the Fox’s world becomes continuous, complex, infinite.
-
-Yet, as a conceptual foundation, it remains one of the pillars of RL.
-
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox studying a glowing scroll or ledger floating in the Jungle representing Q-values._
-
----
 
 ## Deep Q-Networks — The Owl Lends Its Wisdom
 
@@ -228,32 +117,6 @@ This synergy allowed RL to master Atari games, robotics control, and industrial 
 
 **Prompt:** _Fox consulting with Owl projecting holographic memory den showing replay buffer and neural patterns._
 
----
-
-## Policy Gradients — Training the Fox’s Instincts
-
-Unlike Q-learning, which records values, policy gradients sculpt the Fox’s instincts directly.
-
-Here, the Fox learns to adjust its behavior through repeated trials:
-
-- Good actions are reinforced.
-- Poor actions are suppressed.
-
-This approach works beautifully for:
-
-- Robotics
-- Continuous control
-- Dynamic motion
-- Any world requiring fluid, real-valued actions
-
-Where Q-learning is analytical, policy gradients are intuitive.
-
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox training its instincts, surrounded by flowing lines of motion representing gradient-based learning._
-
----
-
 ## Actor–Critic Methods — A Dialogue in the Jungle
 
 In actor–critic algorithms, the Fox gains a mentor.
@@ -271,25 +134,6 @@ Advanced forms like PPO and SAC blend stability with bold exploration, producing
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox and Owl acting as Actor and Critic in a cooperative stance, one choosing actions, the other evaluating._
-
----
-
-## Model-Based RL — Predicting the Future
-
-Some Foxes become visionaries.
-
-They build internal simulations of the Jungle, predicting how their actions will shape future outcomes.
-This is **model-based RL**, the foundation of MuZero and modern planning algorithms.
-
-The Fox no longer reacts to the present—it anticipates the future.
-
-This ability elevates RL from instinct to strategy.
-
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox projecting future Jungle states like holographic simulations, multiple possible futures branching outward._
-
----
 
 ## Deep Reinforcement Learning — The Modern Frontier
 
@@ -310,32 +154,6 @@ This is the Fox’s evolution from a curious wanderer into a master strategist.
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox training inside a virtual jungle simulation chamber with thousands of virtual foxes learning simultaneously._
-
----
-
-## Multi-Agent RL — A Jungle of Many Minds
-
-The Jungle rarely presents challenges in isolation.
-
-There are allies.
-Competitors.
-Neutral parties whose behavior shapes the landscape.
-
-Multi-agent RL studies how agents interact, cooperate, compete, and coexist.
-
-Examples:
-
-- Fox and Owl collaborating to locate prey
-- Fox evading the Tiger in a predator–prey dynamic
-- Entire ecosystems of agents learning simultaneously
-
-Game theory meets machine intelligence.
-
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox, Owl, Tiger interacting strategically: cooperation, competition, and swarm dynamics represented visually._
-
----
 
 ## Reward Design — The Subtle Art of Motivating the Fox
 
@@ -361,32 +179,6 @@ Curriculum learning—teaching the Fox simple tasks before complex ones—often 
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox confronted by tempting shortcuts and dangerous traps glowing with deceptive reward signals._
-
----
-
-## Real-World Applications — Where the Fox Thrives
-
-### Robotics
-Walking, balancing, manipulating objects—learned not by instruction but experience.
-
-### Strategic Games
-AlphaGo, AlphaZero, and MuZero dominate games once thought unreachable.
-
-### Resource Optimization
-Google’s RL-based cooling system saved *40%* energy in data centers.
-
-### Finance
-Portfolio allocation, risk-balanced decisions, adaptive trading.
-
-### Supply Chain & Logistics
-Dynamic routing, warehouse automation, real-time scheduling.
-
-### Healthcare
-Drug discovery, dosing strategies, personalized treatment optimization.
-
-Reinforcement learning shapes the future far beyond the Jungle’s borders.
-
----
 
 ## Reinforcement Learning in 2025 — Modern Tools, Systems, and Real‑World Technologies
 
@@ -519,110 +311,6 @@ Practical selection criteria:
 - **Healthcare‑adjacent decision support:** only when safety, auditing, and constraints are first‑class citizens
 
 In both the Jungle and industry, the hardest part is rarely the math — it’s the **reward design**, **safety**, and **operational reliability**.
-
----
-
-## Technical Spotlight — Understanding RL Through Computation
-
-### Temporal-Difference Learning
-A foundational RL update rule:
-
-```
-Q(s, a) ← Q(s, a) + α [ r + γ max_a' Q(s', a') − Q(s, a) ]
-```
-
-This captures the essence of learning from experience.
-
-**The Fox's Translation:**
-*   **New Instinct** = Old Instinct + **(Learning Rate)** × **(Surprise!)**
-*   **Surprise** = (Actual Reward + Future Promise) − What I Expected
-*   **$\gamma$ (Gamma)**: The Fox's *Patience*. If high, it works for future rewards; if low, it only cares about food *now*.
-
-### Simplified DQN Loop
-
-```
-Initialize networks
-for each episode:
-    state = env.reset()
-    while not done:
-        action = policy(state)
-        next_state, reward = env.step(action)
-        store(state, action, reward, next_state)
-        update_network()
-        state = next_state
-```
-
-### Policy Gradient Update
-
-```
-θ ← θ + α ∇θ log πθ(a | s) * G
-```
-
-### Practical Data Formats — JSONL for Offline RL and RLHF
-
-Most RL training happens by interacting with an environment.  
-But JSONL becomes very useful for **offline RL**, **logging trajectories**, and **preference datasets** (RLHF-style).
-
-Below are common JSONL patterns (1 JSON object per line).
-
-#### 1) Offline RL Transition Format: The "Experience" Tuple
-
-In Reinforcement Learning, an agent learns from "experiences." Each experience is a small step of interaction with the environment, captured in a format known as a **transition**. This is often abbreviated as `(s, a, r, s', done)`.
-
-This format is the fundamental building block for many RL algorithms. Let's break down what each part means and map it to the JSON example below.
-
-*   `s` (State): A snapshot of the environment at a specific moment. It's what the agent "sees." In the JSON, this is the `obs` object.
-*   `a` (Action): The action the agent took in that state. This is the `action` object.
-*   `r` (Reward): The feedback the environment provides after the action. This is the `reward` number.
-*   `s'` (Next State): The *new* state of the environment after the agent's action. This is the `next_obs` object.
-*   `done`: A boolean flag (`true` or `false`) indicating if this transition was the last one in an episode (e.g., the game ended, the robot fell, or the goal was reached).
-
-```json
-{"episode_id":"hunt_001","t":0,"obs":{"prey_dist":15.0,"wind":"north"},"action":{"mode":"stalk","speed":0.5},"reward":0.1,"next_obs":{"prey_dist":14.5,"wind":"north"},"done":false}
-{"episode_id":"hunt_001","t":45,"obs":{"prey_dist":2.0,"wind":"north"},"action":{"mode":"crouch","speed":0.0},"reward":0.5,"next_obs":{"prey_dist":2.0,"wind":"north"},"done":false}
-{"episode_id":"hunt_001","t":46,"obs":{"prey_dist":2.0,"wind":"north"},"action":{"mode":"pounce","speed":12.0},"reward":100.0,"next_obs":{"status":"captured"},"done":true}
-```
-
-**Decoding the Data — The Fox's Hunting Log:**
-
-This JSON isn't just abstract numbers; it's a diary of the Fox's decisions.
-
-*   `episode_id`: "hunt_001" marks this as a specific hunting attempt.
-*   `obs` (Observation): The Fox senses the world. It smells the wind and gauges the distance to its target (`prey_dist: 15.0`).
-*   `action`: Based on that, it chooses a strategy. It decides to `stalk` slowly (`speed: 0.5`) rather than run.
-*   `reward`: It gets a small positive signal (`0.1`) for closing the distance without being seen.
-*   `next_obs`: The environment updates. The prey is now closer (`14.5`).
-*   `done`: In the final line, the Fox captures the target (`reward: 100.0`!), and the episode ends (`done: true`).
-
-By feeding millions of these logs into a model, the Fox learns *which* actions (stalking vs. rushing) lead to that final `+100` reward.
-
-#### 2) Offline RL Episode Format (whole trajectory per line)
-
-```json
-{"episode_id":"ep_0042","observations":[[0.0,1.0],[0.1,0.9],[0.2,0.8]],"actions":[0,1,1],"rewards":[0.0,0.0,1.0],"dones":[false,false,true]}
-```
-
-Use this when sequence structure matters (RNN/Transformer policies, return-to-go, long-horizon credit).
-
-#### 3) RLHF-Style Preference Pair (prompt + chosen vs rejected)
-
-```json
-{"prompt":"The Fox hears a rustle in the tall grass. How should it react?","chosen":"Freeze and listen carefully to distinguish between prey and predator before moving.","rejected":"Immediately jump into the grass to investigate."}
-```
-
-Use this to train a reward model that aligns the agent's behavior with "survival instincts" (or human safety guidelines).
-
-#### 4) Contextual Bandit Log (one-step decision + immediate reward)
-
-```json
-{"context":{"season":"dry","time_of_day":"dusk"},"action":"wait_by_waterhole","reward":10,"propensity":0.12}
-```
-
-Use this when actions are single-step and feedback is immediate (e.g., choosing a hunting ground vs. serving an ad).
-
-These equations give RL its mathematical heartbeat.
-
----
 
 ## Common Pitfalls — And How the Fox Avoids Them
 

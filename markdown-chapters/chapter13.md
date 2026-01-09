@@ -139,7 +139,6 @@ status = publish_message('http://symbolic-agent.local/api/notify', anomaly_data)
 
 ### Quick Reference: Case Studies
 
-::: {#tbl-case-studies .column-page}
 | Case Study | Agents Involved | Key Challenge | Outcome |
 |:---|:---|:---|:---|
 | **Healthcare Surge** | Symbolic, Deep, RL, MLOps | Massive data deluge | Reduced turnaround, adaptive triage |

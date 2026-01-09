@@ -106,10 +106,18 @@ def convert_callout_to_markdown(content):
     return content
 
 def remove_yaml_frontmatter(content):
-    """Remove YAML frontmatter from the beginning of the file."""
-    # Match YAML frontmatter between --- delimiters
-    pattern = r'^---\s*\n.*?\n---\s*\n'
+    """Remove YAML frontmatter from anywhere in the file."""
+    # Match YAML frontmatter between --- delimiters, anywhere in the file
+    pattern = r'---\s*\n.*?\n---\s*\n'
     content = re.sub(pattern, '', content, flags=re.DOTALL)
+    return content
+
+def remove_quarto_divs(content):
+    """Remove Quarto-specific div blocks and attributes."""
+    # Remove divs like :::{.no-number}
+    content = re.sub(r':::+\s*\{[^}]+\}\s*\n', '', content)
+    # Remove inline attributes like {.unnumbered}
+    content = re.sub(r'\s*\{\.[\w-]+\}', '', content)
     return content
 
 def convert_image_attributes(content):
@@ -135,6 +143,7 @@ def convert_qmd_to_md(qmd_file, output_dir):
     
     # Apply conversions
     content = remove_yaml_frontmatter(content)
+    content = remove_quarto_divs(content)
     content = convert_callout_to_markdown(content)
     content = convert_image_attributes(content)
     content = remove_figure_placeholders(content)
