@@ -4,7 +4,13 @@
 
 ## Introduction: The Hidden Library Revisited 
 Despite its prowess in surveillance and classification, the Watchful Robotic Owl senses something deeper stirring in the jungle. Its nocturnal flights reveal a secret clearing filled with dense tomes of text—insights far beyond ordinary data. Here, it encounters Large Language Models (LLMs), AI systems that can understand and generate human-like text. This chapter explores how such models (akin to ChatGPT, DeepSeek, Grok, Meta Llama) are constructed, the ethical dilemmas they pose, and how you can begin experimenting with them in code. 
+
 Story Angle: The Owl steps through shadowy vines to discover an ancient library, brimming with pages that speak of near-endless linguistic possibility. But the more it reads, the more it realizes that words can shape reality—for better or worse. 
+
+
+:::{.figure-placeholder}
+![Figure 7.2 — The Owl’s Hidden Library Revisited](images/chapter7_images/chapter7_art_owl_hiddenlib.png){fig-align="center" width="80%"}
+:::
 
 ## The Eloquent Robotic Owl: Foundations of LLMs 
 
