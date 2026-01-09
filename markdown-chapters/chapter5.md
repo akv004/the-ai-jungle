@@ -22,10 +22,7 @@ At its core, RL addresses a single profound question:
 
 The answer unfolds not from pre-written rules but from *trial, feedback, and adaptation*—a dance as old as life itself.
 
-:::{.figure-placeholder}
 ![](images/chapter5/fox_jungle.png)
-:::
-
 ### Technical Sidebar — Where RL Shows Up in Modern AI
 
 Reinforcement Learning is not “one model” — it’s a **training loop**. The agent acts, gets feedback, and updates its behavior to do better over time.
@@ -94,34 +91,22 @@ Rewards guide behavior the way evolution guides species: slowly, iteratively, un
 #### Observation
 The Fox senses its surroundings.
 
-:::{.figure-placeholder}
 ![](images/chapter5/fox_observer_state.png)
-:::
-
 ---
 
 #### Decision
 It selects an action—sometimes from knowledge, sometimes from curiosity.
 
-:::{.figure-placeholder}
 ![](images/chapter5/FoxAndLPathAward.png)
-:::
-
 ---
 
 #### Consequence
 The Jungle responds with reward or punishment.
 
-:::{.figure-placeholder}
 ![](images/chapter5/fox_reward_catch_rabbit.png)
-:::
-
 ---
 
-:::{.figure-placeholder}
 ![](images/chapter5/fox_penalty.png)
-:::
-
 ---
 
 #### Learning
@@ -155,9 +140,7 @@ Greatness lies in balance.
 
 Modern RL algorithms mathematically encode this struggle, guiding agents toward strategies that mix caution with boldness.
 
-:::{.figure-placeholder}
 ![](images/chapter5/fox_at_forked_jungle_path.png)
-:::
 ---
 
 ## The Temporal Credit Assignment Problem
@@ -180,12 +163,9 @@ Mathematically, this is addressed using:
 
 Without solving credit assignment, the Fox can never refine its instincts.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox surrounded by ghostly echoes of its past actions, each glowing differently to represent delayed credit._
-
-:::
 
 ---
 
@@ -203,12 +183,9 @@ Its internal values encode these lessons.
 
 As these values sharpen, the Fox’s instincts become wisdom.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Robotic Fox visualizing branching light-paths representing future rewards and action consequences._
-
-:::
 
 ---
 
@@ -224,12 +201,9 @@ Thus Q-learning struggles when the Fox’s world becomes continuous, complex, in
 
 Yet, as a conceptual foundation, it remains one of the pillars of RL.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox studying a glowing scroll or ledger floating in the Jungle representing Q-values._
-
-:::
 
 ---
 
@@ -250,12 +224,9 @@ Conceptually:
 
 This synergy allowed RL to master Atari games, robotics control, and industrial decision systems.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox consulting with Owl projecting holographic memory den showing replay buffer and neural patterns._
-
-:::
 
 ---
 
@@ -277,12 +248,9 @@ This approach works beautifully for:
 
 Where Q-learning is analytical, policy gradients are intuitive.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox training its instincts, surrounded by flowing lines of motion representing gradient-based learning._
-
-:::
 
 ---
 
@@ -300,12 +268,9 @@ This division mirrors natural learning:
 
 Advanced forms like PPO and SAC blend stability with bold exploration, producing behavior both robust and efficient.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox and Owl acting as Actor and Critic in a cooperative stance, one choosing actions, the other evaluating._
-
-:::
 
 ---
 
@@ -320,12 +285,9 @@ The Fox no longer reacts to the present—it anticipates the future.
 
 This ability elevates RL from instinct to strategy.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox projecting future Jungle states like holographic simulations, multiple possible futures branching outward._
-
-:::
 
 ---
 
@@ -345,12 +307,9 @@ Thousands of virtual Foxes can be trained in simulation before deployment in the
 
 This is the Fox’s evolution from a curious wanderer into a master strategist.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox training inside a virtual jungle simulation chamber with thousands of virtual foxes learning simultaneously._
-
-:::
 
 ---
 
@@ -372,12 +331,9 @@ Examples:
 
 Game theory meets machine intelligence.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox, Owl, Tiger interacting strategically: cooperation, competition, and swarm dynamics represented visually._
-
-:::
 
 ---
 
@@ -402,12 +358,9 @@ Good reward design requires:
 
 Curriculum learning—teaching the Fox simple tasks before complex ones—often yields remarkable results.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Fox confronted by tempting shortcuts and dangerous traps glowing with deceptive reward signals._
-
-:::
 
 ---
 
@@ -700,9 +653,7 @@ A new challenge awaits.
 
 And the Fox, forged in the fires of trial and reward, is ready.
 
-:::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Cinematic final scene of Fox standing confidently on moss-covered stone, dawn breaking, Jungle awakening._
 
-:::

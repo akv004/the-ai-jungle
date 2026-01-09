@@ -8,10 +8,7 @@ Tracks appear where no animals should tread. Camera traps vanish without a trace
 
 The Robotic Owl—already proficient in basic vision and classification—now faces a far greater challenge: evolving its intelligence to protect the wildlife it has pledged to defend. In this chapter, we explore the advanced AI and ML techniques that enable the Owl to uncover hidden dangers, adapt to shifting threats, and maintain peace across its jungle domain.
 
-:::{.figure-placeholder}
 ![Figure 6.2 — The Owl’s Night Watch](images/chapter6_images/Moonlit_jungle_watchman_and_intruders.png)
-:::
-
 ## Expanded Sensor Fusion: Seeing Beyond the Shadows
 
 To rise to these new challenges, the Owl relies on a suite of enhanced sensors:
@@ -28,10 +25,7 @@ To rise to these new challenges, the Owl relies on a suite of enhanced sensors:
 - Purpose: Sniff out atypical scents, such as spilled fuel or chemical residues left by intruders.
 - ML Angle: Unsupervised clustering differentiates routine forest smells from suspicious outliers.
 
-:::{.figure-placeholder}
 ![Figure 6.2 — Expanded Sensor Fusion: Seeing Beyond the Shadows](images/chapter6_images/Moonlit_jungle_watchman_and_intruders_sensor.png)
-:::
-
 By blending these data streams, the Owl gains a multi-layered understanding of its environment—essential for identifying threats invisible to any single sensor.
 
 ## Detecting the Unusual: Anomaly Detection & Concept Drift

@@ -1,6 +1,5 @@
 :::{.no-number}
 ![](cover)
-:::
 ---
 title: "The AI Jungle"
 ---

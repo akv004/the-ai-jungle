@@ -13,6 +13,13 @@ import re
 import shutil
 from pathlib import Path
 
+def remove_figure_placeholders(content):
+    """Remove Quarto figure placeholder divs."""
+    # Remove :::{.figure-placeholder} and ::::
+    content = re.sub(r':::+\s*\{\.figure-placeholder\}\s*\n', '', content)
+    content = re.sub(r':::+\s*\n', '', content)
+    return content
+
 def convert_callout_to_markdown(content):
     """
     Convert Quarto callout blocks to standard markdown.
@@ -130,6 +137,7 @@ def convert_qmd_to_md(qmd_file, output_dir):
     content = remove_yaml_frontmatter(content)
     content = convert_callout_to_markdown(content)
     content = convert_image_attributes(content)
+    content = remove_figure_placeholders(content)
     
     # Generate output filename
     input_path = Path(qmd_file)

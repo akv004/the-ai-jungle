@@ -16,10 +16,7 @@ High on a moss-laden branch, the Chameleon adjusts its mech-like scales to match
 
 
 
-:::{.figure-placeholder}
 ![Synesthetic Sentinel: The Chameleon’s Multisensory Vision](images/chapter14_images/SynestheticSentinel-TheChameleonsMultisensoryVision.png)
-:::
-
 Analogy in Action 
 
 - In earlier chapters, the Tiger excelled at visual classification, but risked misjudgment when shadows or lighting conditions changed. 
@@ -54,10 +51,7 @@ Suddenly, a Robotic Monkey vaults overhead, chucking “data bananas” into a n
 
 
 
-:::{.figure-placeholder}
 ![Robotic Monkey Sabotage](/images/chapter14_images/mtb1.png)
-:::
-
 ## Why Multi-Modal? A Deeper Perspective 
 
 ### Surpassing Single-Sense Limitations 
@@ -109,10 +103,7 @@ decision = decision_maker(fused_features)
 print("Final decision output:", decision)
 ```
 
-:::{.figure-placeholder}
 ![Fusion of AI Paradigms in a Rainforest Data Ecosystem](images/chapter14_images/fusionnodeV1.png)
-:::
-
 Fusion of AI Paradigms in a Rainforest Data Ecosystem 
 
 ## Real-World Relevance: Your Journey Forward 

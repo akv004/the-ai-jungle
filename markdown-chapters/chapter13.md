@@ -147,8 +147,6 @@ status = publish_message('http://symbolic-agent.local/api/notify', anomaly_data)
 | **Supply Chain** | Symbolic, Deep, RL, MLOps | Volatile demand | Agile strategies, minimized waste |
 
 : Case Studies Overview {.striped .hover}
-:::
-
 ## Final Wrap-Up and Next Chapter Teaser 
 
 **Final Wrap-Up** 
