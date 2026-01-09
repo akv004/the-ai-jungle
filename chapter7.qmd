@@ -29,13 +29,15 @@ A Transformer is a deep learning model introduced to handle entire sequences of 
 Why It Matters 
 This shift from RNNs to Transformers fuels modern LLMs (like GPT, Llama, etc.). By capturing relationships across an entire sentence—or even multiple paragraphs— Transformers excel at producing coherent, contextually rich text. If you haven’t worked with RNNs, that’s okay—just think of the Transformer as an evolution that can ingest and process full sequences more efficiently, making large-scale language modeling feasible. 
 
-Encoder Block 1 Decoder Block N 
 
-(Final Encoded Representation Passed to the Decoder) 
+:::{.figure-placeholder}
+![Figure 7.1 — Encoder-Decoder Transformer Flow](images/chapter7_images/TransformerEncoder–DecoderArchitecture.jpg){fig-align="center" width="80%"}
 
-Figure 7.1: Encoder-Decoder Transformer Flow: Self-Attention and Cross-Attention in Action . 
+:::
 
-Figure 7.1: Encoder-Decoder Transformer Flow 
+
+Encoder-Decoder Transformer Flow
+
 Tokens move from an input embedding to a series of encoder blocks, each using self-attention to contextualize words (e.g., “I,” “love,” “AI”). The encoded representation then flows into the decoder, which employs: 
 1. 
 Masked Self-Attention: Predicting the next token while only looking at past tokens. 
