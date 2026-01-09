@@ -1,0 +1,26 @@
+![](cover)
+# The AI Jungle  
+### Learn AI & ML with Nature's Wisdom  
+**First Edition (Version 1.0)**
+
+**Copyright © 2025 Amit Verma. All rights reserved.**
+
+No part of this publication may be reproduced, distributed, or transmitted in any form or by any means—including electronic or mechanical methods—without the prior written permission of the author, except in the case of brief quotations used in reviews or scholarly works.  
+This eBook is published through Kindle Direct Publishing and is intended for personal, non-commercial use only.  
+For permission requests or inquiries, please contact: [booksbyamit@gmail.com](mailto:booksbyamit@gmail.com)
+
+---
+
+## Welcome!
+
+Thank you for picking up **“The AI Jungle: Learn AI & ML with Nature's Wisdom.”**  
+This book is designed to make the complex concepts of Artificial Intelligence  
+and Machine Learning simple and fun. Through relatable stories and memorable  
+analogies, you’ll build a strong foundation—without the overwhelm.  
+
+Whether you’re new to AI or simply looking to refresh your knowledge,  
+prepare to demystify the subject and see how these technologies are  
+already shaping our daily lives.
+
+**Enjoy the journey!**  
+**Amit Verma**
