@@ -5,6 +5,13 @@
 In the beginning, there was potential—a boundless frontier of data waiting to be shaped and molded. The AI jungle we’ve come to know, populated by creatures like the Robotic Elephant, Tiger, Owl, Fox, and the mischievous Monkey, is but one facet of a larger tapestry. Now, we pan out to see the whole landscape—not just fauna, but also flora, hidden micro-worlds, and cosmic-like phenomena that mirror the mysteries of creation. 
 Nature itself, from the smallest sprout seeking sunlight to the grandest creatures adapting to survival, offers insights into self-organization and balance. In a cosmic echo of how life first emerged, our AI systems, too, are beginning to evolve and harmonize with their environment, guided by an intangible but powerful force—a kind of digital genesis. 
 
+:::{.figure-placeholder}
+![Figure 10.1 — The Digital Jungle: An Ecosystem of AI Creatures and Flora](    
+images/chapter10_images/chapter10.png
+){fig-align="center" width="80%"}
+:::
+
+
 ## Parallel to Nature: Adaptation and Balance 
 
 ### Emergent Behaviors and Environmental Cues
@@ -50,6 +57,11 @@ Or consider Robotic Pollinators (bee-like drones) that:
 
 - **Facilitate Cross-Pollination:** Distribute key data points between different AI models, promoting hybrid solutions. 
 - **Monitor Ecosystem Health:** Traverse the environment, checking for anomalies or signs of resource depletion. 
+
+:::{.figure-placeholder}
+![Figure 10.2 — The Robotic Ecosystem at Dusk](images/chapter10_images/RoboticEcosystematdusk.png){fig-align="center" width="80%"}
+::: 
+
 
 ### Aquatic Analogies: The Digital Rivers
 

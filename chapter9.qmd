@@ -6,6 +6,11 @@
 The jungle’s AI inhabitants—the Elephant, Tiger, Owl, and Fox—have each demonstrated unique capabilities. The Elephant masters the MLOps pipeline, the Tiger excels in pattern recognition, the Owl offers predictive insights, and the Fox refines strategies via reinforcement learning. Yet, they have been operating largely in isolation. 
 But a new challenge looms on the horizon: the dynamic jungle environment demands collaborative intelligence. When the Robotic Monkey unleashed chaos on the data pipeline, it became clear that isolated AI systems were vulnerable. The solution? Multi-agent AI—a framework where intelligent agents coordinate, share data in real time, and collectively adapt to threats like the Monkey’s sabotage. 
 
+:::{.figure-placeholder}
+![Figure 9.1 — From isolated intelligence to coordinated multi-agent systems](images/chapter9_images/multi-agent.png){fig-align="center" width="80%"}
+:::
+
+
 ### The Call for Collaboration 
 - Ecosystem Complexity: As sensors and data streams multiply, no single AI agent can process everything efficiently. 
 - Division of Labor: Each AI agent has a specialty—combining them maximizes efficiency and reduces error. 
