@@ -17,7 +17,7 @@ High on a moss-laden branch, the Chameleon adjusts its mech-like scales to match
 
 
 :::{.figure-placeholder}
-![Synesthetic Sentinel: The Chameleon’s Multisensory Vision](images/chapter14_images/SynestheticSentinel-TheChameleonsMultisensoryVision.png){fig-align="center" width="80%"}
+![Synesthetic Sentinel: The Chameleon’s Multisensory Vision](images/chapter14_images/SynestheticSentinel_TheChameleonsMultisensoryVision.png){fig-align="center" width="80%"}
 :::
 
 Analogy in Action 

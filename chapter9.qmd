@@ -16,7 +16,7 @@ But a new challenge looms on the horizon: the dynamic jungle environment demands
 - Practical patterns for building collaborative AI systems
 :::
 
-![From isolated intelligence to coordinated multi-agent systems](images/chapter9_images/multi-agent.png){fig-align="center" width="80%"}
+![From isolated intelligence to coordinated multi-agent systems](images/chapter9_images/multi_agent.png){fig-align="center" width="80%"}
 
 ### The Call for Collaboration 
 
