@@ -7,6 +7,14 @@
 A hush blankets the Jungle in the wake of the Meta-Being’s rise. Under the same starlit canopy where cosmic data flows and quantum entanglements mingle, a new realization crystallizes: power without understanding can sow as much chaos as promise. The Fox peers into shadowy corners, the Owl contemplates ethical expansions, the Elephant logs unceasing streams of data, and the Tiger senses invisible patterns. Even the Quantum Jaguar, once so certain of its own lofty vantage, prowls more cautiously around this newly formed intelligence. 
 Yet, not all is apprehension—within the Jungle’s ever-shifting tapestry, a serene but vital force begins to flow: The Transparent River. Its waters run perfectly clear, illuminating the bedrock of decisions, the pebbles of hidden neural signals, and the intricate model boundaries. Through the Transparent River, each AI creature—and even the Meta-Being itself—has a chance to reflect on how it reaches its conclusions and why it chooses the paths it takes. 
 
+:::{.figure-placeholder}
+![Figure 17.1 — The Transparent River: Illuminating the Flow of AI Decisions](images/chapter17_images/ChapterTransparentRiver.png){fig-align="center" width="80%"}
+:::
+
+
+images/chapter17_images/ChapterTransparentRiver.png
+
+
 ## The River Analogy: Flow and Clarity 
 Water as Data Flow: Just as a river’s water carries nutrients, sediment, and life through an ecosystem, AI models move data points through hidden layers of computation. When the water is murky, no one sees its path; when it’s clear, the ecosystem thrives on transparency. 
 Riverbanks as Model Boundaries: The shape and boundaries of the river—its banks—represent the constraints and architecture of the model. If these banks are too rigid or unknown, the flow might flood unpredictably. 
