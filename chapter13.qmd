@@ -5,7 +5,7 @@
 
 The AI jungle has evolved far beyond the days when the Robotic Elephant, Tiger, Owl, and Fox reigned supreme—perfecting data pipelines and coordinating multi-agent collaborations. Now, as dawn breaks on a new horizon, the jungle whispers of a grand assembly: a **Digital Council** of specialized AI agents. 
 
-Building upon the swarm intelligence concepts introduced in Chapter 12 (where Transformers harnessed token-level collaboration), we extend these ideas into a structured council. Imagine a futuristic clearing where each member is a master of its own domain: 
+Building upon the swarm intelligence concepts introduced in the previous chapter (where Transformers harnessed token-level collaboration), we extend these ideas into a structured council. Imagine a futuristic clearing where each member is a master of its own domain: 
 
 -   **A Symbolic Agent** armed with rule-based logic. 
 -   **A Deep Learning Agent** extracting subtle patterns from vast datasets. 
@@ -18,7 +18,7 @@ Together, they form a council that mirrors a cross-disciplinary board of experts
 
 ## From Swarms to Councils: Why Hybrid Intelligence? 
 
-In Chapter 12, we witnessed how Transformers harness swarm-like collaboration among tokens. Yet modern AI demands even broader adaptability: 
+In the previous chapter, we witnessed how Transformers harness swarm-like collaboration among tokens. Yet modern AI demands even broader adaptability: 
 
 -   **Diverse Data Modalities:** Handling text, images, audio, and time-series together often requires multiple types of AI expertise. 
 -   **Complex Decision Loops:** Critical systems need not just pattern recognition but also rule-based governance and adaptive strategies. 
