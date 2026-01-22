@@ -117,7 +117,7 @@ Rather than tackling this alone, the Engineer Agent convenes a **Hybrid Cloud Co
 
 | Council Member | Jungle Analog | Specialization | Deployment |
 |:---|:---|:---|:---|
-| **Creative Model** | Tiger 🐅 | UI design, user experience, visual patterns | Cloud (high compute) |
+| **Creative Model** | Peacock 🦚 | UI design, user experience, visual patterns | Cloud (high compute) |
 | **Analytical Model** | Owl 🦉 | Scalable architecture, database schema, API design | Cloud (reasoning-heavy) |
 | **Grounded Model** | Fox 🦊 | Project constraints, budget, timeline, existing codebase | Local (context-aware) |
 
@@ -127,7 +127,7 @@ The **Elephant 🐘** serves as the orchestrator—quietly routing requests, col
 
 1. **Brief Approval:** The human reviews the high-level brief before it's dispatched to the council.
 2. **Independent Consultation:** Each specialist works in parallel:
-   - The **Tiger** proposes UI refinements: color palettes, component layouts, micro-interactions.
+   - The **Peacock** proposes UI refinements: color palettes, component layouts, micro-interactions.
    - The **Owl** suggests database schema improvements, API patterns, and scaling strategies.
    - The **Fox** grounds everything in reality: "We have 3 weeks, a PostgreSQL database already running, and a React frontend."
 3. **Synthesis:** The orchestrator convenes the council outputs, compares suggestions, resolves conflicts, and synthesizes a cohesive plan.
@@ -150,7 +150,7 @@ flowchart TB
     O3["🐘 Synthesize Plan"]
     
     %% Council Members
-    C1["🐅 Creative Model\n(Cloud - UI/UX)"]
+    C1["🦚 Creative Model\n(Cloud - UI/UX)"]
     C2["🦉 Analytical Model\n(Cloud - Backend)"]
     C3["🦊 Grounded Model\n(Local - Constraints)"]
     
