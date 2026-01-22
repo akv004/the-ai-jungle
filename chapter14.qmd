@@ -86,10 +86,13 @@ Council Decision:
 
 - The Owl, Tiger, Fox, and Elephant each apply their unique strengths (symbolic logic, deep learning, RL strategy, MLOps orchestration). Conflicts or uncertainties are resolved through hierarchical arbitration, ensuring the best combined outcome. 
 Code snippet that demonstrates embedding fusion or cross-attention:
- Suppose we have three data inputs: 
-1.image_data (from the Chameleon’s visual feed), 
-2.audio_data (from the Chameleon’s microphone or Toucan’s speech input), 
-3.sensor_data (from the Moth). A simplified (pseudocode) snippet might look like this: 
+ Suppose we have three data inputs:
+
+1. `image_data` (from the Chameleon's visual feed),
+2. `audio_data` (from the Chameleon's microphone or Toucan's speech input),
+3. `sensor_data` (from the Moth).
+
+A simplified (pseudocode) snippet might look like this:
 
 ```python
 # Python Pseudocode for Digital Council Orchestration
