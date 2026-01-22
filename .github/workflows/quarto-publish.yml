@@ -23,12 +23,18 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install system dependencies for Mermaid
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+          
       - name: Install TinyTeX
         run: quarto install tinytex
 
-      - name: Increase memory for Deno
+      - name: Configure environment for rendering
         run: |
           echo "DENO_V8_FLAGS=--max-old-space-size=8192" >> $GITHUB_ENV
+          echo "PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser" >> $GITHUB_ENV
 
       - name: Render Quarto website
         timeout-minutes: 10
