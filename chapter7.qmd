@@ -57,7 +57,7 @@ A Transformer is a deep learning model introduced to handle entire sequences of 
 This shift from RNNs to Transformers fuels modern LLMs (like GPT, Llama, etc.). By capturing relationships across an entire sentence—or even multiple paragraphs—Transformers excel at producing coherent, contextually rich text. If you haven't worked with RNNs, that's okay—just think of the Transformer as an evolution that can ingest and process full sequences more efficiently, making large-scale language modeling feasible.
 
 :::{.figure-placeholder}
-![Figure 7.1 — Encoder-Decoder Transformer Flow](images/chapter7_images/TransformerEncoder–DecoderArchitecture.jpg){fig-align="center" width="80%"}
+![Figure 7.1 — Encoder-Decoder Transformer Flow](images/chapter7_images/TransformerEncoder-DecoderArchitecture.jpg){fig-align="center" width="80%"}
 
 :::
 
