@@ -30,6 +30,7 @@ book:
     - chapter16.qmd
     - chapter17.qmd
     - chapter18.qmd
+    - chapter19.qmd
 
 
 website:
@@ -80,6 +81,8 @@ website:
         href: chapter17.qmd
       - text: "chapter18"
         href: chapter18.qmd
+      - text: "chapter19"
+        href: chapter19.qmd
 
 
 format:
