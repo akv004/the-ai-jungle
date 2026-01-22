@@ -5,6 +5,14 @@ The jungle hums with activity. The Robotic Owl scans the skies, the Robotic Fox 
 Amidst the towering trees, a colossal figure moves with steady precision—the Robotic Elephant. Unlike its companions, it does not hunt, learn from rewards, or analyze sensory input. Instead, it builds, maintains, and optimizes the AI systems that keep the jungle’s robotic inhabitants operational. 
 But today, the Elephant faces a crisis—a data pipeline breakdown has thrown the AI creatures into chaos. 
 
+
+:::{.figure-placeholder}
+![Figure 8.1](images/chapter8_images/RobotiGurdianOfTheJungle.png){fig-align="center" width="80%"}
+:::
+
+
+
+
 ## Crisis in the AI Jungle: A Data Failure Story 
 One morning, the Robotic Owl’s predictions start failing, its anomaly detection confused by inconsistent data. The Tiger misidentifies prey, lunging at rocks instead of gazelles. The Fox stops learning, unable to optimize its survival strategies. 
 The culprit? A catastrophic failure in the AI pipeline—a mysterious anomaly has corrupted the data streams. 
@@ -28,6 +36,12 @@ To restore balance, the Robotic Elephant must act fast. It must:
 
 And worst of all? The mischievous Robotic Monkey—a chaos agent designed to test AI robustness—has tampered with the pipeline, introducing randomized failures. Can the Elephant outthink the Monkey and restore order? 
 
+
+:::{.figure-placeholder}
+![Figure 8.2](images/chapter8_images/monkey_disrupts_ch8.png){fig-align="center" width="80%"}
+:::
+
+
 ## The Role of the Robotic Elephant: MLOps in Action 
 The Elephant represents MLOps (Machine Learning Operations)—the backbone of real-world AI deployments. Its role includes: 
 
@@ -47,6 +61,11 @@ Model Training & Testing Continuous Monitoring & Deployment
 Step 4 
 
 Rollback & Failure Recovery 
+
+:::{.figure-placeholder}
+![Figure 8.3](images/chapter8_images/MLOpsLifeCycle.png){fig-align="center" width="80%"}
+:::
+
 Diagram Suggestion: MLOps Pipeline Flowchart 
 
 ### Data Versioning & Reproducibility 
