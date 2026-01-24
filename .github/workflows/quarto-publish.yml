@@ -37,7 +37,7 @@ jobs:
           echo "PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser" >> $GITHUB_ENV
 
       - name: Render Quarto website
-        timeout-minutes: 10
+        timeout-minutes: 30
         run: quarto render
 
       - name: Upload site (docs/)
