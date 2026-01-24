@@ -38,7 +38,7 @@ jobs:
 
       - name: Render Quarto website
         timeout-minutes: 30
-        run: quarto render
+        run: quarto render --to html
 
       - name: Upload site (docs/)
         uses: actions/upload-pages-artifact@v3
