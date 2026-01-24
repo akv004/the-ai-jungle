@@ -6,7 +6,9 @@ In nature, some of the most sophisticated forms of intelligence arise not from a
 
 This notion of collective intelligence underpins the modern AI architecture known as the Transformer. By enabling every token (or unit of data) to attend to every other token in parallel, Transformers echo the fluid coordination of flocks, hives, and swarms—decentralized yet incredibly synchronized. 
 
+
 ![Figure 12.1 — Murmuration of Self-Attention (Chapter Opener)](images/chapter12_images/figure12_1_murmuration_hero.png){fig-align="center" width="80%"}
+
 
 ### From Predatory Intelligence to Swarm-Based Intelligence 
 
@@ -43,9 +45,9 @@ Imagine each word in a sentence as a bird in a flock. Each bird (token) “looks
 
 This mechanism allows the Transformer to build rich, context-sensitive representations of data—emulating the collective, emergent intelligence of a swarm. 
 
-![Figure 12.2 — Tri-Swarm Orchestra (Flock, Hive, and Colony)](images/chapter12_images/figure12_2_tri_swarm_orchestra.png){fig-align="center" width="80%"}
-
 ### Multi-Head Attention: The Hive’s Specialized Communication 
+
+![Figure 12.1 — Multi-Head Attention (Swarm Perspectives in Parallel)](images/chapter12_images/figure12_multi_head_attention.png){fig-align="center" width="80%"}
 
 In a bee colony: 
 
@@ -97,8 +99,6 @@ Where BERT understands, **GPT** (Generative Pre-trained Transformer) creates. Th
 -   **Interactive Assistants:** Chatbots, virtual tutors, or customer service agents. 
 
 ## Transformers in Computer Vision: Seeing Like an Eagle 
-
-![Figure 12.3 — The Attention Matrix (Abstract Technical View)](images/chapter12_images/figure12_3_attention_matrix.png){fig-align="center" width="80%"}
 
 ### Vision Transformers (ViT): The Eagle’s Gaze 
 
