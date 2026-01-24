@@ -6,6 +6,8 @@ In nature, some of the most sophisticated forms of intelligence arise not from a
 
 This notion of collective intelligence underpins the modern AI architecture known as the Transformer. By enabling every token (or unit of data) to attend to every other token in parallel, Transformers echo the fluid coordination of flocks, hives, and swarms—decentralized yet incredibly synchronized. 
 
+![Figure 12.1 — Murmuration of Self-Attention (Chapter Opener)](images/chapter12_images/figure12_1_murmuration_hero.png){fig-align="center" width="80%"}
+
 ### From Predatory Intelligence to Swarm-Based Intelligence 
 
 -   **Early AI (Lone Predator Strategy):** Models like RNNs and CNNs process data step by step or patch by patch, akin to a solitary predator stalking its prey. 
@@ -40,6 +42,8 @@ For every token, the self-attention mechanism computes a similarity score betwee
 Imagine each word in a sentence as a bird in a flock. Each bird (token) “looks” at every other bird using its query vector to determine which neighbors (tokens) offer valuable information (key vectors). It then gathers this information (value vectors) proportionally to the importance assigned by the normalized scores. The result? Even words at the beginning of a sentence gain access to context provided by words far down the line, much like a bird in a large flock can adjust its position based on cues from birds at the opposite end. 
 
 This mechanism allows the Transformer to build rich, context-sensitive representations of data—emulating the collective, emergent intelligence of a swarm. 
+
+![Figure 12.2 — Tri-Swarm Orchestra (Flock, Hive, and Colony)](images/chapter12_images/figure12_2_tri_swarm_orchestra.png){fig-align="center" width="80%"}
 
 ### Multi-Head Attention: The Hive’s Specialized Communication 
 
@@ -93,6 +97,8 @@ Where BERT understands, **GPT** (Generative Pre-trained Transformer) creates. Th
 -   **Interactive Assistants:** Chatbots, virtual tutors, or customer service agents. 
 
 ## Transformers in Computer Vision: Seeing Like an Eagle 
+
+![Figure 12.3 — The Attention Matrix (Abstract Technical View)](images/chapter12_images/figure12_3_attention_matrix.png){fig-align="center" width="80%"}
 
 ### Vision Transformers (ViT): The Eagle’s Gaze 
 
