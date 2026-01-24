@@ -33,7 +33,7 @@ In this chapter’s artwork, the **Artistic Bird** you see above was generated u
 Running locally on my AI workstation (RTX 5090 GPU + 64 GB RAM + AMD Ryzen 9 9950X3D), this system leverages Hugging Face’s `DiffusionPipeline` to produce high-fidelity art directly from Python.
 
 
-::: note
+::: {.callout-note}
 **Local Setup (Amit’s Workstation)**
 - **GPU:** NVIDIA RTX 5090 (32 GB)
 - **CPU:** AMD Ryzen 9 9950X3D

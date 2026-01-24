@@ -170,25 +170,25 @@ clf.fit(X_train, y_train)
 
 ## Common Pitfalls & Considerations
 
-::: warning
+::: {.callout-warning}
 **Overfitting**
 The tiger memorizes past rustles and fails to adapt to new prey.
 **Mitigation:** Cross-validation, regularization, early stopping, more diverse data.
 :::
 
-::: warning
+::: {.callout-warning}
 **Underfitting**
 The model is too simple; it misses important patterns.
 **Mitigation:** Add relevant features, deepen the model, use ensembles.
 :::
 
-::: warning
+::: {.callout-warning}
 **Data Leakage**
 Information from outside training data sneaks in, inflating results.
 **Mitigation:** Strict train/validation/test hygiene; fit scalers only on training folds; use pipelines.
 :::
 
-::: warning
+::: {.callout-warning}
 **Biased Data**
 Non-representative training data yields unfair or brittle predictions.
 **Mitigation:** Diversify sources; monitor subgroup metrics; audit for drift.
@@ -283,7 +283,7 @@ SIZE: 1664x928
 
 ## Try It Yourself (Optional)
 
-::: info
+::: {.callout-note}
 **Visualize a Small Decision Tree**
 ```python
 from sklearn.tree import DecisionTreeClassifier, plot_tree
@@ -312,7 +312,7 @@ plt.show()
 
 ---
 
-::: caution
+::: {.callout-caution}
 **Ethics & Safety in the Jungle**
 Models influence real lives. Track subgroup performance, explain decisions where possible, and prefer calibrated, conservative thresholds when costs of error are high.
 :::

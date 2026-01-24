@@ -82,7 +82,7 @@ Each layer adds another sense—together they form the tiger’s perception of r
 **Analogy:**
 Collecting data is like hunting—speed matters, but precision matters more. Duplicate or mislabeled entries can confuse the tiger’s instincts.
 
-::: note
+::: {.callout-note}
 **Example:**
 At a financial firm, 15% of records were duplicates—misleading analysts about profits.
 In our robotic tiger’s world, duplicate sensor logs might make it think every shadow is prey.
@@ -97,7 +97,7 @@ In our robotic tiger’s world, duplicate sensor logs might make it think every 
 2. **Standardize Formats** – Convert temperature, timestamps, and units consistently.
 3. **Handle Outliers** – Detect anomalies (e.g., torque spikes or false signals).
 
-::: tip
+::: {.callout-tip}
 **Analogy:**
 “Cleaning data is like grooming the tiger—removing burrs and tangles.
 A well-groomed tiger moves silently; a clean dataset runs smoothly.”
@@ -201,7 +201,7 @@ These new features let the AI tiger anticipate events—like predicting prey tur
 | **Tsfresh** | Time-series feature extraction | Extract statistical features from sensor logs |
 | **MLflow** | Experiment tracking and feature versioning | Manage feature sets and model lineage |
 
-::: tip
+::: {.callout-tip}
 **Pro Tip:**
 Automate feature pipelines using notebooks or orchestration tools like **Airflow** or **Prefect**.
 Version each transformation—so you can trace every “instinct” the tiger learns.
