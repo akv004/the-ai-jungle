@@ -21,11 +21,11 @@ Just as a rainforest's health depends on invisible underground networks of roots
 
 ---
 
-## 19.1 Hardware Landscapes for AI
+## Hardware Landscapes for AI
 
 The **Fox** once observed a peculiar sight: the same algorithm running on two different machines yielded vastly different speeds. *"It's not just the code,"* the Fox mused, tail swishing thoughtfully, *"it's what lies beneath the code that determines how fast we can think."*
 
-### 19.1.1 The CPU Baseline
+### The CPU Baseline
 
 **Traditional Multicore CPUs:** Widely available and flexible, but not always optimal for large-scale training. Think of CPUs as the Jungle's generalist—capable of handling many tasks but not specialized for any single one.
 
@@ -50,7 +50,7 @@ _, cpu_time = cpu_inference(data, weights)
 print(f"CPU inference time: {cpu_time*1000:.2f} ms")
 ```
 
-### 19.1.2 GPU Acceleration
+### GPU Acceleration
 
 **Parallel Architecture:** GPUs excel at matrix operations, making them a mainstay for training deep networks and running large-scale inference. If CPUs are generalists, GPUs are like a swarm of **army ants**—individually simple, but devastatingly powerful when working in parallel.
 
@@ -88,7 +88,7 @@ torch.cuda.synchronize()
 print(f"GPU matmul time: {start.elapsed_time(end):.2f} ms")
 ```
 
-### 19.1.3 Specialized Accelerators (TPUs, NPUs, FPGAs)
+### Specialized Accelerators (TPUs, NPUs, FPGAs)
 
 The Jungle has its specialists too—creatures evolved for very specific tasks. The **hummingbird** hovers with unmatched precision, the **chameleon** adapts its colors instantaneously. In AI hardware, specialized accelerators serve similar roles.
 
@@ -105,7 +105,7 @@ The Jungle has its specialists too—creatures evolved for very specific tasks. 
 - **FPGAs** shine when you need custom, ultra-low-latency inference pipelines
 :::
 
-### 19.1.4 HPC Clusters & Cloud Providers
+### HPC Clusters & Cloud Providers
 
 **HPC (High-Performance Computing):** Cluster setups used for scientific simulations, massive data analysis, or large-scale model training (think climate simulation, protein folding, or training giant foundation models). These are the **elephant herds** of computing—massive, coordinated, unstoppable.
 
@@ -129,7 +129,7 @@ training_config:
     backend: "nccl"               # Optimized for NVIDIA GPUs
 ```
 
-### 19.1.5 Edge and On-Device AI
+### Edge and On-Device AI
 
 **Microcontrollers & Smartphones:** For real-time inference (e.g., computer vision on drones, AR/VR, wearables). Models are quantized or compressed to reduce memory footprint.
 
@@ -160,7 +160,7 @@ print(f"Quantized: {os.path.getsize('quantized.pth') / 1e6:.1f} MB")
 
 ---
 
-## 19.2 Technical Spotlight: Choosing Hardware for Different Workloads
+## Technical Spotlight: Choosing Hardware for Different Workloads
 
 The **Tiger** stretched and yawned, surveying the various hunting grounds. *"Each terrain demands different tactics,"* she purred. *"The riverbank requires patience, the grassland demands speed, and the dense thicket needs stealth. Know your battlefield."*
 
@@ -182,11 +182,11 @@ Below is a quick-reference table matching workload types to recommended hardware
 
 ---
 
-## 19.3 The Future of AI Hardware
+## The Future of AI Hardware
 
 The **Quantum Jaguar** emerged from the shadows, its coat shimmering with possibilities. *"The future,"* it whispered, *"is not merely faster versions of what exists. It is fundamentally different—new physics, new paradigms, new ways of thinking."*
 
-### 19.3.1 Neuromorphic Computing
+### Neuromorphic Computing
 
 - Mimics biological neurons and synapses, potentially delivering lower power consumption and higher parallelism for spiking neural nets.
 - Research stage, but promising for next-generation AI.
@@ -205,7 +205,7 @@ The **Quantum Jaguar** emerged from the shadows, its coat shimmering with possib
 └─────────────────────────────────────────────────────────┘
 ```
 
-### 19.3.2 Quantum Processing Units (QPUs)
+### Quantum Processing Units (QPUs)
 
 - Addresses specialized tasks (e.g., optimization, cryptography, molecular simulation) at quantum scales.
 - Some hybrid quantum-classical ML demos exist, but practical mainstream quantum ML still lies in the future.
@@ -235,7 +235,7 @@ def create_quantum_classifier():
 # Note: Quantum advantage for ML is still being researched!
 ```
 
-### 19.3.3 Photonic Chips
+### Photonic Chips
 
 - Use light rather than electrons for data transfer, aiming to reduce latency and energy consumption.
 - Could significantly speed up matrix multiplications for AI workloads once mature.
@@ -248,11 +248,11 @@ These technologies are still emerging. While neuromorphic and photonic chips sho
 
 ---
 
-## 19.4 Career Pathways: Navigating the Jungle Trail
+## Career Pathways: Navigating the Jungle Trail
 
 The **Owl** perched on a high branch, surveying the many paths winding through the Jungle below. *"Young explorer,"* she hooted wisely, *"there is no single path to mastery. Some trails lead through dense thickets of data, others across swift rivers of deployment. Choose the path that calls to your spirit—but know that all paths eventually connect."*
 
-### 19.4.1 The Evolving AI Roles
+### The Evolving AI Roles
 
 ```
                     ┌─────────────────────────────┐
@@ -316,7 +316,7 @@ The **Owl** perched on a high branch, surveying the many paths winding through t
 - Bridges the gap between software needs and hardware realities.
 - *"They are the roots beneath the great trees—unseen but essential."*
 
-### 19.4.2 Building a Competitive Skill Set
+### Building a Competitive Skill Set
 
 The **Robotic Monkey** chattered excitedly, swinging from branch to branch: *"Learn this! And this! And also this!"* The wise **Elephant** calmed it: *"Focus, young one. Build a strong foundation first, then expand."*
 
@@ -368,7 +368,7 @@ learning_path = {
 }
 ```
 
-### 19.4.3 Industry Sectors in Demand
+### Industry Sectors in Demand
 
 Every corner of the Jungle teems with opportunity. The AI creatures have spread far beyond their original territories:
 
@@ -383,17 +383,17 @@ Every corner of the Jungle teems with opportunity. The AI creatures have spread 
 
 ---
 
-## 19.5 Emerging Trends & Tomorrow's Opportunities
+## Emerging Trends & Tomorrow's Opportunities
 
 As the sun sets over the Jungle canopy, painting the sky in hues of orange and purple, the creatures gather to share visions of what lies beyond the horizon. The future is not written—it is being built, one breakthrough at a time.
 
-### 19.5.1 AI for Sustainability 🌱
+### AI for Sustainability 🌱
 
 Energy optimization in data centers, resource allocation in smart cities, climate modeling to address global warming challenges. The Jungle itself depends on balance—and AI can help humanity find it.
 
 > *"The greatest predator is not the one who takes the most, but the one who ensures there is always more to take."* — The Tiger's wisdom
 
-### 19.5.2 Multi-Modal & Unified Models 🔗
+### Multi-Modal & Unified Models 🔗
 
 GPT-like models that handle text, images, audio, and video in a single architecture, pointing toward versatile AI capable of holistic world understanding. The walls between senses are crumbling.
 
@@ -419,15 +419,15 @@ class UnifiedAI:
         return self.create(understanding, target=output_type)
 ```
 
-### 19.5.3 Personalized AI Services 🎯
+### Personalized AI Services 🎯
 
 Tailored models for user-specific needs, running privately on edge devices to maintain confidentiality (e.g., personal healthcare advisors, adaptive learning tutors, customized creative assistants).
 
-### 19.5.4 Federated & Distributed Learning 🌐
+### Federated & Distributed Learning 🌐
 
 Training on decentralized datasets (smartphones, edge sensors) without aggregating sensitive data in one place, bridging privacy and performance. The Jungle's creatures sharing knowledge without revealing their secrets.
 
-### 19.5.5 Agentic AI & Autonomous Systems 🤖
+### Agentic AI & Autonomous Systems 🤖
 
 AI systems that don't just respond but actively pursue goals, make plans, and take actions—the next evolution from the Robotic Monkey's playful learning to true autonomous problem-solving.
 
@@ -438,7 +438,7 @@ Each of these trends represents not just a technological frontier, but a career 
 
 ---
 
-## 19.6 Chapter Summary
+## Chapter Summary
 
 ::: {.callout-note}
 ## Key Takeaways
@@ -454,7 +454,7 @@ Each of these trends represents not just a technological frontier, but a career 
 
 ---
 
-## 19.7 A Grand Finale in the Jungle
+## A Grand Finale in the Jungle
 
 *As twilight descends upon the Jungle, the creatures gather one last time at the Great Clearing...*
 

@@ -10,7 +10,7 @@ _site/
 _freeze/
 _book/
 .quarto/
-docs/site_lib/
+docs/
 .idea/
 
 # Cache directories for individual documents (e.g., from code execution)
