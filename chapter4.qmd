@@ -89,6 +89,17 @@ Not all neural networks are identical. Just as jungle creatures have different s
 You might wonder, aren’t there other birds in this jungle? Indeed, there are even more specialized “species” of neural networks. For example, **Transformers** (which we’ll meet later) have become master linguists and multitaskers in the AI world, and new architectures appear as AI evolves. For now, our Owl and Hawk (RNN and CNN) cover two fundamental specialties: sequence memory and visual perception.
 :::
 
+::: {.callout-note}
+## Quick Reference: Choosing the Right Neural Network
+
+| Network Type | Jungle Animal | Best For | Real-World Examples |
+|:---|:---|:---|:---|
+| **CNN** | Hawk | Images, spatial patterns | Medical imaging, self-driving cars |
+| **RNN/LSTM** | Owl | Sequences, time series | Speech recognition, stock prediction |
+| **Transformer** | (Coming soon!) | Long-context text, multimodal | ChatGPT, translation, coding assistants |
+
+:::
+
 
 ### Real-World Use Cases
 Deep learning isn’t just a theoretical jungle story—it powers many aspects of the modern world. Here are a few domains where our robotic Owl (and its specialized cousins like the Hawk) are making a profound impact:

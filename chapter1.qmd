@@ -61,7 +61,18 @@ Machine Learning is a subset of AI, and it’s all about learning from experienc
 
 Deep Learning is a specialized subfield of machine learning, inspired by the structure of the human brain. If ML is about learning from data, deep learning does so using multi-layered networks of mathematical “neurons” that can automatically discover intricate patterns. Think of it as the tiger’s heightened senses and instincts. A tiger relies on a combination of sight, sound, and smell; similarly, a deep learning model has multiple layers that each detect different features (one layer might pick up simple shapes or sounds, the next layer combines those into more complex concepts, and so on). This layered approach allows deep learning systems to tackle incredibly complex tasks — like recognizing faces in photos, understanding spoken language, or translating between languages — often with greater accuracy than previous techniques. Deep learning has driven many of AI’s most impressive recent breakthroughs because these deep neural networks excel at handling the complexity and volume of data in modern problems. In our story, deep learning is represented by the tiger’s keen instincts working together: individually simple inputs (a rustle in the leaves, a flash of movement) are processed through layers of perception to become a coherent understanding of the world (“there’s prey hiding in that bush”). Deep learning models do require a lot of data and computing power — our tiger needs to experience many events in the jungle and have a strong inner circuitry to fine-tune its hunting prowess — but when they have it, they can achieve remarkable results.
 
-So, to put it all together: AI is the broad field of making machines intelligent (the whole idea of our smart tiger), ML is a key approach within AI that involves learning from data (the tiger learning by exploring), and DL is an advanced technique within ML that uses layered networks to learn (the tiger’s multi-layered instincts and senses). Understanding this hierarchy will help you make sense of the buzzwords and appreciate how they relate to each other in the world of AI.
+::: {.callout-note}
+## The AI Hierarchy at a Glance
+
+| Term | What It Is | Tiger Analogy |
+|:---|:---|:---|
+| **AI** | Broad field of machine intelligence | The idea of a smart robotic tiger |
+| **ML** | Learning from data, not rules | Tiger learns by exploring the jungle |
+| **DL** | Multi-layered neural networks | Tiger's layered instincts working together |
+
+:::
+
+Understanding this hierarchy will help you make sense of the buzzwords and appreciate how they relate to each other in the world of AI
 
 ## AI As A Robotic Tiger Learning To Hunt (Analogy)
 
@@ -133,3 +144,16 @@ This analogy is inspired by real-world developments in robotics and AI—where r
 - **A Tool for Everyone:** You don’t need to be a scientist to be part of the AI revolution. Just as every creature in the jungle finds its place around the tiger, people in all sorts of jobs — doctors, farmers, teachers, you name it — are finding ways to leverage AI. The key is understanding its capabilities and limitations, so we can use AI wisely and creatively in our lives and work.<br/>
 
 The adventure has only begun. Our robotic tiger’s tale in this AI Jungle will continue to unfold, and as it does, we’ll encounter new wonders and challenges. In the next chapter, we venture deeper into the heart of the jungle to meet another remarkable creature — another facet of AI that awaits our discovery. With each step forward, the jungle reveals more of its secrets. So, are you ready to continue the journey? The robotic tiger lets out a low, electrifying growl and strides ahead, leading us onward into the unknown, eager to unveil what lies beyond.
+::: {.callout-tip}
+## Try This: Spot the AI in Your Day
+
+Take a few minutes to reflect on AI you've already encountered today:
+
+1. **Voice assistants** — Did you ask Siri, Alexa, or Google anything?
+2. **Recommendations** — Did Netflix, Spotify, or YouTube suggest something?
+3. **Auto-complete** — Did your phone or email predict your next word?
+4. **Face unlock** — Did you unlock your phone with your face?
+5. **Navigation** — Did Maps suggest a route or predict traffic?
+
+Count how many AI interactions you had before lunch. You might be surprised!
+:::

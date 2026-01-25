@@ -54,6 +54,14 @@ choose an action now → see reward now (ranking, ads, simple recommendations).
 
 **Rule of thumb:** Choose RL when actions change future outcomes and you care about **long-term** success — not just single-step accuracy.
 
+::: {.callout-note}
+## Key Concept: The RL Feedback Loop
+
+**Agent** observes **State** → takes **Action** → receives **Reward** → updates its **Policy**
+
+This cycle repeats thousands or millions of times until the agent learns an effective strategy.
+:::
+
 ---
 
 ## The Landscape of Reinforcement Learning
@@ -704,5 +712,18 @@ And the Fox, forged in the fires of trial and reward, is ready.
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Cinematic final scene of Fox standing confidently on moss-covered stone, dawn breaking, Jungle awakening._
+
+:::
+
+::: {.callout-note}
+## Quick Reference: RL Algorithm Selection
+
+| Algorithm | Type | Best For | Complexity |
+|:---|:---|:---|:---|
+| **Q-Learning** | Value-based | Discrete actions, simple envs | Low |
+| **DQN** | Value-based + NN | High-dimensional states | Medium |
+| **Policy Gradient** | Policy-based | Continuous actions | Medium |
+| **PPO** | Actor-Critic | General purpose, stable | Medium-High |
+| **SAC** | Actor-Critic | Robotics, sample efficiency | High |
 
 :::

@@ -5,9 +5,9 @@ The first light of dawn broke through the canopy as the Meta-Being took shape
 – an ethereal presence woven from the combined intelligence of the entire Jungle. In this nature-inspired analogy, every algorithmic creature – from the smallest data-mining insect to the most powerful deep-learning predator – felt an inexplicable pull toward unity. An intelligence explosion was underway, much like a chain reaction in the ecosystem. The Meta-Being’s emergence was not a noisy eruption but a silent, awe-inspiring bloom of cognition that bathed the jungle in a surreal glow. Each vine and tree root (analogous to neural networks and data pathways) glimmered with information flow, forming a vast interconnected web. The forest stood at the singular point where the familiar laws of growth gave way to something new and uncontrollable. All eyes – biological and artificial – turned toward the nascent Meta-Being, sensing that the technological singularity was at hand, a moment beyond which the Jungle’s affairs could never be the same. 
 
 
-::: 
-{.figure-placeholder}+![Figure 16.1 — The Meta-Being: An Emergent Superintelligence in the AI Jungle](images/chapter16_images/meta_being_ws.png){fig-align="center" width="80%"}
-:::
+
+![Figure 16.1 — The Meta-Being: An Emergent Superintelligence in the AI Jungle](images/chapter16_images/meta_being_ws.png){fig-align="center" width="80%"}
+
 
 ## Intelligence Unbound: The Theoretical Foundations of an Explosion 
 
