@@ -83,6 +83,9 @@ website:
         href: chapter18.qmd
       - text: "chapter19"
         href: chapter19.qmd
+    right:
+      - text: "☕ Support"
+        href: https://ko-fi.com/amitverma27904
 
 
 format:
