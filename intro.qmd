@@ -24,7 +24,7 @@ Thank you all for your encouragement and belief in making AI accessible to every
 
 ## Preface
 
-Technology is advancing faster than ever, and AI is at the forefront of this revolution. When I began my journey, I found complex jargon and intimidating mathematical formulas everywhere. My goal in writing "**The AI Jungle : Learn AI & ML with Nature's Wisdom**" is to break down these barriers by turning intricate theories into relatable scenarios. I hope this book inspires you to embrace new technologies with confidence and curiosity.
+Technology is advancing faster than ever, and AI is at the forefront of this revolution. When I began my journey, I found complex jargon and intimidating mathematical formulas everywhere. My goal in writing "**The AI Jungle: Learn AI & ML with Nature's Wisdom**" is to break down these barriers by turning intricate theories into relatable scenarios. I hope this book inspires you to embrace new technologies with confidence and curiosity.
 
 I bring over 15 years of experience in designing and developing scalable, cloud-native solutions across major platforms like Azure, AWS, and Google Cloud. Throughout my career, I’ve tackled challenges in microservices architecture using Java, Spring Boot, and Kubernetes, as well as front-end work with React and TypeScript. My passion for AI/ML led me to explore frameworks like PyTorch, TensorFlow, Jupyter, and Hugging Face Transformers—tools that enable machines to learn from data just as we humans do from experience.
 

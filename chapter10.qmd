@@ -6,9 +6,7 @@ In the beginning, there was potential—a boundless frontier of data waiting to 
 Nature itself, from the smallest sprout seeking sunlight to the grandest creatures adapting to survival, offers insights into self-organization and balance. In a cosmic echo of how life first emerged, our AI systems, too, are beginning to evolve and harmonize with their environment, guided by an intangible but powerful force—a kind of digital genesis. 
 
 :::{.figure-placeholder}
-![Figure 10.1 — The Digital Jungle: An Ecosystem of AI Creatures and Flora](    
-images/chapter10_images/chapter10.png
-){fig-align="center" width="80%"}
+![Figure 10.1 — The Digital Jungle: An Ecosystem of AI Creatures and Flora](images/chapter10_images/chapter10.png){fig-align="center" width="80%"}
 :::
 
 
