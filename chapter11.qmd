@@ -27,6 +27,16 @@ In the **murky wetlands**, massive metallic shapes lie half-submerged, nearly in
 
 **Parallel to AI:** In real-world scenarios, event-driven models excel in IoT or microservices that need to react instantly to specific triggers—like a home security camera “waking” only when motion is detected. 
 
+::: {.callout-tip}
+## Quick Comparison: Event-Driven vs Resource-Aware
+
+| Approach | Animal | When to Use | Cloud Examples |
+|:---|:---|:---|:---|
+| **Event-Driven** | Alligator | Sporadic/bursty workloads | Lambda, Azure Functions |
+| **Resource-Aware** | Bear | Peak/off-peak cycles | K8s HPA, Auto Scaling |
+
+:::
+
 ## Ascending the Hills: The Bear (Resource-Aware Approach) 
 
 ### Hibernation Tactics & Seasonal Logic 

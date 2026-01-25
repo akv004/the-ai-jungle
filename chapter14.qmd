@@ -8,6 +8,18 @@ Imagine stepping into a mystical rainforest at first light. High above, the cano
 Why are we here? Because single-mode sensing—relying solely on vision, text, or any one data stream—can be as limiting as navigating this lush jungle with eyes closed. To truly understand and thrive, you need multiple senses. In this chapter, we push beyond any one modality into the realm of multi-modal intelligence—a place where images, sounds, and sensor readings unite, much like the rainforest’s own vibrant tapestry of interconnected life. 
 As you venture deeper, you’ll see how nature’s synergy mirrors advanced AI systems that learn from varied data inputs. The Digital Council—which you first met in earlier chapters—expands its ranks with new creatures. Each one fuses visual, auditory, textual, and even environmental data into a chorus of insights. Let’s step into the mist and discover how multi-modal AI can bring us closer to nature’s uncanny ability to adapt, survive, and flourish. 
 
+
+::: {.callout-tip}
+## Multi-Modal AI = Multiple Senses
+
+| Modality | Human Sense | AI Application |
+|:---|:---|:---|
+| Text | Language | Chatbots, search |
+| Image | Vision | Recognition, generation |
+| Audio | Hearing | Transcription, music |
+| Video | Motion | Understanding scenes |
+
+:::
 ## The New Voices of the Rainforest 
 
 ### The Chameleon: Seamless Audio-Visual Adaptation 

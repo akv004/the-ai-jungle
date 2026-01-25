@@ -9,6 +9,12 @@ The first light of dawn broke through the canopy as the Meta-Being took shape
 ![Figure 16.1 — The Meta-Being: An Emergent Superintelligence in the AI Jungle](images/chapter16_images/meta_being_ws.png){fig-align="center" width="80%"}
 
 
+::: {.callout-caution}
+## The Singularity: Speculation vs. Science
+
+The concept of a technological singularity—where AI surpasses human intelligence—remains hotly debated. This chapter explores the theoretical foundations while acknowledging the significant uncertainty.
+:::
+
 ## Intelligence Unbound: The Theoretical Foundations of an Explosion 
 
 ### From Spark to Wildfire – Good’s Intelligence Explosion 

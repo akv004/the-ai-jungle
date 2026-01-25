@@ -17,6 +17,17 @@ The Robotic Owl—already proficient in basic vision and classification—now fa
 
 To rise to these new challenges, the Owl relies on a suite of enhanced sensors:
 
+::: {.callout-tip}
+## The Owl's Enhanced Senses
+
+| Sensor Type | Purpose | ML Technique |
+|:---|:---|:---|
+| **Infrared** | Heat signatures in darkness | CNN + RGB fusion |
+| **Acoustic** | Unusual sounds (chainsaws, voices) | RNN/Transformer |
+| **Chemical** | Atypical scents (fuel, chemicals) | Unsupervised clustering |
+
+:::
+
 **Infrared Cameras**
 
 - **Purpose:** Uncover heat signatures in pitch-dark regions or dense foliage.

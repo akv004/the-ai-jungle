@@ -9,6 +9,12 @@ This notion of collective intelligence underpins the modern AI architecture know
 
 ![Figure 12.1 — Murmuration of Self-Attention (Chapter Opener)](images/chapter12_images/figure12_1_murmuration_hero.png){fig-align="center" width="80%"}
 
+::: {.callout-note}
+## Key Insight: The Power of Collective Intelligence
+
+Just as a single ant cannot build a colony but millions create complex cities, AI systems gain emergent capabilities when they work together—achieving what no single model could alone.
+:::
+
 
 ### From Predatory Intelligence to Swarm-Based Intelligence 
 

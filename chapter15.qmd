@@ -8,6 +8,12 @@ From the shadows emerges the Quantum Jaguar, its spotted coat shimmering with an
 
 In this chapter, we embark on a journey into quantum computing, where traditional bits become quantum **qubits**, flipping our understanding of computation itself. Together, we'll uncover how Quantum AI could revolutionize machine learning, accelerate complex searches, and redefine what we perceive as possible.
 
+
+::: {.callout-warning}
+## Quantum AI: Frontier Technology
+
+Quantum computing for AI is still largely experimental. Current applications are limited, but the potential for exponential speedups in optimization and simulation makes this a critical area to watch.
+:::
 ![The Quantum Jaguar: An enigmatic predator in the quantum light.](images/chapter15_images/QuantumJaguarWidescreen.png){#fig-quantum-jaguar}
 
 ## Encounter with the Quantum Jaguar
