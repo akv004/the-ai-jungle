@@ -30,3 +30,13 @@ already shaping our daily lives.
 
 **Enjoy the journey!**  
 **Amit Verma**
+
+---
+
+::: {.callout-tip}
+## Support This Book ☕
+
+If you find this book helpful, consider [buying me a coffee on Ko-fi](https://ko-fi.com/amitverma27904)! Your support helps me create more free educational content.
+
+[![Support on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/amitverma27904)
+:::
