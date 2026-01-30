@@ -69,33 +69,23 @@ The AI industry has rapidly evolved frameworks for building multi-agent systems:
 ```{mermaid}
 %%| fig-cap: "Multi-Agent Communication Flow in the Jungle"
 flowchart TB
-    subgraph Orchestrator["🎯 Orchestrator Layer"]
-        O1["Task Router"]
-        O2["State Manager"]
-    end
+    O1["🎯 Task Router"]
+    O2["🎯 State Manager"]
     
-    subgraph Agents["🤖 Agent Pool"]
-        A1["🐘 Elephant<br/>MLOps"]
-        A2["🐯 Tiger<br/>Vision"]
-        A3["🦉 Owl<br/>Analytics"]
-        A4["🦊 Fox<br/>RL Strategy"]
-    end
+    A1["🐘 Elephant<br/>MLOps"]
+    A2["🐯 Tiger<br/>Vision"]
+    A3["🦉 Owl<br/>Analytics"]
+    A4["🦊 Fox<br/>RL Strategy"]
     
-    subgraph Shared["📦 Shared Resources"]
-        S1["Knowledge Base"]
-        S2["Message Queue"]
-        S3["State Store"]
-    end
+    S1["📦 Knowledge Base"]
+    S2["📦 Message Queue"]
+    S3["📦 State Store"]
     
     O1 --> A1 & A2 & A3 & A4
     A1 & A2 & A3 & A4 --> S2
     S2 --> O2
     O2 --> S3
     S1 <-.-> A1 & A2 & A3 & A4
-    
-    style Orchestrator fill:#e3f2fd,stroke:#1565c0
-    style Agents fill:#e8f5e9,stroke:#2e7d32
-    style Shared fill:#fff3e0,stroke:#ef6c00
 ```
 
 ### Swarm Intelligence & Collective Learning 
@@ -176,6 +166,133 @@ print(result)
 ::: {.callout-tip}
 ## Why CrewAI?
 CrewAI excels at role-based collaboration where agents have distinct responsibilities—perfect for modeling the Jungle Council. For more complex state management, consider **LangGraph** which provides explicit control over agent state transitions.
+:::
+
+## Technical Spotlight: Model Context Protocol (MCP)
+
+While frameworks like CrewAI help agents collaborate, they still need a standardized way to access **external tools and data**. Enter **MCP (Model Context Protocol)**—a universal standard for connecting AI agents to the outside world.
+
+### What Problem Does MCP Solve?
+
+Before MCP, every AI application had to build custom integrations for each tool:
+
+```
+❌ OLD WAY: Agent → Custom Code → Database
+❌ OLD WAY: Agent → Custom Code → API
+❌ OLD WAY: Agent → Custom Code → File System
+```
+
+With MCP, a single protocol handles all connections:
+
+```
+✅ MCP WAY: Agent → MCP Client → [Any MCP Server]
+```
+
+::: {.callout-note}
+## The "USB for AI" Metaphor
+
+Just as USB standardized how devices connect to computers (eliminating dozens of proprietary cables), MCP standardizes how AI agents connect to tools. Any MCP-compatible agent can instantly use any MCP-compatible tool—no custom integration required.
+:::
+
+### MCP Architecture in the Jungle
+
+```{mermaid}
+%%| fig-cap: "MCP: The Universal Connector for Jungle Agents"
+flowchart LR
+    Owl["🦉 Owl Agent"]
+    Tiger["🐯 Tiger Agent"]
+    
+    MCP["🔌 MCP Protocol"]
+    
+    DB["🗄️ Sensor Database"]
+    API["🌐 Weather API"]
+    FS["📁 Log Files"]
+    
+    Owl --> MCP
+    Tiger --> MCP
+    MCP --> DB
+    MCP --> API
+    MCP --> FS
+```
+
+### Implementing MCP: Jungle Sensors Example
+
+Here's how the Owl agent might expose jungle sensor data via MCP:
+
+```python
+# Python: Creating an MCP Server for Jungle Data
+from mcp.server import Server
+from mcp.types import Tool, Resource
+
+# Define a tool the Owl can use to query sensors
+sensor_query_tool = Tool(
+    name="query_jungle_sensors",
+    description="Query real-time data from jungle environmental sensors",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "sensor_type": {
+                "type": "string",
+                "enum": ["temperature", "humidity", "motion", "data_flow"],
+                "description": "Type of sensor to query"
+            },
+            "zone": {
+                "type": "string",
+                "description": "Jungle zone identifier (e.g., 'canopy', 'understory', 'river')"
+            }
+        },
+        "required": ["sensor_type"]
+    }
+)
+
+# Define a resource (read-only data) for historical logs
+historical_logs = Resource(
+    uri="jungle://logs/sensor-history",
+    name="Sensor Historical Data",
+    description="Past 30 days of sensor readings for trend analysis"
+)
+
+# Create and run the MCP server
+server = Server(
+    name="JungleSensorServer",
+    tools=[sensor_query_tool],
+    resources=[historical_logs]
+)
+
+# The server exposes these capabilities to any MCP-compatible agent
+if __name__ == "__main__":
+    server.run(transport="stdio")  # Or "sse" for web-based agents
+```
+
+::: {.callout-important}
+## Real-World MCP Adoption (2025)
+
+MCP has been rapidly adopted across the AI ecosystem:
+
+| Platform | MCP Usage |
+|----------|-----------|
+| **Claude Desktop** | Connects Claude to local files, databases, and developer tools |
+| **Cursor IDE** | Enables AI coding assistants to read/write project files |
+| **VS Code Copilot** | Allows Copilot to access workspace context |
+| **Zed Editor** | Native MCP support for AI-powered editing |
+| **Windsurf** | Multi-tool agent workflows via MCP |
+
+The protocol is open-source and maintained by Anthropic, with contributions from the broader AI community.
+:::
+
+### MCP vs A2A: Complementary Protocols
+
+::: {.callout-tip}
+## Understanding the Difference
+
+- **MCP (Model Context Protocol)**: Connects agents to **tools and data** (databases, APIs, file systems)
+- **A2A (Agent-to-Agent Protocol)**: Connects agents to **other agents** (discovery, communication, delegation)
+
+In the Jungle:
+- The Owl uses **MCP** to query the sensor database
+- The Owl uses **A2A** to delegate analysis tasks to the Tiger
+
+Both protocols work together to enable fully autonomous multi-agent systems.
 :::
 
 ## Overcoming Multi-Agent Challenges 
