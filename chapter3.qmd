@@ -415,43 +415,25 @@ The Elephant decides to group all Jungle creatures by two key behaviors:
 1.  **Daily Travel Distance:** How far does the creature roam?
 2.  **Daily Food Consumption:** How much does it eat relative to its body size?
 
-By plotting every creature on a chart (Travel on X-axis, Food on Y-axis), natural clusters emerge:
+::: {.callout-warning}
+## Why "Relative to Body Size"? The Normalization Problem
 
-*   **Cluster 1 (The Sedentary Grazers):** Low travel, low food. (Sloths, Koalas)
-*   **Cluster 2 (The Active Hunters):** High travel, moderate food. (Wolves, Lions)
-*   **Cluster 3 (The High-Energy Flyers):** High travel, *very* high food. (Hummingbirds)
+If we measured **absolute** food consumption (in kg), the elephant would eat ~200 kg/day while a hummingbird eats ~0.01 kg. The elephant would dominate the chart, and we'd learn nothing about *behavioral differences*.
+
+But here's a surprising biological fact: **hummingbirds have the highest metabolic rate of any animal**. They must consume 1.5–3x their body weight in nectar *every single day* just to survive. An elephant only eats about 4% of its body weight.
+
+In data science, this is called **normalization**—converting raw numbers to a common scale so comparisons are fair. By using `(Food Consumed / Body Weight)` instead of raw kilograms, the Elephant can compare apples to apples—or hummingbirds to lions.
+:::
+
+By plotting every creature on a chart (Movement on X-axis, Metabolic Rate on Y-axis), natural clusters emerge:
+
+*   **Cluster 1 (The Sedentary Grazers):** Low movement, low metabolism. (Sloths, Koalas)
+*   **Cluster 2 (The Active Hunters):** High movement, moderate metabolism. (Wolves, Lions)
+*   **Cluster 3 (The High-Energy Flyers):** High movement, *extreme* metabolism. (Hummingbirds)
 
 Now, if a creature's behavior *changes*—say, a normally sedentary sloth suddenly starts traveling far and eating voraciously—it stands out as an **outlier** from its own peer group.
 
-```{mermaid}
-%%| label: fig-kmeans-clusters
-%%| fig-cap: "The Elephant's Behavioral Clusters: Each creature is assigned to the nearest centroid."
-flowchart LR
-    subgraph C1["Cluster 1: Sedentary Grazers"]
-        A["🦥 Sloth"]
-        B["🐨 Koala"]
-    end
-    subgraph C2["Cluster 2: Active Hunters"]
-        C["🐺 Wolf"]
-        D["🦁 Lion"]
-    end
-    subgraph C3["Cluster 3: High-Energy Flyers"]
-        E["🐦 Hummingbird"]
-    end
-    
-    F(("Centroid 1")) -.-> A
-    F -.-> B
-    G(("Centroid 2")) -.-> C
-    G -.-> D
-    H(("Centroid 3")) -.-> E
-    
-    style C1 fill:#ffffff,stroke:#4CAF50,stroke-width:2px
-    style C2 fill:#ffffff,stroke:#2196F3,stroke-width:2px
-    style C3 fill:#ffffff,stroke:#FF9800,stroke-width:2px
-    style F fill:#4CAF50,stroke:#2E7D32,color:#fff
-    style G fill:#2196F3,stroke:#1565C0,color:#fff
-    style H fill:#FF9800,stroke:#EF6C00,color:#fff
-```
+![The Elephant's Behavioral Census: K-Means groups creatures into peer clusters based on normalized movement and metabolic rate. Outliers stand out as creatures far from their cluster's centroid.](images/chapter3_images/kmeans_behavioral_census.png){#fig-kmeans-clusters}
 
 ::: {.callout-tip}
 ## Real-World Example: How Spotify Knows Your Taste
@@ -473,12 +455,12 @@ import numpy as np
 from sklearn.cluster import KMeans
 from scipy.spatial.distance import cdist
 
-# 1. Create sample data: creatures with (Travel Distance, Food Consumption)
+# 1. Create sample data: creatures with (Movement, Metabolic Rate) - both normalized
 np.random.seed(42)
-group1 = np.random.randn(30, 2) * 0.5 + [2, 2]  # Sedentary
-group2 = np.random.randn(30, 2) * 0.5 + [8, 5]  # Active Hunters
-group3 = np.random.randn(30, 2) * 0.5 + [9, 9]  # High-Energy
-outlier = np.array([[4, 9]])  # One strange creature
+group1 = np.random.randn(30, 2) * 0.5 + [2, 2]  # Sedentary Grazers (low both)
+group2 = np.random.randn(30, 2) * 0.5 + [8, 5]  # Active Hunters (high movement, moderate metabolism)
+group3 = np.random.randn(30, 2) * 0.5 + [9, 9]  # High-Energy Flyers (high both)
+outlier = np.array([[4, 9]])  # One strange creature: low movement, extreme metabolism!
 
 all_creatures = np.vstack([group1, group2, group3, outlier])
 
