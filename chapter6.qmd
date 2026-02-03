@@ -62,6 +62,91 @@ By blending these data streams, the Owl gains a multi-layered understanding of i
 **Design Intuition:**  
 In real-world systems, anomaly detection deliberately prioritizes coverage over certainty. The goal is not perfect classification, but early signal discovery. Higher false positives are acceptable initially, because missing rare or novel threats is often more costly than investigating benign alerts. Over time, human feedback and contextual filtering reduce noise without sacrificing sensitivity.
 
+---
+
+#### 🌲 The Owl's Isolation Chamber: Isolation Forest Deep Dive
+
+The Owl's most powerful anomaly detector works on a counterintuitive principle: **anomalies are easy to isolate**. While normal observations cluster together (requiring many "cuts" to separate), outliers stand alone and can be isolated quickly.
+
+::: {.callout-note}
+## Jargon Buster: How Isolation Forest Works
+
+**Isolation Forest** builds an ensemble of random **isolation trees**. Each tree:
+
+1. Picks a **random feature** and a **random split point**.
+2. Recursively partitions the data until each point is isolated.
+3. Records the **path length** (number of splits) needed to isolate each point.
+
+**Key Insight:** Anomalies require **shorter paths** because they're different from most data points. Normal points require **longer paths** because they're surrounded by similar neighbors.
+
+The final **anomaly score** is the average path length across all trees, normalized to a 0–1 scale where **higher = more anomalous**.
+:::
+
+**The Jungle Narrative: Spotting the Lone Intruder**
+
+Imagine the Owl monitoring 1,000 jungle creatures. Most travel in groups, eat at similar times, and follow predictable routes. But one creature moves alone, at odd hours, in restricted areas. When the Owl's isolation tree tries to separate this creature from the others, it only takes **2 splits**. Normal creatures take **8+ splits**. The lone creature is flagged immediately.
+
+```{mermaid}
+%%| label: fig-isolation-forest
+%%| fig-cap: "Isolation Forest: Anomalies require fewer splits to isolate."
+flowchart TD
+    A["All Data Points"] --> B{"Random Split 1"}
+    B -->|Left| C["Normal Cluster"]
+    B -->|Right| D{"Random Split 2"}
+    D -->|Left| E["Normal Subclusters"]
+    D -->|Right| F["🚨 ANOMALY ISOLATED"]
+    
+    style F fill:#FFCDD2,stroke:#C62828
+    style C fill:#E8F5E9,stroke:#4CAF50
+    style E fill:#E8F5E9,stroke:#4CAF50
+```
+
+::: {.callout-tip}
+## Real-World Example: Credit Card Fraud Detection
+
+Banks like **JPMorgan** and **Mastercard** use Isolation Forest to detect fraudulent transactions.
+
+Why? Because fraud is **rare** (0.1% of transactions) and **unpredictable** (new fraud patterns emerge daily). Isolation Forest doesn't need labeled fraud examples—it simply finds transactions that "stand out" from normal spending behavior: unusual amounts, strange locations, odd timing.
+
+This **unsupervised approach** catches novel fraud types that supervised models trained on historical fraud would miss.
+:::
+
+**Technical Spotlight: Isolation Forest in Action**
+
+```python
+# Python: Isolation Forest for Anomaly Detection
+from sklearn.ensemble import IsolationForest
+import numpy as np
+
+# 1. Create sample data: 995 normal, 5 anomalous
+np.random.seed(42)
+normal = np.random.randn(995, 2)  # Normal cluster around origin
+anomalies = np.random.uniform(-4, 4, (5, 2))  # Scattered outliers
+
+data = np.vstack([normal, anomalies])
+
+# 2. Train Isolation Forest
+iso_forest = IsolationForest(contamination=0.005, random_state=42)
+iso_forest.fit(data)
+
+# 3. Predict: -1 = anomaly, 1 = normal
+predictions = iso_forest.predict(data)
+anomaly_indices = np.where(predictions == -1)[0]
+
+print(f"🚨 Detected {len(anomaly_indices)} anomalies")
+print(f"   Indices: {anomaly_indices.tolist()}")
+# Output: Detects the 5 anomalies at indices 995-999
+
+# 4. Get anomaly scores (lower = more anomalous)
+scores = iso_forest.decision_function(data)
+most_anomalous = np.argmin(scores)
+print(f"🔴 Most anomalous point: #{most_anomalous}")
+```
+
+**Key Insight:** The `contamination` parameter tells the model what fraction of data to expect as anomalies. Set it low (e.g., 0.01) for rare event detection. The `decision_function` returns raw scores—useful for ranking suspicious cases.
+
+---
+
 ### Concept Drift
 
 **Definition:**  

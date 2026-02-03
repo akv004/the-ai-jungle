@@ -92,6 +92,85 @@ When birds sing in a canopy, they exchange signals that account for both immedia
 -   **Search Engines:** Google uses BERT-like models to interpret query intent more accurately. 
 -   **Legal & Medical Documents:** BERT-based systems parse jargon-laden text for contract analysis or symptom extraction. 
 
+---
+
+### 🏷️ The Flock's Census Takers: Named Entity Recognition (NER)
+
+When the Flock surveys the jungle, it doesn't just count creatures—it **identifies them by name and category**. "That's the Elephant, a LEADER. Over there is the River, a LOCATION. The Great Migration happens in SPRING, a TIME."
+
+This is **Named Entity Recognition (NER)**—the AI's ability to find and classify specific "entities" in unstructured text.
+
+::: {.callout-note}
+## Jargon Buster: What is NER?
+
+**Named Entity Recognition** is an NLP task that identifies and categorizes key information in text. Common entity types include:
+
+| Entity Type | Examples |
+|:---|:---|
+| **PERSON** | Barack Obama, Marie Curie |
+| **ORG** | Google, World Health Organization |
+| **GPE** (Geo-Political Entity) | Paris, United States |
+| **DATE** | January 2024, next Tuesday |
+| **MONEY** | $500, €1 million |
+| **PRODUCT** | iPhone, Tesla Model 3 |
+
+NER is the first step in turning unstructured text into **structured data**—essential for downstream tasks like search, summarization, and knowledge graphs.
+:::
+
+**The Jungle Narrative: Cataloging the Council's Archive**
+
+The Council of Animals keeps centuries of historical scrolls. But searching them is tedious—until the Flock's Census Takers fly through, tagging every mention of creatures (ANIMAL), locations (TERRITORY), and dates (SEASON). Now, any Council member can ask: *"Show me all mentions of the Tiger in the Northern Territory during the Dry Season"*—and get instant results.
+
+::: {.callout-tip}
+## Real-World Example: Medical Record Extraction
+
+Hospitals use NER to extract critical information from doctor's notes:
+
+- **MEDICATION:** "Patient is taking *lisinopril* 10mg daily"
+- **PROCEDURE:** "Scheduled for *colonoscopy* next week"
+- **CONDITION:** "History of *Type 2 diabetes*"
+
+This powers **clinical decision support systems** that alert doctors to drug interactions, ensure compliance with care protocols, and automate billing codes.
+:::
+
+**Technical Spotlight: NER with spaCy**
+
+```python
+# Python: Named Entity Recognition with spaCy
+import spacy
+
+# 1. Load pre-trained English model
+nlp = spacy.load("en_core_web_sm")
+
+# 2. Process a medical note
+text = """
+Dr. Sarah Chen at Mayo Clinic diagnosed the patient with Type 2 diabetes 
+on January 15, 2024. She prescribed Metformin 500mg twice daily.
+The next follow-up is scheduled for February 2024 in Rochester, Minnesota.
+"""
+
+doc = nlp(text)
+
+# 3. Extract named entities
+print("🏷️ Extracted Entities:")
+for ent in doc.ents:
+    print(f"   {ent.text:25} → {ent.label_}")
+
+# Output:
+#    Sarah Chen                 → PERSON
+#    Mayo Clinic                → ORG
+#    Type 2 diabetes            → ???  (may need custom model)
+#    January 15, 2024           → DATE
+#    Metformin                  → ???  (may need custom model)
+#    500mg                      → QUANTITY
+#    February 2024              → DATE
+#    Rochester, Minnesota       → GPE
+```
+
+**Key Insight:** General-purpose NER models work well for common entities (PERSON, ORG, DATE), but **domain-specific** entities (medications, procedures, conditions) often require **fine-tuned models** trained on specialized data.
+
+--- 
+
 ### Language Generation: The Flock’s Collective Storytelling (GPT) 
 
 Where BERT understands, **GPT** (Generative Pre-trained Transformer) creates. Think of a flock engaged in collective choreography: each bird’s subtle movement shapes and is shaped by the group. 

@@ -85,6 +85,51 @@ Use this quick map when you’re unsure where to start:
 - **Tiger Analogy:** “Is this **likely prey**?” *(P > 0.5)*.
 - **Modern Note:** Strong, simple baseline for many classification tasks.
 
+::: {.callout-note}
+## Jargon Buster: The Sigmoid Function
+
+Logistic Regression uses the **sigmoid** (or logistic) function to squash any number into a probability between 0 and 1:
+
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+
+- If the input $z$ is very positive → output approaches **1** (likely prey)
+- If the input $z$ is very negative → output approaches **0** (not prey)
+- If $z = 0$ → output is exactly **0.5** (50/50 chance)
+
+This makes Logistic Regression perfect for **probability estimation**, not just yes/no decisions.
+:::
+
+**Technical Spotlight: Logistic Regression for Credit Scoring**
+
+```python
+# Python: Logistic Regression with Probability Output
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+import numpy as np
+
+# 1. Create sample data (credit applications)
+X, y = make_classification(n_samples=500, n_features=5, random_state=42)
+feature_names = ['Income', 'Debt_Ratio', 'Credit_History', 'Employment', 'Age']
+
+# 2. Train Logistic Regression
+model = LogisticRegression(random_state=42)
+model.fit(X, y)
+
+# 3. Predict probability for a new applicant
+new_applicant = np.array([[0.5, -0.2, 1.0, 0.3, 0.8]])
+prob = model.predict_proba(new_applicant)[0]
+print(f"💳 Approval Probability: {prob[1]:.1%}")  # Probability of class 1
+# Output: ~72% approval probability
+
+# 4. Examine coefficients (explainability!)
+import pandas as pd
+coeffs = pd.Series(model.coef_[0], index=feature_names)
+print("📊 Feature Weights:", coeffs.to_dict())
+```
+
+**Key Insight:** Unlike black-box models, Logistic Regression's **coefficients** tell you exactly how each feature affects the prediction. A positive coefficient means the feature increases the probability; negative decreases it.
+
+
 ### Decision Trees *(Supervised)*
 - **Purpose:** Classification or regression via a hierarchy of rules.
 - **Key Idea:** Split features into branches (if-then rules) until a leaf decision.
@@ -106,6 +151,49 @@ While Random Forests aggregate decision trees by averaging, more advanced ensemb
 - **LightGBM:** Efficient for large datasets, uses leaf-wise tree growth for accuracy.
 
 These methods have become the **predators of tabular data**, winning many machine learning competitions due to their power and flexibility.
+
+::: {.callout-note}
+## Jargon Buster: How is XGBoost Different from Random Forest?
+
+| Aspect | Random Forest | XGBoost |
+|:---|:---|:---|
+| **Strategy** | Parallel: Many trees vote independently | Sequential: Each tree corrects the previous |
+| **Focus** | All data equally | Hard cases (previous errors) |
+| **Analogy** | Council of Elders voting | Relay race of improving trackers |
+| **Speed** | Fast (parallelizable) | Slower per tree, but fewer trees needed |
+
+XGBoost often achieves **higher accuracy** than Random Forest because it specifically targets the mistakes the previous trees made.
+:::
+
+**Technical Spotlight: XGBoost in Action**
+
+```python
+# Python: XGBoost for Classification
+from xgboost import XGBClassifier
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+
+# 1. Create sample data
+X, y = make_classification(n_samples=1000, n_features=10, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# 2. Train XGBoost (sequential boosting)
+xgb = XGBClassifier(n_estimators=100, learning_rate=0.1, random_state=42)
+xgb.fit(X_train, y_train)
+
+# 3. Evaluate
+accuracy = xgb.score(X_test, y_test)
+print(f"🎯 XGBoost Accuracy: {accuracy:.2%}")
+# Output: ~92-95% accuracy
+
+# 4. Feature Importance (explainability!)
+import pandas as pd
+importances = pd.Series(xgb.feature_importances_, index=[f"Feature_{i}" for i in range(10)])
+print("📊 Top 3 Features:", importances.nlargest(3).to_dict())
+```
+
+**Key Insight:** XGBoost also provides `feature_importances_`, making it explainable—just like Random Forest. This is why it dominates tabular data competitions (Kaggle, etc.).
+
 
 ### Regularization Techniques: Taming Complexity
 
@@ -424,6 +512,87 @@ flowchart TD
     style A fill:#E3F2FD,stroke:#1976D2
     style F fill:#C8E6C9,stroke:#388E3C
 ```
+
+---
+
+#### 🌙 The Elephant's Night Vision: DBSCAN (When K-Means Fails)
+
+K-Means is powerful, but it has a critical weakness: it assumes clusters are **circular blobs**. What if the Elephant encounters creatures that form ring-shaped patterns? Or crescent-shaped migration routes? K-Means will struggle, forcing round pegs into round holes.
+
+Enter **DBSCAN** (Density-Based Spatial Clustering of Applications with Noise)—the Elephant's "night vision" for detecting clusters of **any shape**.
+
+::: {.callout-note}
+## Jargon Buster: What is DBSCAN?
+
+**DBSCAN** finds clusters based on **density** rather than distance to a center. It works by:
+
+1. Picking a random point and checking if it has enough neighbors within a radius (called **eps**).
+2. If yes, it's a **core point**, and all its neighbors join the same cluster.
+3. The cluster expands outward, following the density, until it hits sparse regions.
+4. Points in sparse regions are labeled **noise** (outliers).
+
+**Key Parameters:**
+- **eps (ε):** The neighborhood radius. "How close is close?"
+- **min_samples:** Minimum neighbors to form a core point. "How crowded is crowded?"
+
+Unlike K-Means, you don't need to specify K (the number of clusters). DBSCAN discovers them automatically!
+:::
+
+**The Jungle Narrative: Detecting Ring-Shaped Migrations**
+
+During the monsoon, certain insects migrate in **ring-shaped patterns** around the central watering hole. K-Means, with its circular centroids, would split this ring into awkward pie slices. But the Elephant's DBSCAN vision sees the ring as **one continuous cluster**, because the insects are densely packed along the ring's arc.
+
+```{mermaid}
+%%| label: fig-dbscan-vs-kmeans
+%%| fig-cap: "DBSCAN vs K-Means: Detecting non-circular clusters."
+flowchart LR
+    subgraph KM["K-Means Result ❌"]
+        K1["Cluster A"]
+        K2["Cluster B"]
+        K3["Cluster C"]
+    end
+    subgraph DB["DBSCAN Result ✅"]
+        D1["Ring Cluster"]
+        D2["🔴 Noise"]
+    end
+    
+    style KM fill:#ffffff,stroke:#F44336,stroke-width:2px
+    style DB fill:#ffffff,stroke:#4CAF50,stroke-width:2px
+```
+
+::: {.callout-tip}
+## Real-World Example: GPS Trajectory Clustering
+
+Ride-sharing companies like **Uber** and **Lyft** use DBSCAN to cluster GPS coordinates into **pickup hotspots**.
+
+Why not K-Means? Because city streets aren't circular. A popular pickup zone might follow a curved street or wrap around a park. DBSCAN detects these **arbitrary shapes**, identifying that "the airport terminal curb" is one hotspot, not three.
+:::
+
+**Technical Spotlight: DBSCAN in Action**
+
+```python
+# Python: DBSCAN for Arbitrary-Shape Clustering
+from sklearn.cluster import DBSCAN
+from sklearn.datasets import make_moons
+import numpy as np
+
+# 1. Create crescent-shaped data (impossible for K-Means)
+X, _ = make_moons(n_samples=300, noise=0.05, random_state=42)
+
+# 2. Apply DBSCAN
+dbscan = DBSCAN(eps=0.2, min_samples=5)
+labels = dbscan.fit_predict(X)
+
+# 3. Count clusters and noise
+n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+n_noise = list(labels).count(-1)
+
+print(f"🌙 DBSCAN found {n_clusters} clusters")
+print(f"🔴 Identified {n_noise} noise points (outliers)")
+# Output: 2 clusters, ~0 noise points
+```
+
+**Key Insight:** DBSCAN's `labels` array assigns `-1` to noise points. These are your **true outliers**—creatures that don't belong to any flock.
 
 ---
 
