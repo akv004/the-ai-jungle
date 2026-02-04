@@ -165,6 +165,41 @@ The Robotic Owl has access to many anomaly detection tools, but each has a diffe
 
 The Isolation Forest we just saw uses **scikit-learn**—perfect for tabular data with numeric features. But what if the Owl needs to detect anomalies in more complex patterns? That's when it reaches for **PyTorch** and the Autoencoder.
 
+::: {.callout-note}
+## Jargon Buster: What is PyTorch?
+
+**PyTorch** is a deep learning framework that lets you build neural networks from scratch. While scikit-learn provides ready-made algorithms, PyTorch gives you **building blocks** to construct custom architectures.
+
+| Component | What It Does | Example |
+|:---|:---|:---|
+| **Tensors** | Multi-dimensional arrays (like NumPy, but GPU-accelerated) | `torch.tensor([1, 2, 3])` |
+| **Autograd** | Automatic differentiation for training | Computes gradients automatically |
+| **torch.nn** | Neural network layers | `nn.Linear`, `nn.Conv2d`, `nn.Transformer` |
+| **Optimizers** | Update weights during training | `Adam`, `SGD` |
+| **DataLoader** | Batch and shuffle data | Handles mini-batch training |
+
+**When to use PyTorch vs scikit-learn?**
+
+| Scenario | Use | Why |
+|:---|:---|:---|
+| Tabular data, quick prototype | scikit-learn | Simpler, faster, interpretable |
+| Complex patterns, 100+ features | PyTorch (Autoencoder) | Learns multi-dimensional correlations |
+| Images, audio, sequences | PyTorch (CNN, RNN) | Neural networks excel at spatial/temporal patterns |
+| Custom research architecture | PyTorch | Full flexibility to build anything |
+
+**The PyTorch Pattern:**
+```python
+# PyTorch follows a similar pattern to scikit-learn
+import torch.nn as nn
+
+model = nn.Sequential(nn.Linear(100, 50), nn.ReLU(), nn.Linear(50, 10))  # 1. Define
+optimizer = torch.optim.Adam(model.parameters())  # 2. Choose optimizer
+# 3. Training loop: forward → loss → backward → step
+```
+:::
+
+![The PyTorch Ecosystem: From research to production—Core tensors & autograd, neural network building blocks, computer vision and NLP libraries, training utilities, and deployment options.](images/chapter6_images/pytorch_ecosystem.png){#fig-pytorch-ecosystem}
+
 ---
 
 ### 🧠 The Autoencoder: Learning What "Normal" Looks Like
