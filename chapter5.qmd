@@ -26,7 +26,7 @@ The answer unfolds not from pre-written rules but from *trial, feedback, and ada
 ![](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
 :::
 
-![The Fox's Toolkit: A visual map of Reinforcement Learning algorithm families—Value-Based (Q-Learning, DQN), Policy-Based (REINFORCE, Policy Gradient), Actor-Critic (PPO, SAC), Model-Based (MuZero, Dreamer), and Modern RL (RLHF, Offline RL).](images/chapter5/rl_algorithm_ecosystem.png){#fig-rl-ecosystem}
+![The Fox's Toolkit: A visual map of Reinforcement Learning algorithm families—Value-Based (Q-Learning, DQN), Policy-Based (REINFORCE, Policy Gradient), Actor-Critic (PPO, SAC), Model-Based (MuZero, Dreamer), and Modern RL (RLHF, Offline RL).](images/chapter5/rl_algorithm_ecosystem_bordered.png){#fig-rl-ecosystem}
 
 ::: {.callout-note}
 ## Jargon Buster: The RL Toolkit Stack

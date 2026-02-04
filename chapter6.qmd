@@ -198,7 +198,7 @@ optimizer = torch.optim.Adam(model.parameters())  # 2. Choose optimizer
 ```
 :::
 
-![The PyTorch Ecosystem: From research to production—Core tensors & autograd, neural network building blocks, computer vision and NLP libraries, training utilities, and deployment options.](images/chapter6_images/pytorch_ecosystem.png){#fig-pytorch-ecosystem}
+![The PyTorch Ecosystem: From research to production—Core tensors & autograd, neural network building blocks, computer vision and NLP libraries, training utilities, and deployment options.](images/chapter6_images/pytorch_ecosystem_bordered.png){#fig-pytorch-ecosystem}
 
 ---
 
