@@ -54,6 +54,47 @@ Supervised learning relies on labeled data, which guides the tiger’s hunting i
 
 ---
 
+## The Tiger's Toolkit: Introducing scikit-learn
+
+Before the Tiger can master these algorithms, it needs a **toolkit**—a reliable set of tools that work the same way every time. In Python, that toolkit is **scikit-learn**.
+
+::: {.callout-note}
+## Jargon Buster: What is scikit-learn?
+
+**scikit-learn** (often imported as `sklearn`) is Python's most popular library for traditional machine learning. It provides:
+
+| Capability | What It Does | Example Algorithms |
+|:---|:---|:---|
+| **Classification** | Identify which category an object belongs to | Logistic Regression, Random Forest, SVM |
+| **Regression** | Predict continuous values | Linear Regression, Ridge, Gradient Boosting |
+| **Clustering** | Group similar objects automatically | K-Means, DBSCAN, Hierarchical |
+| **Dimensionality Reduction** | Reduce number of features | PCA, t-SNE, UMAP |
+| **Model Selection** | Compare and tune models | Grid Search, Cross-Validation |
+| **Preprocessing** | Prepare data for ML | StandardScaler, OneHotEncoder |
+
+**Why scikit-learn?**
+- **Simple and efficient:** Clean API designed for readability
+- **Consistent pattern:** Every algorithm uses `.fit()`, `.predict()`, `.transform()`
+- **Built on NumPy/SciPy:** Fast, efficient, and integrates with the Python ecosystem
+- **Open source (BSD):** Free for commercial use
+
+**The Consistent API Pattern:**
+```python
+# Every scikit-learn model follows the same pattern:
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier()  # 1. Create
+model.fit(X_train, y_train)       # 2. Train
+predictions = model.predict(X_test)  # 3. Predict
+```
+
+This consistency means once you learn one algorithm, you can use *any* scikit-learn algorithm the same way. The Tiger doesn't need to learn new commands for each tool—they all respond to the same signals.
+:::
+
+![The scikit-learn Algorithm Landscape: A visual map of Python's most popular ML toolkit, organized by capability—Classification, Regression, Clustering, Dimensionality Reduction, Model Selection, and Preprocessing.](images/chapter3_images/sklearn_algorithm_map.png){#fig-sklearn-map}
+
+---
+
 ## Common Algorithms
 
 ### Choosing the Right Method (Field Guide)
