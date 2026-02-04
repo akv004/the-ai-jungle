@@ -22,6 +22,7 @@ You don’t have to be an AI researcher to feel its benefits. Professionals in f
 
 In essence, AI and ML are important because they offer new ways to solve problems, enhance our daily experiences, and expand what’s possible. The roar of the robotic tiger is being heard across the globe, signaling a new era of possibility and progress.
 
+![The AI Jungle: Where Artificial Intelligence Lives Today—from voice assistants and smart recommendations to autonomous systems, healthcare AI, and creative applications.](images/chapter1_images/ai_ecosystem_v2.png){#fig-ai-ecosystem}
 
 ## A Brief (And Lively) History of AI
 
@@ -41,9 +42,9 @@ After the initial excitement, progress in AI slowed to a crawl, entering a perio
 
 Spring eventually returned to the AI jungle. From the 1990s onward, advances in computing power and an explosion of available data led to a dramatic resurgence in AI capabilities. The robotic tiger had grown up and found its strength. In 1997, IBM’s Deep Blue supercomputer stunned the world by defeating reigning chess champion Garry Kasparov ￼ – a symbolic roar that signaled the tiger was back on the prowl. Fast forward to 2016, and DeepMind’s AlphaGo program defeated Go master Lee Sedol ￼, a feat once thought decades away due to Go’s enormous complexity. That was a thunderous roar, heard around the globe, announcing that modern AI can take on and conquer incredibly complex tasks.
 
-These high-profile victories were just the beginning. In the 2010s and 2020s, AI left the research labs and started appearing everywhere in daily life. Smartphones became smart largely thanks to AI-driven features. Cars began to inch closer to driving themselves. Language models learned to write human-like text, and image generators created artwork from simple prompts. AI assistants grew more helpful, capable of engaging in human-like conversations. The once-quiet jungle is now teeming with activity – AI is everywhere, and it’s advancing faster than ever. The robotic tiger, representing AI, is no longer a solitary curiosity; it’s part of a growing pride influencing the entire ecosystem. And while we’ve seen amazing achievements, the story of AI is far from over – in fact, it’s just getting started.
+These high-profile victories were just the beginning. In the 2010s and 2020s, AI left the research labs and started appearing everywhere in daily life. Smartphones became smart largely thanks to AI-driven features. Cars began to inch closer to driving themselves. Language models learned to write human-like text, and image generators created artwork from simple prompts. AI assistants grew more helpful, capable of engaging in human-like conversations. The once-quiet jungle is now teeming with activity – AI is everywhere, and it's advancing faster than ever. The robotic tiger, representing AI, is no longer a solitary curiosity; it's part of a growing pride influencing the entire ecosystem. And while we've seen amazing achievements, the story of AI is far from over – in fact, it's just getting started.
 
-
+![The Tiger's Journey: A Brief History of AI—from Turing's 1950s question through the AI Winters, Deep Blue's chess victory, AlphaGo's triumph, to the modern LLM era.](images/chapter1_images/ai_history_timeline_v2.png){#fig-ai-history}
 
 ## Understanding AI, Machine Learning, and Deep Learning
 
@@ -72,6 +73,27 @@ Deep Learning is a specialized subfield of machine learning, inspired by the str
 
 :::
 
+```{mermaid}
+%%| label: fig-ai-hierarchy
+%%| fig-cap: "The AI Hierarchy: Deep Learning is a subset of Machine Learning, which is a subset of Artificial Intelligence."
+flowchart TB
+    subgraph AI["🐯 Artificial Intelligence"]
+        direction TB
+        subgraph ML["🧠 Machine Learning"]
+            direction TB
+            subgraph DL["⚡ Deep Learning"]
+                Neural["Neural Networks<br/>CNNs, RNNs, Transformers"]
+            end
+            Traditional["Traditional ML<br/>Decision Trees, SVM, K-Means"]
+        end
+        RuleBased["Rule-Based Systems<br/>Expert Systems, Planning"]
+    end
+    
+    style AI fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style ML fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style DL fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+```
+
 Understanding this hierarchy will help you make sense of the buzzwords and appreciate how they relate to each other in the world of AI
 
 ## AI As A Robotic Tiger Learning To Hunt (Analogy)
@@ -81,6 +103,25 @@ Understanding this hierarchy will help you make sense of the buzzwords and appre
 ### Overview
 
 Imagine an advanced robotics lab tasked with creating a life-like AI-powered tiger—one that roams a controlled environment, detects prey, and adapts its strategies. While this premise seems straight out of science fiction, it mirrors the core stages of AI development: collecting data, building models, training, validation, and final deployment. In our analogy, the robotic tiger’s journey brings these AI stages to life: sensing (data), understanding (algorithms), learning (training), improving (feedback), and acting (deployment). Below, we break down each stage of AI development in terms of the tiger’s creation and learning process.
+
+```{mermaid}
+%%| label: fig-ml-pipeline
+%%| fig-cap: "The ML Pipeline: How a robotic tiger learns to hunt—from data collection to real-world deployment."
+flowchart LR
+    D["📊 Data<br/>(Tiger's DNA)"] --> A["🧬 Algorithm<br/>(Cognitive Blueprint)"]
+    A --> T["🏋️ Training<br/>(Practice Hunts)"]
+    T --> F["🔄 Feedback<br/>(Learn from Mistakes)"]
+    F --> V["✅ Validation<br/>(Test in Wild)"]
+    V --> Dep["🚀 Deployment<br/>(Release Tiger)"]
+    F -.->|iterate| T
+    
+    style D fill:#e3f2fd,stroke:#1976d2,color:#000
+    style A fill:#e8f5e9,stroke:#388e3c,color:#000
+    style T fill:#fff3e0,stroke:#f57c00,color:#000
+    style F fill:#fce4ec,stroke:#c2185b,color:#000
+    style V fill:#f3e5f5,stroke:#7b1fa2,color:#000
+    style Dep fill:#e0f2f1,stroke:#00796b,color:#000
+```
 
 ### 1. Data = The Tiger’s “DNA” and Sensory Inputs
 
