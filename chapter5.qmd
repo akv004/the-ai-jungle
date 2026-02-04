@@ -26,6 +26,9 @@ The answer unfolds not from pre-written rules but from *trial, feedback, and ada
 ![](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
 :::
 
+![The Fox's Toolkit: A visual map of Reinforcement Learning algorithm families—Value-Based (Q-Learning, DQN), Policy-Based (REINFORCE, Policy Gradient), Actor-Critic (PPO, SAC), Model-Based (MuZero, Dreamer), and Modern RL (RLHF, Offline RL).](images/chapter5/rl_algorithm_ecosystem.png){#fig-rl-ecosystem}
+
+
 ### Technical Sidebar — Where RL Shows Up in Modern AI
 
 Reinforcement Learning is not “one model” — it’s a **training loop**. The agent acts, gets feedback, and updates its behavior to do better over time.
@@ -62,11 +65,64 @@ choose an action now → see reward now (ranking, ads, simple recommendations).
 This cycle repeats thousands or millions of times until the agent learns an effective strategy.
 :::
 
+```{mermaid}
+%%| label: fig-rl-loop
+%%| fig-cap: "The RL Feedback Loop: Agent observes state, takes action, receives reward, updates policy."
+flowchart LR
+    A["🦊 Agent<br/>(Fox)"] -->|observes| S["📍 State<br/>(Environment)"]
+    A -->|takes| Act["⚡ Action"]
+    Act -->|affects| E["🌲 Environment<br/>(Jungle)"]
+    E -->|returns| R["🎯 Reward<br/>(+10 / -15)"]
+    R -->|updates| P["🧠 Policy<br/>(Strategy)"]
+    P -->|guides| A
+    
+    style A fill:#ff9800,stroke:#e65100,color:#fff
+    style S fill:#2196f3,stroke:#1565c0,color:#fff
+    style Act fill:#4caf50,stroke:#2e7d32,color:#fff
+    style E fill:#9c27b0,stroke:#6a1b9a,color:#fff
+    style R fill:#f44336,stroke:#c62828,color:#fff
+    style P fill:#00bcd4,stroke:#00838f,color:#fff
+```
+
 ---
 
 ## The Landscape of Reinforcement Learning
 
 To understand the Fox’s world, we must understand the architecture of RL itself. The Jungle—the environment—is not static. Winds shift. Predators move. Seasons change. Each encounter reshapes tomorrow’s choices.
+
+```{mermaid}
+%%| label: fig-rl-family-tree
+%%| fig-cap: "RL Algorithm Family Tree: The major branches of reinforcement learning methods."
+flowchart TD
+    RL["🦊 Reinforcement Learning"]
+    RL --> VB["📊 Value-Based"]
+    RL --> PB["🎯 Policy-Based"]
+    RL --> AC["🎭 Actor-Critic"]
+    RL --> MB["🔮 Model-Based"]
+    
+    VB --> QL["Q-Learning"]
+    VB --> DQN["DQN"]
+    VB --> DDQN["Double DQN"]
+    
+    PB --> PG["Policy Gradient"]
+    PB --> REINF["REINFORCE"]
+    
+    AC --> A2C["A2C / A3C"]
+    AC --> PPO["PPO ⭐"]
+    AC --> SAC["SAC"]
+    
+    MB --> MZ["MuZero"]
+    MB --> WM["World Models"]
+    MB --> DR["Dreamer"]
+    
+    style RL fill:#ff5722,stroke:#bf360c,color:#fff
+    style VB fill:#2196f3,stroke:#1565c0,color:#fff
+    style PB fill:#4caf50,stroke:#2e7d32,color:#fff
+    style AC fill:#9c27b0,stroke:#6a1b9a,color:#fff
+    style MB fill:#00bcd4,stroke:#00838f,color:#fff
+    style PPO fill:#ffc107,stroke:#ff8f00,color:#000
+```
+
 
 ### Agent — The Fox
 The learner, explorer, decision-maker.
@@ -305,6 +361,27 @@ This division mirrors natural learning:
 
 - Intuition initiates behavior.
 - Reflection refines it.
+
+```{mermaid}
+%%| label: fig-actor-critic
+%%| fig-cap: "Actor-Critic Architecture: The Actor proposes actions while the Critic evaluates them."
+flowchart LR
+    subgraph Brain["🦊 Fox Brain"]
+        Actor["🎭 Actor<br/>(Proposes Actions)"]
+        Critic["📊 Critic<br/>(Evaluates Value)"]
+    end
+    
+    State["📍 State"] --> Actor
+    State --> Critic
+    Actor -->|action| Env["🌲 Environment"]
+    Env -->|reward| Critic
+    Critic -->|feedback| Actor
+    
+    style Actor fill:#4caf50,stroke:#2e7d32,color:#fff
+    style Critic fill:#2196f3,stroke:#1565c0,color:#fff
+    style State fill:#ff9800,stroke:#e65100,color:#fff
+    style Env fill:#9c27b0,stroke:#6a1b9a,color:#fff
+```
 
 Advanced forms like PPO and SAC blend stability with bold exploration, producing behavior both robust and efficient.
 
