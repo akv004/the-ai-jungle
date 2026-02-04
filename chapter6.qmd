@@ -147,6 +147,187 @@ print(f"🔴 Most anomalous point: #{most_anomalous}")
 
 ---
 
+## The Owl's Toolkit: Choosing the Right Weapon
+
+The Robotic Owl has access to many anomaly detection tools, but each has a different purpose. Just as a carpenter wouldn't use a sledgehammer to hang a picture frame, the Owl must choose the right tool for each job.
+
+::: {.callout-note}
+## Jargon Buster: When to Use What?
+
+| Library | Best For | Example Algorithms | Model Size | When to Use |
+|:---|:---|:---|:---|:---|
+| **scikit-learn** | Tabular data, fast prototyping | K-Means, Isolation Forest, Logistic Regression | ~KB | 90% of business ML problems |
+| **PyTorch / TensorFlow** | Neural networks, custom architectures | Autoencoders, CNNs, RNNs | KB–GB | Complex patterns, images, sequences |
+| **LLM APIs** | Text understanding, generation | GPT, Claude, Gemini | 70GB+ (hosted) | Chat, summarization, reasoning |
+
+**Rule of thumb:** Start with scikit-learn. Only move to PyTorch if scikit-learn can't capture the complexity. Only use LLMs if you need language understanding.
+:::
+
+The Isolation Forest we just saw uses **scikit-learn**—perfect for tabular data with numeric features. But what if the Owl needs to detect anomalies in more complex patterns? That's when it reaches for **PyTorch** and the Autoencoder.
+
+---
+
+### 🧠 The Autoencoder: Learning What "Normal" Looks Like
+
+An **Autoencoder** is a neural network that learns to compress data into a tiny representation, then reconstruct it. If the reconstruction is poor, the input was probably abnormal—it didn't match the patterns the network learned.
+
+::: {.callout-note}
+## Jargon Buster: How Autoencoders Work
+
+An Autoencoder has two parts:
+
+1. **Encoder:** Compresses input (e.g., 100 features) into a small "latent space" (e.g., 10 dimensions)
+2. **Decoder:** Expands the latent space back to the original size (100 features)
+
+```
+Input (100) → [Encoder] → Latent (10) → [Decoder] → Output (100)
+```
+
+**Training:** The network learns to minimize **reconstruction error**—the difference between input and output. It's forced to learn the essential patterns because information must squeeze through the bottleneck.
+
+**Anomaly Detection:** After training on normal data, feed in a suspicious sample. If reconstruction error is high, the sample is anomalous—it doesn't fit the patterns the Autoencoder learned.
+:::
+
+**The Jungle Narrative: The Owl's Memory Compression**
+
+The Owl can't store raw sensor readings from every patrol forever—that's terabytes of data. Instead, it compresses each patrol into a "patrol fingerprint" (the latent space). Normal patrols compress cleanly. But a patrol with unusual activity—say, a poacher using new tactics—produces a garbled fingerprint with high reconstruction loss. That's the alert.
+
+::: {.callout-tip}
+## Real-World Example: Healthcare Provider Fraud Detection
+
+Healthcare fraud costs the US over **$100 billion annually**. Insurers use Autoencoders to detect fraudulent provider billing:
+
+- **Input:** 100+ billing features (procedure codes, patient demographics, claim amounts, referral patterns)
+- **Latent space:** Compressed to ~10 dimensions
+- **Training:** On millions of legitimate claims
+- **Detection:** New claims with high reconstruction error are flagged for investigation
+
+Why not Isolation Forest? Because billing patterns have **complex correlations** (certain procedures always accompany others). Autoencoders can learn these multi-dimensional relationships; tree-based methods struggle.
+:::
+
+**Technical Spotlight: Autoencoder in PyTorch**
+
+```python
+# Python: Autoencoder for Anomaly Detection with PyTorch
+import torch
+import torch.nn as nn
+import numpy as np
+
+# 1. Define the Autoencoder architecture
+class Autoencoder(nn.Module):
+    def __init__(self, input_dim=100, latent_dim=10):
+        super().__init__()
+        # Encoder: compress 100 → 50 → 10
+        self.encoder = nn.Sequential(
+            nn.Linear(input_dim, 50),
+            nn.ReLU(),
+            nn.Linear(50, latent_dim),
+            nn.ReLU()
+        )
+        # Decoder: expand 10 → 50 → 100
+        self.decoder = nn.Sequential(
+            nn.Linear(latent_dim, 50),
+            nn.ReLU(),
+            nn.Linear(50, input_dim)
+        )
+    
+    def forward(self, x):
+        latent = self.encoder(x)
+        reconstructed = self.decoder(latent)
+        return reconstructed
+
+# 2. Create sample data (normal + anomalies)
+np.random.seed(42)
+normal_data = np.random.randn(1000, 100).astype(np.float32)
+anomaly_data = np.random.randn(10, 100).astype(np.float32) * 3  # Different distribution
+
+# 3. Train on normal data only
+model = Autoencoder(input_dim=100, latent_dim=10)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+criterion = nn.MSELoss()
+
+X_train = torch.tensor(normal_data)
+for epoch in range(50):
+    optimizer.zero_grad()
+    output = model(X_train)
+    loss = criterion(output, X_train)
+    loss.backward()
+    optimizer.step()
+
+print(f"✅ Training complete. Final loss: {loss.item():.4f}")
+
+# 4. Detect anomalies via reconstruction error
+def get_reconstruction_error(model, data):
+    with torch.no_grad():
+        reconstructed = model(torch.tensor(data))
+        error = ((reconstructed - torch.tensor(data)) ** 2).mean(dim=1)
+    return error.numpy()
+
+normal_errors = get_reconstruction_error(model, normal_data)
+anomaly_errors = get_reconstruction_error(model, anomaly_data)
+
+print(f"🟢 Normal avg error:  {normal_errors.mean():.4f}")
+print(f"🔴 Anomaly avg error: {anomaly_errors.mean():.4f}")
+# Output: Anomaly error is significantly higher!
+```
+
+**Key Insight:** The Autoencoder was trained **only on normal data**. It has no idea what fraud looks like—but it knows what normal looks like. Anything that can't be reconstructed well is suspicious.
+
+---
+
+### 🔗 The Encoder/Decoder Pattern: From Tiny to Massive
+
+Here's a surprising fact: the same **Encoder/Decoder pattern** powers both our tiny Autoencoder AND the massive GPT models that can write essays. The architecture is the same—only the scale differs.
+
+::: {.callout-warning}
+## Jargon Buster: Same Pattern, Vastly Different Scale
+
+| Aspect | Our Autoencoder | GPT-4 / Claude |
+|:---|:---|:---|
+| **Purpose** | Detect anomalies in numbers | Generate human-like text |
+| **Input** | 100 numeric features | Text tokens (words) |
+| **Training data** | 10,000 rows (your data) | Trillions of words (internet) |
+| **Model size** | ~100 KB | ~70 GB – 700 GB |
+| **Runs where** | Your laptop / Snowflake | Massive GPU clusters |
+| **Architecture** | Dense layers (4 layers) | Transformer (96+ layers) |
+
+Both use **encode → latent space → decode**. But GPT's "latent space" encodes the meaning of language, while ours encodes normal billing patterns.
+:::
+
+**PyTorch is LEGO Blocks**
+
+Think of **PyTorch** (and TensorFlow) as a box of LEGO blocks. You can build:
+
+- A **small house** (Autoencoder for anomaly detection) → No LLM needed
+- A **massive castle** (GPT-scale language model) → Full LLM
+
+Same blocks, different projects. The Owl uses the small house for patrol analysis. The Council's scholars use the castle for interpreting ancient texts.
+
+```
+PyTorch = Building Blocks
+
+Small Build (No LLM):           Massive Build (LLM):
+┌────────────────────┐          ┌────────────────────────────┐
+│ Autoencoder        │          │ Transformer (GPT, Claude)  │
+│ - 4 layers         │          │ - 96+ layers               │
+│ - 1000s of params  │          │ - Billions of params       │
+│ - Trains in mins   │          │ - Trains for months        │
+│ - Runs on CPU      │          │ - Requires GPU clusters    │
+└────────────────────┘          └────────────────────────────┘
+```
+
+**When to Use Each:**
+
+| Task | Tool | Why |
+|:---|:---|:---|
+| Cluster customers by behavior | scikit-learn (K-Means) | Simple, fast, interpretable |
+| Detect rare fraud in transactions | scikit-learn (Isolation Forest) | Tree-based, handles tabular data well |
+| Detect complex anomalies in 100+ features | PyTorch (Autoencoder) | Learns multi-dimensional correlations |
+| Classify images | PyTorch (CNN) | Neural networks excel at spatial patterns |
+| Generate text / answer questions | LLM API (GPT, Claude) | Pre-trained on massive text corpora |
+
+---
+
 ### Concept Drift
 
 **Definition:**  
