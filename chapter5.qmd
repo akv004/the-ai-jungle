@@ -420,13 +420,8 @@ This division mirrors natural learning:
 %%| label: fig-actor-critic
 %%| fig-cap: "Actor-Critic Architecture: The Actor proposes actions while the Critic evaluates them."
 flowchart LR
-    subgraph Brain["🦊 Fox Brain"]
-        Actor["🎭 Actor<br/>(Proposes Actions)"]
-        Critic["📊 Critic<br/>(Evaluates Value)"]
-    end
-    
-    State["📍 State"] --> Actor
-    State --> Critic
+    State["📍 State"] --> Actor["🎭 Actor<br/>(Proposes Actions)"]
+    State --> Critic["📊 Critic<br/>(Evaluates Value)"]
     Actor -->|action| Env["🌲 Environment"]
     Env -->|reward| Critic
     Critic -->|feedback| Actor
