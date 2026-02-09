@@ -10,6 +10,8 @@ Amit Kumar Verma is a Lead Software Engineer with over 15 years of experience in
 
 Amit also specializes in **AI/ML development**, leveraging PyTorch, TensorFlow, and Hugging Face Transformers for both model training and deployment. He has worked on high-impact projects in healthcare, retail, and finance, merging modern cloud architectures with cutting-edge machine learning techniques.
 
+Amit is also the author of **"The React Blueprint: Architect, Code, and Launch Modern Interfaces"** — a free, open-source technical book covering 28 chapters on modern React patterns, from hooks and state management to AI sidecars, desktop apps with Tauri, and enterprise-grade design systems. It is available at [https://akv004.github.io/ReactJSTips/](https://akv004.github.io/ReactJSTips/).
+
 Amit’s passion lies in simplifying complex technology concepts—whether guiding teams through AI adoption or mentoring new developers. When he’s not coding, he explores emerging tech trends, always seeking responsible and effective ways to harness AI for the betterment of technology and society.
 
 ---
