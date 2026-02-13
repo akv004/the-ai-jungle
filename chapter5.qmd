@@ -854,12 +854,14 @@ A new challenge awaits.
 
 And the Fox, forged in the fires of trial and reward, is ready.
 
+<!--
 :::{.figure-placeholder}
 **Image Placeholder — To Be Generated**
 
 **Prompt:** _Cinematic final scene of Fox standing confidently on moss-covered stone, dawn breaking, Jungle awakening._
 
 :::
+-->
 
 ::: {.callout-note}
 ## Quick Reference: RL Algorithm Selection
