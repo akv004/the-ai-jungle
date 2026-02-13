@@ -78,10 +78,9 @@ The following diagram illustrates the complete MLOps lifecycle:
 %%| fig-cap: "Figure 8.3 — MLOps Pipeline Lifecycle"
 flowchart TB
     subgraph S1["STEP 1: Data Ingestion"]
-        A1["📥 Data Collection"]
-        A2["⚙️ Preprocessing"]
-        A3["✅ Validation"]
-        A1 --> A2 --> A3
+        D1["🔍 Classification"]
+        D2["📉 Regression"]
+        D3["📊 Clustering"]
     end
     
     subgraph S2["STEP 2: Model Training"]

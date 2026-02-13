@@ -690,10 +690,11 @@ flowchart LR
     T5 --> V
     V --> R
     
-    style Input fill:#ffffff,stroke:#4CAF50,stroke-width:2px
-    style Forest fill:#ffffff,stroke:#2196F3,stroke-width:2px
     style Vote fill:#ffffff,stroke:#FF9800,stroke-width:2px
-    style Result fill:#ffffff,stroke:#C62828,stroke-width:2px
+    
+    style Input fill:#fff,stroke:#4CAF50,stroke-width:2px
+    style Forest fill:#fff,stroke:#2196F3,stroke-width:2px
+    style Result fill:#fff,stroke:#C62828,stroke-width:2px
     style R fill:#FFCDD2,stroke:#C62828,color:#000
 ```
 
