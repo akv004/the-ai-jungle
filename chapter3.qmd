@@ -111,7 +111,7 @@ Use this quick map when you’re unsure where to start:
 
 **Rule of Thumb:** Start simple, measure honestly, then graduate to ensembles or more complex models. Let the tiger learn to walk before it sprints.
 
-![A jungle map showing the branching paths of machine learning — Regression, Classification, Clustering, and Dimensionality Reduction.](images/chapter2_images/jugnle_map.png){width=100% height=auto}
+![A jungle map showing the branching paths of machine learning — Regression, Classification, Clustering, and Dimensionality Reduction.](images/chapter3_images/jungle_map.png){width=100% height=auto}
 
 
 ### Linear Regression *(Supervised)*
