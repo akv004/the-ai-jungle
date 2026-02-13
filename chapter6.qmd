@@ -44,7 +44,7 @@ To rise to these new challenges, the Owl relies on a suite of enhanced sensors:
 - **ML Angle:** Unsupervised clustering differentiates routine forest smells from suspicious outliers.
 
 :::{.figure-placeholder}
-![Figure 6.2 — Expanded Sensor Fusion: Seeing Beyond the Shadows](images/chapter6_images/Moonlit_jungle_watchman_and_intruders_sensor.png){fig-align="center" width="80%"}
+![Figure 6.3 — Expanded Sensor Fusion: Seeing Beyond the Shadows](images/chapter6_images/Moonlit_jungle_watchman_and_intruders_sensor.png){fig-align="center" width="80%"}
 :::
 
 By blending these data streams, the Owl gains a multi-layered understanding of its environment—essential for identifying threats invisible to any single sensor.

@@ -1,6 +1,6 @@
 # A Chorus of Many Voices 
 
-**The Multi-Modal RainforestA**  ***-Where Streams of Data Converge***
+**The Multi-Modal Rainforest** — *Where Streams of Data Converge*
 
 ## Introduction:  A Mystical Dawn in the AI Jungle 
 At the Break of Dawn 
@@ -61,13 +61,13 @@ Analogy in Action
 Real-World Parallel: 
 IoT networks that monitor climate, machinery, or even medical vitals, instantly alerting you to anomalies. The Moth’s glowing patterns compress sensor data into interpretable signals for the entire Council. 
 Comedic Cameo: The Robotic Monkey’s Sabotage 
-Suddenly, a Robotic Monkey vaults overhead, chucking “data bananas” into a nearby pond. Each banana emits fake sonar pings, aimed at confusing the Chameleon’s audio-visual logic. The Toucan squawks in alarm, while the Moth detects a weird spike in water temperature. But, thanks to multi-modal cross.checking, the Council quickly realizes it’s a prank—no real threat. Laughter ripples through the clearing, proving that multiple senses outwit any single-channel sabotage. 
+Suddenly, a Robotic Monkey vaults overhead, chucking “data bananas” into a nearby pond. Each banana emits fake sonar pings, aimed at confusing the Chameleon’s audio-visual logic. The Toucan squawks in alarm, while the Moth detects a weird spike in water temperature. But, thanks to multi-modal cross-checking, the Council quickly realizes it’s a prank—no real threat. Laughter ripples through the clearing, proving that multiple senses outwit any single-channel sabotage. 
 
 
 
 
 :::{.figure-placeholder}
-![Robotic Monkey Sabotage](/images/chapter14_images/mtb1.png){fig-align="center" width="80%"}
+![Robotic Monkey Sabotage](images/chapter14_images/mtb1.png){fig-align="center" width="80%"}
 :::
 
 ## Why Multi-Modal? A Deeper Perspective 
