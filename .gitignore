@@ -76,3 +76,18 @@ Desktop.ini
 *.tmp
 *~
 /.quarto/
+
+# ----------------------------------------------------------------
+# Cross-AI scratch (Antigravity / Codex / claude code-handoff)
+# ----------------------------------------------------------------
+
+# Antigravity / image-generation prompt scratch
+_antigravity_prompt.md
+
+# Codex draft staging (raw + cleaned drafts, prompt files)
+_book_extension_drafts/
+
+# Claude <-> Codex paired-file handoff protocol
+.codex-handoff/
+*.task.md
+*.result.md
