@@ -237,6 +237,8 @@ print("📊 Top 3 Features:", importances.nlargest(3).to_dict())
 
 ### LightGBM: The Modern Successor
 
+![Figure 3.X — The Swift Fox on the Boosting Trail. LightGBM is the lean robotic fox sprinting along the same boosting trail XGBoost blazed, leaving behind the heavier predecessors of the gradient-boosting family.](images/chapter3_images/swift_fox_lightgbm.png){fig-align="center" width="80%"}
+
 LightGBM is Microsoft's open-source gradient boosting framework, released in 2017, built to train fast and use memory efficiently on large tabular datasets. If XGBoost made boosted trees practical and popular, LightGBM is the swift fox that followed the same trail with lighter footfalls: leaner, faster, and especially comfortable when the forest grows into millions of rows.
 
 Like XGBoost, LightGBM builds an ensemble of decision trees sequentially. Each new tree tries to correct the mistakes left by the previous trees. The difference is not the basic idea of boosting; it is how aggressively LightGBM optimizes the mechanics of building trees.
@@ -249,6 +251,24 @@ Its second major trick is **leaf-wise tree growth**. Traditional gradient boosti
 ## Jargon Buster: Leaf-Wise Growth
 
 In level-wise growth, a tree expands broadly, keeping each depth relatively balanced. In leaf-wise growth, the model asks: "Which one leaf would improve the loss the most if I split it next?" This makes LightGBM fast and powerful, but also more eager to chase small quirks in the data.
+:::
+
+::: {.callout-tip}
+## Worked Example: The Swift Fox Saves Memory
+
+Suppose an e-commerce team trains a click-prediction model on 10,000,000 page views with 120 numeric and categorical features. If each numeric value is stored as a 32-bit float, the raw feature matrix alone is roughly:
+
+`10,000,000 × 120 × 4 bytes = 4.8 GB`
+
+A traditional tree learner may repeatedly scan those raw values while searching for split points. LightGBM first bins continuous features into, say, 255 histogram buckets. Each binned value can fit in 1 byte:
+
+`10,000,000 × 120 × 1 byte = 1.2 GB`
+
+That is about 3.6 GB less memory before considering extra training structures. The split search also changes. Instead of checking thousands or millions of possible thresholds for a feature, LightGBM checks at most 255 bin boundaries.
+
+If a conventional learner spends 40 minutes building 500 boosted trees on this dataset, a histogram-based LightGBM run might finish in about 9 minutes on the same machine, because it is counting examples inside bins rather than rereading every exact value. Like the swift fox, it wins by moving lightly over the trail.
+
+**Takeaway:** LightGBM trades tiny precision loss in split points for large practical gains in speed and memory.
 :::
 
 A practical rule of thumb:

@@ -442,6 +442,8 @@ The tradeoff is that basic CUSUM is usually directional. If it watches only upwa
 
 ### Dynamic Z-Score: Letting Each Creature Keep Its Rhythm
 
+![Figure 6.8 — The Owl Tuning Its Alarm Bells. The steady elephant lives inside a small tight halo of alarm; the erratic monkey inside a much wider one. The Owl scales each bell to the creature's natural volatility, not to a single fixed threshold.](images/chapter6_images/owl_dynamic_zscore.png){fig-align="center" width="80%"}
+
 A standard z-score asks how far a value is from normal, measured in units of variation. That is useful, but the jungle is not equally noisy everywhere.
 
 The elephant walks with a steady rhythm. If it suddenly races through the trees, the Owl notices immediately. The monkey, however, leaps, tumbles, pauses, and darts all day long. The same jump that would be strange for the elephant may be ordinary for the monkey.
@@ -471,6 +473,34 @@ A small-business owner may be different. Some weeks are quiet. Other weeks inclu
 ## Jargon Buster: Dynamic Z-Score in Plain English
 
 Dynamic Z-Score is an adaptive alarm. It still looks for values far from normal, but it gives naturally steady patterns a tighter boundary and naturally jumpy patterns a wider one.
+:::
+
+::: {.callout-tip}
+## Worked Example: Two Thresholds Under Different Skies
+
+A network-monitoring system watches hourly outbound traffic from two user accounts. The base anomaly threshold is the same for both: alert when traffic is more than `3.0` standard deviations above normal. The dynamic rule is:
+
+`adjusted_threshold = base × (1 + CV)`
+
+For User A, the last 30 days average `100 MB/hour`, with a standard deviation of `8 MB/hour`.
+
+`CV = 8 / 100 = 0.08`
+
+That places User A in the `STABLE` tier. The adjusted threshold is:
+
+`3.0 × (1 + 0.08) = 3.24`
+
+For User B, the last 30 days average `100 MB/hour` too, but the standard deviation is `65 MB/hour`.
+
+`CV = 65 / 100 = 0.65`
+
+That places User B in the `VOLATILE` tier. The adjusted threshold is:
+
+`3.0 × (1 + 0.65) = 4.95`
+
+Now a traffic spike with z-score `4.2` triggers for User A, because `4.2 > 3.24`, but not for User B, because `4.2 < 4.95`. The robotic owl does not call every rustle danger; it listens to how restless that part of the canopy usually is.
+
+**Takeaway:** Dynamic z-scores make the alarm stricter for stable behavior and more tolerant for naturally variable behavior.
 :::
 
 This technique is useful for heterogeneous populations, where one baseline would be unfair. A single rule for all cardholders, all sensors, or all network devices can create two failures at once: too many false alarms for noisy subjects, and missed warnings for quiet ones.

@@ -114,6 +114,8 @@ The council metaphor matters because SHAP is not merely saying, "This feature is
 
 #### LIME: The Elder With a Lantern
 
+![Figure 17.3 — The Elder With a Lantern. A single elder crouches over a glowing footprint, illuminating only the immediate ground. The lantern shows a small circle of clarity inside a vast unseen jungle — exactly LIME's stance: explain one prediction, locally, and not the whole model.](images/chapter17_images/elder_with_lantern.png){fig-align="center" width="80%"}
+
 LIME, short for **Local Interpretable Model-agnostic Explanations**, takes a more practical but less formal path.
 
 Instead of convening the full Council of Elders, imagine one elder walking into the forest with a lantern. The elder does not attempt to understand the entire jungle. Instead, they study the ground near one footprint.
@@ -140,6 +142,24 @@ LIME is useful when the model is a sealed cave. If you can send inputs into the 
 The weakness is that LIME's explanation is local. The tiny linear sketch may explain the model near one prediction, but it should not be trusted far away from that point. The River bends differently downstream.
 
 LIME is also sampling-based, which means explanations can vary across runs unless randomness is carefully controlled. Different perturbation samples can produce slightly different local models. That makes LIME flexible, but less stable than SHAP in many settings.
+
+::: {.callout-tip}
+## Worked Example: A Lantern Around One Rejection
+
+A loan model rejects one applicant with these features: annual income `$48,000`, debt-to-income ratio `46%`, credit history `2.5 years`, and two missed payments. LIME explains this one decision by creating nearby variations: income at `$44,000`, `$50,000`, `$55,000`; debt-to-income at `40%`, `46%`, `52%`; credit history at `1.5`, `2.5`, `4.0` years; missed payments at `0`, `1`, `2`.
+
+The original applicant and close variations receive higher weights. For example, a perturbed sample with `$50,000` income, `45%` debt-to-income, and `2.7` years of history might get weight `0.92`. A farther sample with `$70,000` income and `10` years of history might get weight `0.18`.
+
+LIME then fits a weighted local linear model around this small neighborhood. For this applicant, the top local coefficients for approval probability are:
+
+- Debt-to-income ratio: `-0.018` per percentage point
+- Credit history: `+0.045` per additional year
+- Missed payments: `-0.110` per missed payment
+
+So, being at `46%` debt-to-income strongly pulls the decision down, while only `2.5` years of credit history gives little lift. The Elder-with-a-Lantern is studying this footprint, not the whole jungle.
+
+**Takeaway:** LIME explains why this applicant was rejected locally, not how the model treats every applicant.
+:::
 
 #### SHAP vs LIME
 
