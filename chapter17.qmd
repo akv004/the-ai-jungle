@@ -63,7 +63,7 @@ But they do this in very different ways.
 
 #### SHAP: The Council of Elders
 
-![Figure 17.2 — The Council of Elders. Each elder represents one feature; the thickness and brightness of their arc to the central verdict-stone shows how strongly that feature contributed to the prediction.](images/council_of_elders_v1.png){fig-align="center" width="80%"}
+![Figure 17.2 — The Council of Elders. Each elder represents one feature; the thickness and brightness of their arc to the central verdict-stone shows how strongly that feature contributed to the prediction.](images/chapter17_images/council_of_elders_v1.png){fig-align="center" width="80%"}
 
 Imagine a Council of Elders gathered beneath the old forest canopy. Each elder represents one feature: income, debt-to-income ratio, credit history length, missed payments, employment stability, and so on. The council must explain a verdict: perhaps a model's risk score, probability of loan approval, or predicted customer churn.
 

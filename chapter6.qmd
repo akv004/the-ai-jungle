@@ -393,6 +393,8 @@ Time-series anomaly detection teaches the Owl to watch motion, rhythm, and memor
 
 CUSUM, short for Cumulative Sum, is a change-point detection technique. It is useful when individual readings may look harmless, but their accumulated pattern tells a more serious story.
 
+![Figure 6.7 — The Owl Watching the Tides. The river has crept past three earlier watermark lines on the bank. No single day looked like a flood, but each small overflow has been remembered and added to the last.](images/chapter6_images/owl_watching_tides.png){fig-align="center" width="80%"}
+
 Imagine the Owl perched above a riverbank. Each day, the river rises a little above its usual mark. No single day looks like a flood. The frogs still sing, the deer still cross, and the reeds still bend in familiar ways. But the Owl remembers. It adds each small overflow to yesterday's concern. If the river dips back below normal, the Owl lets the worry drain away. If the overflow keeps building, the Owl eventually sounds the alarm.
 
 Plain-English math:
@@ -481,7 +483,7 @@ Dynamic Z-Score works best for sharp single-period surprises in noisy environmen
 
 Some anomalies are not strange because they are globally far away. They are strange because of the company they keep.
 
-![Figure 6.6 — The Lone Wolf at the Edge of the Glade. While most creatures gather densely around the glowing watering hole, a solitary wolf stands at the sparse edge — locally unusual, even if not globally distant.](images/wolf_glade.png){fig-align="center" width="80%"}
+![Figure 6.6 — The Lone Wolf at the Edge of the Glade. While most creatures gather densely around the glowing watering hole, a solitary wolf stands at the sparse edge — locally unusual, even if not globally distant.](images/chapter6_images/wolf_glade.png){fig-align="center" width="80%"}
 
 At twilight, many creatures gather near the watering hole. They form dense clusters: deer near the reeds, birds near low branches, insects hovering over the wet stones. Then the Owl sees a lone wolf standing near the empty edge of the glade. The wolf is not necessarily far from every creature in the jungle. But compared with its nearest neighbors, it stands in a sparse, unusual patch.
 

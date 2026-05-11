@@ -6,6 +6,8 @@ At the edge of the AI Jungle, where the canopy opens and the river widens into s
 
 *What will the river do next?*
 
+![Figure — The Tide-Reader's Decomposition. The river passes through a crystalline prism and splits into three layers: a slowly-curving golden trend rising upward, a teal seasonal wave pulsing in regular crests, and a silver residual of small random eddies. To the Heron, the river is not a single jagged line but a layered message.](images/chapter_timeseries_images/heron_decomposition.png){fig-align="center" width="80%"}
+
 The river never speaks in a single voice. Today's flow carries yesterday's rain, last week's heat, last season's meltwater, and a thousand small accidents: fallen branches, sudden storms, wandering fish, cracked stones under the current. To an impatient machine, the river looks like a jagged line. To the Heron, it is a layered message.
 
 Time-series forecasting is the art of reading that message. It asks: given how the river behaved yesterday, last week, and last season, what will tomorrow's flow look like? Not whether today's flow is unusual. Not which category today's flow belongs to. Forecasting asks where the river is going.
