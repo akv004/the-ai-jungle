@@ -53,7 +53,136 @@ For black-box models like Deep Neural Networks or Gradient Boosted Trees, interp
 - SHAP (SHapley Additive exPlanations): Attributes each feature’s contribution to a prediction using game-theory-inspired methods. 
 - Integrated Gradients: Calculates attributions by examining how the output changes as we move from a baseline input to the actual input. 
 
-### Local vs. Global Interpretations 
+### The Council of Reasons: SHAP and LIME
+
+After dawn, the River does not merely ask, "What did the model decide?" Wisdom asks the harder question: "Who spoke into the decision, and how loudly?"
+
+Two of the most useful tools for answering that question are **SHAP** and **LIME**. Both are post-hoc interpretability methods: they do not make the model simple by design. Instead, they walk up to a trained model after the decision has been made and try to explain what happened.
+
+But they do this in very different ways.
+
+#### SHAP: The Council of Elders
+
+![Figure 17.2 — The Council of Elders. Each elder represents one feature; the thickness and brightness of their arc to the central verdict-stone shows how strongly that feature contributed to the prediction.](images/council_of_elders_v1.png){fig-align="center" width="80%"}
+
+Imagine a Council of Elders gathered beneath the old forest canopy. Each elder represents one feature: income, debt-to-income ratio, credit history length, missed payments, employment stability, and so on. The council must explain a verdict: perhaps a model's risk score, probability of loan approval, or predicted customer churn.
+
+SHAP, short for **SHapley Additive exPlanations**, asks each elder to account for their share of the verdict.
+
+Its roots come from cooperative game theory, especially the **Shapley value**, introduced by Lloyd Shapley in 1953. In game theory, the question was: if a group of players cooperate to produce a reward, how should that reward be fairly divided among them? SHAP adapts that idea to machine learning. If features cooperate to produce a prediction, how much credit or blame should each feature receive?
+
+The core intuition is simple:
+
+> If elder X had not joined the council, how much weaker or stronger would the verdict have been?
+
+But SHAP does not ask this question only once. It asks it across every possible order in which elders might join the council. Sometimes income speaks first. Sometimes credit history speaks first. Sometimes debt-to-income ratio enters late, after other evidence is already known. SHAP averages the feature's marginal contribution across all these possible coalitions.
+
+This is what gives SHAP its rigor. The combined magnitude of every elder's voice sums exactly to the strength of the verdict. No voice is lost. No voice is double-counted. The final prediction is decomposed into:
+
+base prediction + feature contribution 1 + feature contribution 2 + ... + feature contribution n
+
+That additivity property is one reason SHAP is especially respected in finance, healthcare, and insurance — sectors where decisions affect people's lives and require defensible reasoning.
+
+::: {.callout-note}
+#### Jargon Buster: Shapley Value
+
+A **Shapley value** is a fair-share score from cooperative game theory. In machine learning, it estimates how much one feature contributed to a prediction after accounting for how that feature interacts with all the others.
+:::
+
+The difficulty is cost. Exact Shapley values require checking every possible subset of features. With many features, that becomes exponentially expensive, like asking every possible arrangement of elders to speak before sunrise.
+
+For tree-based models, there is a shortcut: **TreeSHAP**. TreeSHAP computes exact SHAP values for decision trees and tree ensembles in polynomial time, making SHAP practical for Random Forest, XGBoost, and LightGBM models. Without TreeSHAP, exact computation becomes too slow for many real-world datasets.
+
+A common SHAP visualization is the **force plot**. For one prediction, it begins with the model's base rate: the council's average verdict before hearing the details of this case. Then each feature pushes the prediction upward or downward. Positive SHAP values push toward the model's positive outcome. Negative SHAP values push away from it. The pushes add up to the actual prediction.
+
+```{mermaid}
+flowchart LR
+  B["Base rate<br/>Council average"] -- "60 points" --> V["Final verdict<br/>42 points"]
+  I["Income"] -- "+8 SHAP points" --> V
+  D["Debt to income"] -- "-18 SHAP points" --> V
+  C["Credit history length"] -- "-7 SHAP points" --> V
+  E["Employment stability"] -- "-1 SHAP point" --> V
+```
+
+SHAP gives three especially useful views:
+
+1. **Per-prediction explanation**: Why did this one applicant, patient, claim, post, or transaction receive this score?
+2. **Global feature importance**: Across the whole dataset, which features matter most? This is often measured by the mean absolute SHAP value for each feature.
+3. **Dependence plots**: How does a feature's SHAP value change as the feature's actual value changes? For example, at what debt-to-income ratio does the model begin to sharply penalize applicants?
+
+The council metaphor matters because SHAP is not merely saying, "This feature is correlated with the output." It is saying, "Given the model's learned behavior, this feature contributed this much to this verdict."
+
+#### LIME: The Elder With a Lantern
+
+LIME, short for **Local Interpretable Model-agnostic Explanations**, takes a more practical but less formal path.
+
+Instead of convening the full Council of Elders, imagine one elder walking into the forest with a lantern. The elder does not attempt to understand the entire jungle. Instead, they study the ground near one footprint.
+
+They ask:
+
+What if this feature changed slightly?
+What if that word disappeared?
+What if this number rose or fell?
+Would the model still make the same decision?
+
+LIME works by creating many small perturbations around the original input. For a tabular model, it might randomly change feature values. For a text model, it might remove or mask words. For an image model, it might hide patches of pixels. Each synthetic neighbor is then passed through the black-box model, and the model's predictions are recorded.
+
+Then LIME fits a simple, interpretable model, usually a linear regression, to approximate the black-box model in that small neighborhood. The coefficients of this local linear model become the explanation.
+
+If the coefficient for "high debt-to-income ratio" is strongly negative, LIME says that feature pushed the local prediction downward. If the coefficient for "long credit history" is positive, LIME says it helped nearby predictions.
+
+The great strength of LIME is that it is **model-agnostic**. It does not need to know the internal machinery of the model. It can work with neural networks, transformers, custom prediction systems, image classifiers, text classifiers, or any model that accepts inputs and returns predictions.
+
+::: {.callout-tip}
+LIME is useful when the model is a sealed cave. If you can send inputs into the cave and observe predictions coming out, LIME can build a small map of the nearby terrain.
+:::
+
+The weakness is that LIME's explanation is local. The tiny linear sketch may explain the model near one prediction, but it should not be trusted far away from that point. The River bends differently downstream.
+
+LIME is also sampling-based, which means explanations can vary across runs unless randomness is carefully controlled. Different perturbation samples can produce slightly different local models. That makes LIME flexible, but less stable than SHAP in many settings.
+
+#### SHAP vs LIME
+
+| Aspect | SHAP | LIME |
+|---|---|---|
+| Theoretical basis | Game theory (Shapley values) | Local linear approximation |
+| Additivity guarantee | **Yes** (contributions sum to prediction) | No |
+| Speed (on tree models) | **Fast** (TreeSHAP) | Slower (sampling-based) |
+| Speed (on any model) | Slow (KernelSHAP) | Moderate |
+| Stability across runs | More stable | Variable (sampling noise) |
+| Compliance defense | Stronger | Acceptable |
+| Best for | Tree ensembles | Black-box neural nets, custom architectures |
+
+SHAP is often preferred when you need stronger theoretical grounding, especially for tree ensembles and regulated decisions. LIME is often useful when you need a quick local explanation for a model whose internal structure is unavailable or too complex to inspect.
+
+They are not enemies. They are two kinds of wisdom.
+
+SHAP asks the full council to divide responsibility fairly. LIME lights a small circle of ground and sketches the nearby slope.
+
+#### Worked Example: A Loan Denial
+
+Consider a loan approval model that gives each applicant a score from 0 to 100. A score of 60 or above usually means approval. The model denies an applicant with a score of 42.
+
+Without interpretability, the applicant hears only: "Denied." That is a closed gate in the forest.
+
+With SHAP, the decision can be explained as a path of contributions. The model's base score across similar applications might be 60. The applicant's income contributes +8 points, raising the score to 68. That elder speaks in favor of approval.
+
+But the debt-to-income ratio contributes -18 points, pulling the score down to 50. Credit history length contributes -7 more points, because the applicant has only a short record of repayment behavior. Employment stability contributes -1 point. The final score becomes 42.
+
+The explanation is not vague. It does not say merely, "Financial profile was weak." It says:
+
+- Base score: 60
+- Income: +8
+- Debt-to-income ratio: -18
+- Credit history length: -7
+- Employment stability: -1
+- Final score: 42
+
+This helps the applicant understand the main barriers. It also helps the lender audit whether the model is relying on defensible, relevant factors. If a feature appears to be unfairly driving denials, SHAP can bring that pattern into daylight across many predictions, not only one.
+
+The important lesson is humility. SHAP explains the model's reasoning, not universal truth. If the model has learned from biased data, SHAP can reveal the shape of that bias, but it cannot cleanse the River by itself.
+
+### Local vs. Global Interpretations
 - Local: Explains a specific instance. Example: Why did the AI label this mammogram as high-risk? 
 - Global: Shows overarching trends. Example: Which features drive predictions the most across the entire dataset?
 

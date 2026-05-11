@@ -18,6 +18,7 @@ book:
     - chapter4.qmd
     - chapter5.qmd
     - chapter6.qmd
+    - chapter_timeseries.qmd
     - chapter7.qmd
     - chapter8.qmd
     - chapter9.qmd
@@ -57,6 +58,8 @@ website:
         href: chapter5.qmd
       - text: "chapter6"
         href: chapter6.qmd
+      - text: "forecasting"
+        href: chapter_timeseries.qmd
       - text: "chapter7"
         href: chapter7.qmd
       - text: "chapter8"

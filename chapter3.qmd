@@ -235,6 +235,32 @@ print("📊 Top 3 Features:", importances.nlargest(3).to_dict())
 
 **Key Insight:** XGBoost also provides `feature_importances_`, making it explainable—just like Random Forest. This is why it dominates tabular data competitions (Kaggle, etc.).
 
+### LightGBM: The Modern Successor
+
+LightGBM is Microsoft's open-source gradient boosting framework, released in 2017, built to train fast and use memory efficiently on large tabular datasets. If XGBoost made boosted trees practical and popular, LightGBM is the swift fox that followed the same trail with lighter footfalls: leaner, faster, and especially comfortable when the forest grows into millions of rows.
+
+Like XGBoost, LightGBM builds an ensemble of decision trees sequentially. Each new tree tries to correct the mistakes left by the previous trees. The difference is not the basic idea of boosting; it is how aggressively LightGBM optimizes the mechanics of building trees.
+
+Its first major speed trick is **histogram-based binning**. Instead of testing every possible split point in a continuous feature, LightGBM groups feature values into a small number of discrete buckets, often around 256. The model then considers only bucket boundaries as candidate split points. This turns a huge search problem into a much smaller one, usually with minimal accuracy loss.
+
+Its second major trick is **leaf-wise tree growth**. Traditional gradient boosting implementations such as XGBoost commonly grow trees level-wise: all leaves at a given depth are expanded before moving deeper. LightGBM instead chooses the single leaf that promises the largest loss reduction and grows that one next. This can produce deeper, more asymmetric trees that capture complex patterns quickly. The tradeoff is that LightGBM can overfit more easily on small datasets, so constraints like `num_leaves`, `max_depth`, and regularization matter.
+
+::: {.callout-tip}
+## Jargon Buster: Leaf-Wise Growth
+
+In level-wise growth, a tree expands broadly, keeping each depth relatively balanced. In leaf-wise growth, the model asks: "Which one leaf would improve the loss the most if I split it next?" This makes LightGBM fast and powerful, but also more eager to chase small quirks in the data.
+:::
+
+A practical rule of thumb:
+
+| Choice | Use when |
+|---|---|
+| Random Forest | You want robust, low-tuning baseline; small-to-medium data |
+| XGBoost | Maximum accuracy on small-to-medium tabular; mature ecosystem |
+| LightGBM | Large datasets (millions of rows); training-speed-critical pipelines; production scoring with strict latency |
+
+One more name worth knowing is **CatBoost**, Yandex's gradient boosting framework with strong native support for categorical features. It is often a good fallback when XGBoost or LightGBM struggle on heavily categorical data.
+
 
 ### Regularization Techniques: Taming Complexity
 

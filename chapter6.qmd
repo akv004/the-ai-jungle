@@ -381,6 +381,149 @@ Concept drift is often “silent”—the system may keep producing confident ou
 
 ![Figure 6.5 — Concept Drift and Online Model Adaptation. Incoming sensor data shifts as environments evolve. Through incremental learning, the Owl’s model detects anomalies and updates itself to maintain accurate threat detection without full retraining.](images/chapter6_images/ConceptDrift.png)
 
+## Watching the Tides: Time-Series Anomaly Detection
+
+The Watchful Robotic Owl has learned to spot strange creatures in the jungle: the leopard moving against the herd, the glowing vine that does not belong, the sudden silence where birds should be singing. But time-series anomalies ask for a different kind of attention. Here, the Owl is not watching one frozen scene. It is watching the river hour after hour, day after day, season after season.
+
+Some dangers arrive like a lightning strike. A sensor spikes. A payment jumps. A server collapses under traffic. Other dangers arrive like a tide. Nothing looks dramatic on Monday. Tuesday is only a little worse. Wednesday is still easy to explain away. By the time the river reaches the village path, the danger was not one dramatic flood, but weeks of quiet accumulation.
+
+Time-series anomaly detection teaches the Owl to watch motion, rhythm, and memory. It asks not only, "Is this point unusual?" but also, "Has the story been changing?"
+
+### CUSUM: When the River Slowly Rises
+
+CUSUM, short for Cumulative Sum, is a change-point detection technique. It is useful when individual readings may look harmless, but their accumulated pattern tells a more serious story.
+
+Imagine the Owl perched above a riverbank. Each day, the river rises a little above its usual mark. No single day looks like a flood. The frogs still sing, the deer still cross, and the reeds still bend in familiar ways. But the Owl remembers. It adds each small overflow to yesterday's concern. If the river dips back below normal, the Owl lets the worry drain away. If the overflow keeps building, the Owl eventually sounds the alarm.
+
+Plain-English math:
+
+1. Start with a baseline, such as the expected temperature of a machine part.
+2. Each new reading is compared with that baseline.
+3. If the reading is above the baseline, add the excess to a running sum.
+4. If the running sum falls below zero, reset it to zero.
+5. If the running sum crosses a chosen threshold, flag a change.
+
+In compact form, the idea is:
+
+`running_sum = max(0, previous_running_sum + current_value - baseline)`
+
+If `running_sum > threshold`, the Owl calls it a possible change point.
+
+```{mermaid}
+flowchart LR
+  A["Sensor reading<br/>near baseline"] --> B["Small excess<br/>added to sum"]
+  B --> C["Next reading<br/>also high"]
+  C --> D["Running sum<br/>keeps rising"]
+  D --> E{"Sum exceeds<br/>threshold"}
+  E -->|"No"| C
+  E -->|"Yes"| F["Owl flags<br/>change point"]
+  C --> G{"Reading drops<br/>below baseline"}
+  G -->|"Yes"| H["Running sum<br/>resets to zero"]
+  H --> A
+```
+
+A manufacturing plant gives the Owl a useful example. Suppose a turbine bearing is expected to run at a stable temperature. On one day, it is only slightly warm. That may mean nothing. On the next day, it is a little warmer again. Over many days, the bearing continues to heat up, not enough to trigger a simple static threshold, but enough to show a slow decline in machine health. CUSUM is designed for this kind of creeping signal.
+
+This is where **onset duration** matters. If the onset is short, the anomaly may be a sudden event: a broken coolant line, a blocked vent, or a sharp load change. If the onset is long, the anomaly may be organic drift: wear, friction, calibration decay, or a part slowly moving out of tolerance. The Owl cares about both, but it tells a different story for each.
+
+A short onset says, "The river rose quickly." A long onset says, "The river has been arguing with the bank for a long time."
+
+::: {.callout-tip}
+## Jargon Buster: CUSUM in Plain English
+
+CUSUM is a memory-based alarm. Instead of asking whether today's value is shocking by itself, it asks whether many small pushes in the same direction have added up to something meaningful.
+:::
+
+CUSUM is especially helpful when normal noise hides gradual change. A static threshold may wait too long. A single-week z-score may shrug. But the Owl does not forget the last several ripples in the water.
+
+The tradeoff is that basic CUSUM is usually directional. If it watches only upward drift, it may miss alternating swings or downward changes. For that, practitioners often use a two-sided CUSUM: one running sum for upward pressure and another for downward pressure. The Owl keeps one eye on the rising river and the other on the disappearing streambed.
+
+### Dynamic Z-Score: Letting Each Creature Keep Its Rhythm
+
+A standard z-score asks how far a value is from normal, measured in units of variation. That is useful, but the jungle is not equally noisy everywhere.
+
+The elephant walks with a steady rhythm. If it suddenly races through the trees, the Owl notices immediately. The monkey, however, leaps, tumbles, pauses, and darts all day long. The same jump that would be strange for the elephant may be ordinary for the monkey.
+
+Dynamic Z-Score keeps this difference in mind. It adjusts anomaly thresholds based on volatility. Instead of giving every creature the same alarm bell, the Owl scales the bell to match each creature's natural rhythm.
+
+Plain-English math:
+
+`threshold = base × (1 + Coefficient of Variation)`
+
+The Coefficient of Variation compares variability to the average. A low value means the series is steady. A high value means the series naturally swings around. When volatility is high, the threshold expands. When volatility is low, the threshold tightens.
+
+A practical tiering scheme might look like this:
+
+| Volatility Tier | Coefficient of Variation | Owl's Interpretation | Threshold Behavior |
+|---|---:|---|---|
+| STABLE | 0.00 to 0.15 | Elephant rhythm | Tight alarm range |
+| MODERATE | 0.15 to 0.40 | Deer rhythm | Slightly wider range |
+| VOLATILE | 0.40 to 0.80 | Monkey rhythm | Wider alarm range |
+| HIGHLY_VOLATILE | Above 0.80 | Stormy canopy rhythm | Very cautious alarm range |
+
+Consider credit-card spending. A salaried office worker may spend in a predictable pattern: groceries, fuel, rent, subscriptions, and occasional dining. A sudden burst of high-value electronics purchases in another city might deserve attention. For this user, the Owl keeps a narrow watch.
+
+A small-business owner may be different. Some weeks are quiet. Other weeks include inventory purchases, travel expenses, vendor payments, and client meals. A fixed threshold may cry danger too often. Dynamic Z-Score lets the Owl ask a better question: "Is this transaction unusual for this user, given how noisy this user's normal life already is?"
+
+::: {.callout-tip}
+## Jargon Buster: Dynamic Z-Score in Plain English
+
+Dynamic Z-Score is an adaptive alarm. It still looks for values far from normal, but it gives naturally steady patterns a tighter boundary and naturally jumpy patterns a wider one.
+:::
+
+This technique is useful for heterogeneous populations, where one baseline would be unfair. A single rule for all cardholders, all sensors, or all network devices can create two failures at once: too many false alarms for noisy subjects, and missed warnings for quiet ones.
+
+The Owl does not want to punish the monkey for being a monkey. It wants to notice when the monkey moves in a way even monkeys do not usually move.
+
+Dynamic Z-Score works best for sharp single-period surprises in noisy environments. It is less suited to slow, sustained drift. If every week is only a little high, the adjusted threshold may keep stretching around the behavior. That is when CUSUM becomes the better river watcher.
+
+### Local Outlier Factor: The Lone Wolf at the Edge of the Glade
+
+Some anomalies are not strange because they are globally far away. They are strange because of the company they keep.
+
+![Figure 6.6 — The Lone Wolf at the Edge of the Glade. While most creatures gather densely around the glowing watering hole, a solitary wolf stands at the sparse edge — locally unusual, even if not globally distant.](images/wolf_glade.png){fig-align="center" width="80%"}
+
+At twilight, many creatures gather near the watering hole. They form dense clusters: deer near the reeds, birds near low branches, insects hovering over the wet stones. Then the Owl sees a lone wolf standing near the empty edge of the glade. The wolf is not necessarily far from every creature in the jungle. But compared with its nearest neighbors, it stands in a sparse, unusual patch.
+
+Local Outlier Factor, or LOF, is a density-based anomaly detection technique. It compares each point's local density with the local density of its neighbors. A point becomes suspicious when its neighborhood is much thinner than the neighborhoods around it.
+
+Plain-English math:
+
+1. Find each point's nearest neighbors.
+2. Estimate how crowded the point's local neighborhood is.
+3. Estimate how crowded the neighbors' own neighborhoods are.
+4. Compare the two.
+5. If the point lives in a much sparser area than its neighbors, flag it as unusual.
+
+This makes LOF different from methods that only ask, "How far is this point from the center?" In real data, there may be many centers. Some groups are dense. Some are spread out. Some normal behavior happens at the edge of one region but still has a healthy local crowd. LOF gives the Owl a neighborhood-sensitive map.
+
+Network traffic provides a good example. Most legitimate devices communicate in dense, familiar patterns: routine authentication, predictable service calls, scheduled backups, ordinary application traffic. A small fraud ring or suspicious coordination pattern may involve four or five nodes that cluster together unusually inside an otherwise dense legitimate-traffic zone. Each node may not look globally extreme. The cluster may even sit near normal traffic. But its local density pattern can be odd: close to one another, weakly connected to the normal crowd, and sparse compared with the surrounding neighborhood.
+
+::: {.callout-tip}
+## Jargon Buster: LOF in Plain English
+
+LOF asks whether a point's neighborhood is unusually empty compared with its neighbors' neighborhoods. It is suspicious when it looks lonely in a place where nearby points are not lonely.
+:::
+
+LOF is helpful when the jungle has mixed-density regions. A static distance rule may mistake a normal quiet clearing for danger, or miss a suspicious pocket hidden near a busy path. LOF lets the Owl judge local context.
+
+Its weakness is the opposite of its strength. If a point is globally isolated and obviously far from everything, Isolation Forest may be simpler and stronger. LOF shines when the question is more subtle: "Does this point belong to the local crowd around it?"
+
+### Choosing the Owl's Watch Pattern
+
+No single anomaly detector is the whole jungle. Static thresholds, CUSUM, Dynamic Z-Score, and LOF each teach the Owl a different style of attention.
+
+| Technique | What it catches | What it misses | When to use |
+|---|---|---|---|
+| Static Z-Score | Single-week shocks vs fixed baseline | Slow drift, volatile populations | Stable processes only |
+| CUSUM | Slow accumulating drift | Bidirectional swings (use 2-sided variant) | Catching gradual escalation |
+| Dynamic Z-Score | Single-week shocks adjusted to natural noise | Multi-week sustained patterns | Noisy or heterogeneous populations |
+| LOF | Local-density anomalies (small clusters in dense space) | Global isolated points (use IF instead) | Mixed-density populations |
+
+The practical Owl often combines these methods. CUSUM watches the rising river. Dynamic Z-Score learns each creature's rhythm. LOF studies the shape of the crowd around the watering hole. Together, they turn anomaly detection from a single alarm into a layered patrol of time, volatility, and local context.
+
+*The Owl blinks once from the branch.* *"A strange moment matters. A strange rhythm matters more."*
+
 ## Intelligent Patrol: Reinforcement Learning for Route Optimization
 
 **Dynamic Flight Paths**
