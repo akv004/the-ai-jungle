@@ -178,6 +178,7 @@ To truly understand how the Artistic Bird conjures new illusions, we must examin
 #### ***Generative Adversarial Networks (GANs)***
 
 ##### Concept: A Creative Duel
+
 ::: {.callout-note icon="🎨"}
 ##### The Analogy: An Artist vs. a Critic
 

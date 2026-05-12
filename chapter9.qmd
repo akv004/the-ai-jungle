@@ -632,6 +632,7 @@ The transition to multi-agent AI is just the beginning. As the Elephant and its 
 - **Copilot patterns:** Agents that augment human capabilities rather than replace them
 - **Approval workflows:** Critical decisions routed to humans while routine tasks are automated
 - **Explainable actions:** Agents that can justify their decisions to human overseers
+
 ::: {.callout-note}
 ## Chapter 9 Summary
 

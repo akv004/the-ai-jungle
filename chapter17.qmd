@@ -97,7 +97,7 @@ A common SHAP visualization is the **force plot**. For one prediction, it begins
 
 ```{mermaid}
 flowchart LR
-  B["Base rate<br/>Council average"] -- "60 points" --> V["Final verdict<br/>42 points"]
+  B["Base rate<br/>Council average = 60"] --> V["Final verdict<br/>42 points"]
   I["Income"] -- "+8 SHAP points" --> V
   D["Debt to income"] -- "-18 SHAP points" --> V
   C["Credit history length"] -- "-7 SHAP points" --> V

@@ -6,7 +6,7 @@ At the edge of the AI Jungle, where the canopy opens and the river widens into s
 
 *What will the river do next?*
 
-![Figure — The Tide-Reader's Decomposition. The river passes through a crystalline prism and splits into three layers: a slowly-curving golden trend rising upward, a teal seasonal wave pulsing in regular crests, and a silver residual of small random eddies. To the Heron, the river is not a single jagged line but a layered message.](images/chapter_timeseries_images/heron_decomposition.png){fig-align="center" width="80%"}
+![Figure TS.1 — The Tide-Reader's Decomposition. The river passes through a crystalline prism and splits into three layers: a slowly-curving golden trend rising upward, a teal seasonal wave pulsing in regular crests, and a silver residual of small random eddies. To the Heron, the river is not a single jagged line but a layered message.](images/chapter_timeseries_images/heron_decomposition.png){fig-align="center" width="80%"}
 
 The river never speaks in a single voice. Today's flow carries yesterday's rain, last week's heat, last season's meltwater, and a thousand small accidents: fallen branches, sudden storms, wandering fish, cracked stones under the current. To an impatient machine, the river looks like a jagged line. To the Heron, it is a layered message.
 
@@ -67,6 +67,8 @@ The Heron does not ask the raw river to explain everything at once. It separates
 
 ## STL — The Robust Decomposer
 
+![Figure TS.2 — The Tide-Reader's Decomposition. The Heron's sturdy glowing prism elegantly separates the chaotic river water into three distinct, calm streams: trend, seasonal, and residual.](images/chapter_timeseries_images/tide_reader_decomposition.png){fig-align="center" width="80%"}
+
 STL stands for Seasonal-Trend decomposition using LOcally Estimated Scatterplot Smoothing. The name is long, but the idea is friendly: STL gently smooths the time series to estimate its long-run trend, estimates the repeating seasonal pattern, and leaves behind the residual.
 
 In the jungle metaphor, STL is the Heron's glowing prism made sturdy. It does not shatter when a single flash flood rushes through. If one day the river surges because a storm breaks upstream, STL can reduce that event's influence on the estimated seasonal pattern. This is why STL is often described as robust to outliers.
@@ -76,6 +78,8 @@ That robustness matters. Suppose a retailer usually sees higher sales every Dece
 STL works best when it has enough history to see the seasonal pattern repeat. As a rule of thumb, it needs at least two full seasonal cycles. For annual seasonality, that means at least two years of data. For weekly seasonality in daily data, two or more weeks may be enough to begin, though more history is better.
 
 The output of STL is not a forecast by itself. It gives you the components: trend, seasonal, and residual. You can then model or extrapolate those pieces, or use the residual for anomaly detection. This point is crucial: when searching for anomalies in a seasonal series, flag the residual, not the raw value. A high value during a known seasonal peak may be completely normal. A modest value at the wrong time may be suspicious.
+
+![Figure TS.3 — Technical View of STL Decomposition. The observed series is split into its underlying trend, repeating seasonal pattern, and the remaining residual noise. Notice how the outlier is clearly isolated in the residual layer, demonstrating STL's robustness.](images/chapter_timeseries_images/stl_technical_plot.png){fig-align="center" width="90%"}
 
 In real Python work, STL is available in `statsmodels`, and many modern time-series libraries build on the same idea. It is one of the Heron's most dependable tools when the river has a clear repeating pulse and enough history to reveal it.
 
@@ -126,6 +130,8 @@ The `q` term is moving average. It models the influence of past forecast errors.
 Seasonal ARIMA, often called SARIMA, adds seasonal parameters: `P`, `D`, `Q`, and `m`. The `m` represents the seasonal period, such as 7 for weekly seasonality in daily data or 12 for monthly data with annual seasonality.
 
 ARIMA's great strength is rigorous statistical inference. It can produce meaningful confidence intervals and leave a clear audit trail. This makes it useful when the question is not only "What is the forecast?" but also "How uncertain is the forecast, and can we defend the method?"
+
+![Figure TS.4 — Technical View of an ARIMA Forecast. The model produces a mean forecast (dashed red line) surrounded by expanding confidence intervals (shaded regions). This "cone of uncertainty" is ARIMA's signature strength, allowing the Heron to quantify exact statistical confidence in future predictions.](images/chapter_timeseries_images/arima_technical_plot.png){fig-align="center" width="90%"}
 
 Its weakness is that it expects the series to be stationary, meaning its statistical behavior is stable over time. In plain language, the mean and variance should not drift wildly. Differencing often helps, but choosing the right parameters can take care. Auto-ARIMA tools search the parameter grid for you, but the Heron still inspects the result.
 

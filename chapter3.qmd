@@ -237,7 +237,7 @@ print("📊 Top 3 Features:", importances.nlargest(3).to_dict())
 
 ### LightGBM: The Modern Successor
 
-![Figure 3.X — The Swift Fox on the Boosting Trail. LightGBM is the lean robotic fox sprinting along the same boosting trail XGBoost blazed, leaving behind the heavier predecessors of the gradient-boosting family.](images/chapter3_images/swift_fox_lightgbm.png){fig-align="center" width="80%"}
+![Figure 3.1 — The Swift Fox on the Boosting Trail. LightGBM is the lean robotic fox sprinting along the same boosting trail XGBoost blazed, leaving behind the heavier predecessors of the gradient-boosting family.](images/chapter3_images/swift_fox_lightgbm.png){fig-align="center" width="80%"}
 
 LightGBM is Microsoft's open-source gradient boosting framework, released in 2017, built to train fast and use memory efficiently on large tabular datasets. If XGBoost made boosted trees practical and popular, LightGBM is the swift fox that followed the same trail with lighter footfalls: leaner, faster, and especially comfortable when the forest grows into millions of rows.
 
