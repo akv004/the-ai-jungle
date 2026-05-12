@@ -33,6 +33,8 @@ Each “neuron” in the Owl’s brain is like a small watchtower guard post. It
 
 Biology Analogy: A neuron in a real owl’s brain might receive signals from the eyes and, if the combined signal exceeds a certain intensity, it triggers an alert. Similarly, an artificial neuron might output a “1” if the weighted sum of pixel values suggests an edge in an image, or remain “0” if not. Crucially, the Owl’s neurons learn how strongly to weight each input through training, so they become tuned to important features (for example, a certain combination of colors or edges that indicate an animal’s outline).
 
+![Figure 4.1 — The Firing Canopy Node. A single artificial neuron watches the jungle canopy, gathering many faint signals into one decisive pulse. Inputs arrive as glowing threads; when the learned threshold is crossed, the node fires and passes its signal onward.](images/chapter4_images/firing_canopy_node.png){fig-align="center" width="80%"}
+
 ####  Layers: From Simple to Complex
 
 A Deep Neural Network has multiple hidden layers sandwiched between the input and output. Each layer is a team of neurons that receives outputs from the previous layer and processes them to increasingly refine the data. As information flows upward through these layers, the representation of the data becomes more abstract and meaningful:
@@ -42,6 +44,8 @@ A Deep Neural Network has multiple hidden layers sandwiched between the input an
 - **Deeper final layers** assemble the detailed parts into whole concepts or categories. One cluster of neurons might fire strongly when all the pieces of a “gazelle” are present (legs, body, movement pattern), while another set activates for “rock” or “tree branch.” By the output layer, the Owl’s network can make a high-level decision or classification (e.g., “This shape is a gazelle, not just a collection of edges”).
 
 In essence, each layer transforms the data into a more refined form. The Owl’s perception grows from raw pixels or sensor signals in the input layer to a rich understanding in the output layer. This layering is the source of the term “deep” in deep learning (many layers = depth). It’s like a multi-tiered sieve: the first sieve catches large, obvious pieces (edges), the next catches combinations that slip through (shapes), and so on, until only the most meaningful identification remains (the object or decision).
+
+![Figure 4.2 — The Owl's Memory Rings. Information rises through layered rings of perception: simple glimmers become edges, edges become shapes, and shapes become a clear concept the Owl can recognize.](images/chapter4_images/insightful_owl_memory_rings.png){fig-align="center" width="80%"}
 
 
 
@@ -78,6 +82,8 @@ Not all neural networks are identical. Just as jungle creatures have different s
 - **Task Specialty:** The Robotic Hawk is specialized for scanning images or video frames with exceptional detail. If you have visual data (like photos, medical scans, or satellite images), a CNN is often the go-to neural network.
 - **Analogy:** The hawk’s sweeping vision picks out fine details from high above. As it soars, it can spot the shimmer of a fish underwater or a mouse in the grass. Similarly, a ***Convolutional Neural Network (CNN)*** scans an image using sliding filters—like a hawk’s sharp eyes sweeping across a landscape—to detect features regardless of their position. The CNN’s convolutional layers act as the hawk’s retinas, filtering the view for specific patterns (edges, textures) across the entire image. This specialized focus allows the Robotic Hawk to quickly identify objects in images with great accuracy and efficiency. In practice, CNNs have revolutionized image recognition: from diagnosing diseases in X-rays to enabling self-driving cars to recognize road signs. In fact, some deep CNNs have even outperformed human experts in certain vision tasks (one CNN model surpassed professional radiologists at detecting pneumonia in chest X-rays
 , showing just how keen the Hawk’s vision has become).
+
+![Figure 4.3 — The Hawk's Spatial Grid. A robotic hawk scans the forest through overlapping glowing windows, showing how convolutional filters sweep across an image to detect local patterns wherever they appear.](images/chapter4_images/hawk_spatial_grid.png){fig-align="center" width="80%"}
 
 
 #### Robotic Owl (Recurrent Networks – RNN/LSTM)

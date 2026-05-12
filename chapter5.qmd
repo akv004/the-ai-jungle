@@ -298,14 +298,7 @@ Mathematically, this is addressed using:
 
 Without solving credit assignment, the Fox can never refine its instincts.
 
-<!--
-:::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox surrounded by ghostly echoes of its past actions, each glowing differently to represent delayed credit._
-
-:::
--->
+![Figure 5.6 — Credit Assignment Echoes. The Fox receives its reward at the end of the trail, but golden light flows backward through earlier choices. RL must decide which past actions deserve credit for the outcome, not just the final step.](images/chapter5/credit_assignment_echoes.png){fig-align="center" width="80%"}
 
 ---
 
@@ -374,14 +367,7 @@ Conceptually:
 
 This synergy allowed RL to master Atari games, robotics control, and industrial decision systems.
 
-<!--
-:::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox consulting with Owl projecting holographic memory den showing replay buffer and neural patterns._
-
-:::
--->
+![Figure 5.7 — The DQN Memory Den. The Fox brings remembered journeys to the Owl, who distills them through a neural canopy. A Deep Q-Network replaces a fixed ledger with a model that can replay experience and generalize to new states.](images/chapter5/dqn_memory_den.png){fig-align="center" width="80%"}
 
 ---
 
@@ -466,14 +452,7 @@ The Fox no longer reacts to the present—it anticipates the future.
 
 This ability elevates RL from instinct to strategy.
 
-<!--
-:::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox projecting future Jungle states like holographic simulations, multiple possible futures branching outward._
-
-:::
--->
+![Figure 5.8 — Simulating Futures Before Acting. In model-based RL, the Fox imagines multiple possible jungles before choosing a path. It learns an internal model of how actions change future states and rewards.](images/chapter5/model_based_future_simulation.png){fig-align="center" width="80%"}
 
 ---
 
@@ -554,14 +533,7 @@ Good reward design requires:
 
 Curriculum learning—teaching the Fox simple tasks before complex ones—often yields remarkable results.
 
-<!--
-:::{.figure-placeholder}
-**Image Placeholder — To Be Generated**
-
-**Prompt:** _Fox confronted by tempting shortcuts and dangerous traps glowing with deceptive reward signals._
-
-:::
--->
+![Figure 5.9 — Reward Hacking: The Deceptive Shortcut. A poorly designed reward can lure the Fox toward easy proxy points instead of the true goal. Good reward design makes the safe, intended path more attractive than the loophole.](images/chapter5/reward_hacking_shortcut.png){fig-align="center" width="80%"}
 
 ---
 

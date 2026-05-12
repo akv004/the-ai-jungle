@@ -1,5 +1,5 @@
 :::{.no-number}
-![](cover){width=100% height=auto}
+![](cover.png){width=100% height=auto}
 :::
 ---
 title: "The AI Jungle"
