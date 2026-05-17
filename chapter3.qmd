@@ -127,15 +127,13 @@ In the Tiger analogy, labels are the elder's field notes: "this track led to pre
 
 #### Step 2: Match the Output to the Method
 
-| Desired Output | Good First Method | Why It Helps | Watch-outs |
-|---|---|---|---|
-| A numeric prediction | Linear Regression | Fast, explainable, and easy to debug | Check whether errors curve or widen; that may mean the relationship is not linear |
-| A yes/no decision | Logistic Regression | Produces probabilities, not just labels | A 0.51 probability is very different from 0.99; choose thresholds carefully |
-| A clear set of rules | Decision Tree | Easy to explain as if-then branches | Deep trees memorize training data easily |
-| Strong tabular accuracy | Random Forest or Gradient Boosting | Captures interactions between features | Use cross-validation; avoid leaking future information into training |
-| Customer or behavior groups | K-Means | Simple way to discover common patterns | Standardize features first; large-scale features can dominate distance |
-| Strange or rare cases | Isolation Forest | Finds points that are easier to separate from the crowd | Rare does not always mean bad; verify with domain knowledge |
-| A simpler feature space | PCA | Compresses many numeric columns into fewer components | Components can be harder to explain than original columns |
+Once you know whether labels exist, match the **shape of the answer** to the method:
+
+- **A number:** start with Linear Regression or Ridge, then try tree ensembles if errors show nonlinear patterns.
+- **A yes/no or category label:** start with Logistic Regression or a Decision Tree, then try Random Forest or Gradient Boosting when feature interactions matter.
+- **A natural group:** start with K-Means after scaling numeric features.
+- **A strange or rare case:** start with Isolation Forest, then ask a domain expert whether the flagged cases are actually meaningful.
+- **A simpler view of many columns:** start with PCA for compression or t-SNE/UMAP for exploration.
 
 #### Practical Examples
 
@@ -918,7 +916,7 @@ For these complex tasks—vision, speech, and raw perception—you need the raw 
 - **Reproducibility:** Seeds, versioning, and experiment tracking pay off.
 
 
-![](images/chapter3_images/tiger_sunset.png){width=100% height=auto}
+![The Robotic Tiger at sunset, carrying the chapter's foundational machine learning lessons into the next stage of the journey.](images/chapter3_images/tiger_sunset.png){width=100% height=auto}
 
 ---
 
