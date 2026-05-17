@@ -1,0 +1,22 @@
+/* Make tables take up the available width but still scroll if necessary */
+.wide-table {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.wide-table table {
+  width: 100%;
+}
+
+/* Reduce font size of left sidebar navigation */
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .sidebar-title {
+  font-size: 0.8rem;
+}
+
+/* Extremely small font size for right TOC to save space */
+nav#TOC {
+  font-size: 0.7rem;
+  line-height: 1.2;
+}

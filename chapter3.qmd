@@ -101,15 +101,93 @@ This consistency means once you learn one algorithm, you can use *any* scikit-le
 
 Use this quick map when you’re unsure where to start:
 
-| Problem Type | Typical Baselines | When to Prefer | Watch-outs |
-|---|---|---|---|
-| Numeric prediction (regression) | Linear Regression; Ridge/Lasso (regularized linear) | Interpretable coefficients, fast to train | Scale features; check residuals for patterns |
-| Binary/multi-class classification | Logistic Regression, Decision Tree | Fast baseline, clear decision boundaries | Calibrate probabilities; watch class imbalance |
-| Tabular data with interactions | Random Forest, Gradient Boosting (XGBoost/LightGBM) | Strong accuracy with minimal feature engineering | Tune depth & learning rate; avoid data leakage |
-| Unlabeled data exploration | K-Means clustering; PCA | Discover latent groups or reduce noise | Choose k (clusters) wisely; standardize features first |
-| Structure visualization | t‑SNE, UMAP | Reveal clusters/manifolds in high-dim data | For insight only (not supervised training); sensitive to parameters |
+The Tiger should not choose an algorithm because it sounds impressive. It should first ask: **What real-world job am I trying to do, and what kind of answer do I need?** Use the table below as a practical starting guide.
 
-**Rule of Thumb:** Start simple, measure honestly, then graduate to ensembles or more complex models. Let the tiger learn to walk before it sprints.
+::: {.wide-table .field-guide-table}
+| Problem Type | Typical Baselines | When to Prefer / Use Cases | Example Input → Output | Watch-outs |
+|---|---|---|---|---|
+| **Numeric prediction (regression)** | Linear Regression, Ridge, Lasso | Use when the answer is a number. Common uses: house price, delivery time, electricity demand, next-month sales. | `size=1800 sq ft`, `3 bedrooms`, `ZIP=78701` → `$345,000` predicted price | Check whether errors are large for certain groups. Nonlinear patterns may need Random Forest or Gradient Boosting. |
+| **Binary classification** | Logistic Regression, Decision Tree | Use when there are two possible classes and probabilities matter. Common uses: spam detection, churn prediction, loan approval, disease risk flag. | `sender=unknown`, `links=5`, `urgent words=12` → `spam`, `92% probability` | Watch class imbalance. A model can look accurate by always predicting the majority class. |
+| **Multi-class classification** | Logistic Regression, Decision Tree, Random Forest | Use when each record belongs to one of several known categories. Common uses: support routing, product category detection, plant/species recognition. | `ticket text="charged twice"` → `billing issue` | Check confusion between similar classes. Weak categories usually need more labeled examples. |
+| **Tabular data with feature interactions** | Random Forest, Gradient Boosting, XGBoost, LightGBM | Use when combinations of features matter. Common uses: fraud scoring, insurance risk, demand forecasting, lead scoring. | `new device`, `large purchase`, `foreign location` → `high fraud risk` | Avoid data leakage. Tune depth and learning rate. Explainability may be harder than with linear models. |
+| **Unlabeled grouping (clustering)** | K-Means, DBSCAN, Hierarchical Clustering | Use when you do not have labels and want to discover natural groups. Common uses: customer segmentation, document grouping, behavior discovery. | `purchase frequency`, `order value`, `favorite categories` → `loyal buyer segment` | Standardize numeric features. Clusters need human interpretation; the algorithm will not name the groups for you. |
+| **Anomaly detection** | Isolation Forest, Local Outlier Factor, One-Class SVM | Use when rare unusual events matter more than ordinary cases. Common uses: machine failure, suspicious login, unusual spending, sensor faults. | `temperature spike`, `high vibration`, `recent maintenance` → `suspicious reading` | Rare does not always mean bad. Alerts must be reviewed with domain knowledge. |
+| **Dimensionality reduction** | PCA, t-SNE, UMAP | Use when there are too many features to inspect directly. Common uses: visualizing embeddings, compressing survey data, denoising sensor data. | `768 embedding values` → `2D map of similar documents` | t-SNE/UMAP are mainly for exploration. PCA is easier to explain but may hide original feature meaning. |
+:::
+
+#### Step 1: Check Whether You Have Labels
+
+The first fork in the trail is simple:
+
+- **If you have labeled examples**, use supervised learning. Example: past house records include actual sale prices, or past emails are labeled `spam` / `not spam`.
+- **If you do not have labels**, use unsupervised learning. Example: you have customer purchase histories but no predefined customer types.
+- **If labels are rare or expensive**, start with clustering or anomaly detection to explore the data, then label a smaller, more useful sample.
+
+In the Tiger analogy, labels are the elder's field notes: "this track led to prey," "that shadow was only a rock." Without those notes, the Tiger can still explore, but it must discover structure on its own.
+
+#### Step 2: Match the Output to the Method
+
+| Desired Output | Good First Method | Why It Helps | Watch-outs |
+|---|---|---|---|
+| A numeric prediction | Linear Regression | Fast, explainable, and easy to debug | Check whether errors curve or widen; that may mean the relationship is not linear |
+| A yes/no decision | Logistic Regression | Produces probabilities, not just labels | A 0.51 probability is very different from 0.99; choose thresholds carefully |
+| A clear set of rules | Decision Tree | Easy to explain as if-then branches | Deep trees memorize training data easily |
+| Strong tabular accuracy | Random Forest or Gradient Boosting | Captures interactions between features | Use cross-validation; avoid leaking future information into training |
+| Customer or behavior groups | K-Means | Simple way to discover common patterns | Standardize features first; large-scale features can dominate distance |
+| Strange or rare cases | Isolation Forest | Finds points that are easier to separate from the crowd | Rare does not always mean bad; verify with domain knowledge |
+| A simpler feature space | PCA | Compresses many numeric columns into fewer components | Components can be harder to explain than original columns |
+
+#### Practical Examples
+
+**Example 1: Predicting house prices**
+
+- **Question:** "What should this house sell for?"
+- **Data:** square footage, bedrooms, age, neighborhood, past sale price.
+- **Start with:** Linear Regression or Ridge Regression.
+- **Upgrade to:** Random Forest Regressor or Gradient Boosting if the relationship is nonlinear.
+- **Metric:** Mean Absolute Error (MAE), because "off by $18,000" is easier to understand than an abstract score.
+
+**Tiger analogy:** The Tiger estimates how far the herd has moved by reading the slope of the land, the freshness of tracks, and the time since sunrise. It is predicting a number, so it needs regression.
+
+**Example 2: Filtering spam emails**
+
+- **Question:** "Is this email spam or legitimate?"
+- **Data:** words in the email, sender reputation, links, previous spam labels.
+- **Start with:** Logistic Regression.
+- **Upgrade to:** Random Forest or Gradient Boosting when word combinations and sender patterns become more complex.
+- **Metric:** Precision and recall. False positives can hide real messages; false negatives let spam through.
+
+**Tiger analogy:** The Tiger asks, "Is this rustle prey or just wind?" The answer is a category, so it needs classification.
+
+**Example 3: Grouping customers**
+
+- **Question:** "What kinds of customers do we have?"
+- **Data:** purchase frequency, average order size, product categories, days since last purchase.
+- **Start with:** K-Means after scaling the features.
+- **Upgrade to:** DBSCAN if groups have irregular shapes or if you expect outliers.
+- **Metric:** Silhouette score can help, but business usefulness matters more than a perfect statistic.
+
+**Tiger analogy:** At a watering hole, the Tiger notices that some animals move in herds, some arrive alone, and some only appear at night. No one gives the Tiger labels; it discovers natural groups.
+
+**Example 4: Detecting suspicious machine behavior**
+
+- **Question:** "Is this sensor reading normal?"
+- **Data:** temperature, vibration, pressure, error logs, time since maintenance.
+- **Start with:** Isolation Forest or Local Outlier Factor.
+- **Upgrade to:** Supervised classification later if engineers label enough examples of real failures.
+- **Metric:** Review rate and confirmed incident rate. An anomaly detector is useful only if humans can act on its alerts.
+
+**Tiger analogy:** Most forest sounds blend into the background. A sudden metallic screech is rare, separated from the normal rhythm, and worth investigating.
+
+#### A Simple Starting Strategy
+
+1. **Build the simplest reasonable baseline.** Use Linear Regression for numbers, Logistic Regression for categories, and K-Means for unlabeled groups.
+2. **Measure against a holdout set.** The Tiger must prove it can hunt in new territory, not only where it trained.
+3. **Inspect mistakes.** Look at wrong predictions one by one. They often reveal bad labels, missing features, or data leakage.
+4. **Increase complexity only when needed.** Try Random Forests or Gradient Boosting after simple models expose the baseline.
+5. **Prefer explainability when stakes are high.** In credit, healthcare, hiring, safety, or security, a slightly less accurate but explainable model may be the better tool.
+
+**Rule of Thumb:** Start simple, measure honestly, then graduate to ensembles or more complex models. Let the Tiger learn to walk before it sprints.
 
 ![A jungle map showing the branching paths of machine learning — Regression, Classification, Clustering, and Dimensionality Reduction.](images/chapter3_images/jungle_map.png){width=100% height=auto}
 
@@ -297,6 +375,8 @@ Regularization is like teaching the tiger to focus on the most meaningful signal
 - **Key Idea:** Assign points to nearest center, then update centers iteratively.
 - **Tiger Analogy:** Group small fast animals vs. large slow ones **without labels**.
 - **Modern Note:** Often a first pass for structure discovery.
+
+![Figure 3.2 — K-Means groups similar creatures around learned centers. Each cluster forms around a centroid, while distant points may deserve extra review.](images/chapter3_images/kmeans_behavioral_census.png){#fig-kmeans-clusters fig-align="center" width="80%"}
 
 ### Principal Component Analysis (PCA) *(Unsupervised)*
 - **Purpose:** Reduce dimensionality while preserving the most variance.
@@ -520,8 +600,6 @@ By plotting every creature on a chart (Movement on X-axis, Metabolic Rate on Y-a
 
 Now, if a creature's behavior *changes*—say, a normally sedentary sloth suddenly starts traveling far and eating voraciously—it stands out as an **outlier** from its own peer group.
 
-![The Elephant's Behavioral Census: K-Means groups creatures into peer clusters based on normalized movement and metabolic rate. Outliers stand out as creatures far from their cluster's centroid.](images/chapter3_images/kmeans_behavioral_census.png){#fig-kmeans-clusters}
-
 ::: {.callout-tip}
 ## Real-World Example: How Spotify Knows Your Taste
 
@@ -577,7 +655,7 @@ flowchart TD
     D --> E{"Centroids moved?"}
     E -->|Yes| C
     E -->|No| F["✅ Done! Clusters are stable"]
-    
+
     style A fill:#E3F2FD,stroke:#1976D2
     style F fill:#C8E6C9,stroke:#388E3C
 ```
@@ -624,7 +702,7 @@ flowchart LR
         D1["Ring Cluster"]
         D2["🔴 Noise"]
     end
-    
+
     style KM fill:#ffffff,stroke:#F44336,stroke-width:2px
     style DB fill:#ffffff,stroke:#4CAF50,stroke-width:2px
 ```
@@ -707,7 +785,7 @@ flowchart LR
     subgraph Input["🌲 New Trail Data"]
         I["Features: Paw Prints, Water, Time, Branches, Den Proximity"]
     end
-    
+
     subgraph Forest["🌳 Council of 100 Elder Trees"]
         T1["Tree 1: Dangerous"]
         T2["Tree 2: Safe"]
@@ -715,15 +793,15 @@ flowchart LR
         T4["..."]
         T5["Tree 100: Dangerous"]
     end
-    
+
     subgraph Vote["🗳️ Majority Vote"]
         V["72 Dangerous, 28 Safe"]
     end
-    
+
     subgraph Result["✅ Final Decision"]
         R["⚠️ DANGEROUS"]
     end
-    
+
     I --> T1
     I --> T2
     I --> T3
@@ -735,9 +813,9 @@ flowchart LR
     T4 --> V
     T5 --> V
     V --> R
-    
+
     style Vote fill:#ffffff,stroke:#FF9800,stroke-width:2px
-    
+
     style Input fill:#fff,stroke:#4CAF50,stroke-width:2px
     style Forest fill:#fff,stroke:#2196F3,stroke-width:2px
     style Result fill:#fff,stroke:#C62828,stroke-width:2px
@@ -766,11 +844,11 @@ import pandas as pd
 
 # 1. Create sample data: 500 "trails" with 5 features
 X, y = make_classification(
-    n_samples=500, n_features=5, n_informative=3, 
+    n_samples=500, n_features=5, n_informative=3,
     n_redundant=1, n_clusters_per_class=1, random_state=42
 )
 feature_names = [
-    'Paw_Prints', 'Water_Nearby', 'Broken_Branches', 
+    'Paw_Prints', 'Water_Nearby', 'Broken_Branches',
     'Time_of_Day', 'Predator_Den_Proximity'
 ]
 
