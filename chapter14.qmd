@@ -97,6 +97,22 @@ Fusion & Analysis:
 Council Decision: 
 
 - The Owl, Tiger, Fox, and Elephant each apply their unique strengths (symbolic logic, deep learning, RL strategy, MLOps orchestration). Conflicts or uncertainties are resolved through hierarchical arbitration, ensuring the best combined outcome. 
+
+```{mermaid}
+%%| fig-cap: "Figure 14.3 — Multi-modal fusion path from senses to council decision"
+flowchart LR
+  Image["Image stream<br/>Chameleon vision"] --> Vision["Vision encoder<br/>visual embedding"]
+  Audio["Audio stream<br/>Chameleon and Toucan"] --> Sound["Audio encoder<br/>sound embedding"]
+  Text["Transcript stream<br/>Toucan language"] --> Language["Language encoder<br/>text embedding"]
+  Sensors["Sensor stream<br/>Moth beacon"] --> Metrics["Sensor encoder<br/>numeric embedding"]
+  Vision --> Fusion["Fusion layer<br/>attention or weighted merge"]
+  Sound --> Fusion
+  Language --> Fusion
+  Metrics --> Fusion
+  Fusion --> Arbiter["Council arbiter<br/>resolve uncertainty"]
+  Arbiter --> Action["Decision<br/>alert adapt or scale"]
+```
+
 Code snippet that demonstrates embedding fusion or cross-attention:
  Suppose we have three data inputs:
 

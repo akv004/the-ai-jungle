@@ -60,6 +60,19 @@ Alligator (Event-Driven): Perfect for microservices that only run on triggers.
 Bear (Resource-Aware): Ideal for long-running processes that scale down when usage is low. 
 The Elephant envisions a unified pipeline where, for example, the Owl’s anomaly warnings might trigger an Alligator service for immediate incident response, while the Bear remains in a partial “sleep” to conserve cost—waking only if extended data processing becomes necessary. 
 
+```{mermaid}
+%%| fig-cap: "Figure 11.2 — Hybrid trigger and scaling loop"
+flowchart LR
+  Sensor["Sensor event<br/>or queue message"] --> Filter["Trigger filter<br/>dedupe and threshold"]
+  Filter -->|Real event| Alligator["Alligator service<br/>serverless response"]
+  Filter -->|Noise| Archive["Event log<br/>no compute burst"]
+  Alligator --> Decision["Incident decision<br/>route or escalate"]
+  Decision -->|Short task| Done["Fast response<br/>scale back to zero"]
+  Decision -->|Extended task| Bear["Bear workers<br/>autoscaled capacity"]
+  Bear --> Monitor["Elephant monitor<br/>cost and latency"]
+  Monitor --> Filter
+```
+
 ### Integrating with the Tiger, Owl, and Fox
 
 - Tiger (Computer Vision): Could call an Alligator service to spin up advanced image analysis only when new camera data arrives (event-driven). 

@@ -166,6 +166,22 @@ The **Tiger** stretched and yawned, surveying the various hunting grounds. *"Eac
 
 Below is a quick-reference table matching workload types to recommended hardware solutions.
 
+```{mermaid}
+%%| fig-cap: "Figure 19.2 — Hardware selection trail for AI workloads"
+flowchart TD
+  Start["Start with workload"] --> Size{"Large model<br/>or high throughput"}
+  Size -->|No| Cpu["CPU path<br/>prototype or small inference"]
+  Size -->|Yes| Latency{"Strict latency<br/>or edge privacy"}
+  Latency -->|Yes| Edge["Edge path<br/>NPU FPGA or quantized model"]
+  Latency -->|No| Train{"Training<br/>or batch inference"}
+  Train -->|Training| Cluster["Accelerator cluster<br/>GPU TPU or cloud pod"]
+  Train -->|Inference| Serving["Serving stack<br/>CPU plus GPU autoscaling"]
+  Cluster --> Cost["Check cost<br/>memory and energy budget"]
+  Serving --> Cost
+  Edge --> Cost
+  Cpu --> Cost
+```
+
 | Workload | Optimal Hardware | Notes |
 |----------|------------------|-------|
 | Simple ML (e.g., regression) | CPU only | Ideal for prototyping, small-scale analytics, quick experiments. |

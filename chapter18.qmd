@@ -458,6 +458,18 @@ Diffusion models have become the go-to architecture for generating high-quality 
 
 This section walks through the **generation process**, step by step, to help you understand what’s happening behind the scenes.
 
+```{mermaid}
+%%| fig-cap: "Figure 18.3 — Diffusion generation from prompt to finished image"
+flowchart LR
+  Prompt["Text prompt<br/>creative intent"] --> Encoder["Text encoder<br/>semantic embedding"]
+  Noise["Random noise<br/>initial canvas"] --> Denoise["Denoising model<br/>guided cleanup loop"]
+  Encoder --> Denoise
+  Denoise --> Preview["Emerging image<br/>forms and colors"]
+  Preview --> Detail["Refinement<br/>texture lighting details"]
+  Detail --> Output["Final image<br/>prompt aligned result"]
+  Detail -->|More steps| Denoise
+```
+
 ---
 
 #### Step 1: Initialize with Noise
@@ -849,5 +861,4 @@ output = generator(
 print(output[0]['generated_text'])
 
 ```
-
 

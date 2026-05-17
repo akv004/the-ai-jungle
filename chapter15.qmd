@@ -81,6 +81,18 @@ Now that the Quantum Jaguar has laid out its nature, the Council convenes a gran
 
 The Council agrees on a unifying insight: **Hybrid approaches are the near-term future.** The strengths of classical AI (like massive data processing and well-developed algorithms) combined with quantum’s ability to explore combinatorially many states could yield a powerful synergy. They foresee classical computers orchestrating high-level structure while quantum co-processors tackle the exponentially hard pieces within. This resonates with what’s already happening in early quantum AI research, where classical optimizers tweak quantum circuit parameters (as in variational algorithms like QAOA and VQE), and quantum circuits feed back solutions.
 
+```{mermaid}
+%%| fig-cap: "Figure 15.3 — Hybrid quantum-classical learning loop"
+flowchart LR
+  Problem["Classical problem<br/>data and objective"] --> Encode["Feature encoding<br/>map into qubits"]
+  Encode --> Quantum["Quantum circuit<br/>explore candidate states"]
+  Quantum --> Measure["Measurement<br/>sample outcomes"]
+  Measure --> Score["Classical score<br/>loss or reward"]
+  Score --> Optimizer["Classical optimizer<br/>update parameters"]
+  Optimizer --> Quantum
+  Score -->|Good enough| Answer["Candidate solution<br/>validated classically"]
+```
+
 ## Future Horizons: The Quantum Jaguar’s Promise
 
 As the moon begins to set, the Council gathering winds down. The jungle is alive with newfound understanding and hope. The Mysterious Quantum Jaguar has demystified itself somewhat, showing that behind the magic is a growing body of science and engineering. The animals of the AI Jungle now see the Jaguar not as a threat, but as an ally—albeit one that behaves in wonderfully weird ways.
