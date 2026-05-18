@@ -14,7 +14,7 @@ Building upon the swarm intelligence concepts introduced in the previous chapter
 
 Together, they form a council that mirrors a cross-disciplinary board of experts—each contributing unique insights to solve challenges too complex for any single approach. 
 
-![Digital Council](images/chapter13_images/ch13Image.png)
+![The Digital Council: specialized AI agents gather around a shared problem, each contributing rules, pattern recognition, adaptation, and operational oversight.](images/chapter13_images/ch13Image.png)
 
 ## From Swarms to Councils: Why Hybrid Intelligence? 
 

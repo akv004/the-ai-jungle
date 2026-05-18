@@ -67,7 +67,7 @@ Suddenly, a Robotic Monkey vaults overhead, chucking “data bananas” into a n
 
 
 :::{.figure-placeholder}
-![Robotic Monkey Sabotage](images/chapter14_images/mtb1.png){fig-align="center" width="80%"}
+![The Robotic Monkey sends false sonar and sensor signals, illustrating why multi-modal systems cross-check vision, sound, text, and sensor data before acting.](images/chapter14_images/mtb1.png){fig-align="center" width="80%"}
 :::
 
 ## Why Multi-Modal? A Deeper Perspective

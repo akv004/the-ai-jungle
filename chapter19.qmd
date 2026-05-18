@@ -2,7 +2,7 @@
 
 ## The Jungle's Hidden Backbone
 
-![The Roots of Nature and Technology](images/chapter19_images/RootsOfNatureAndTechnology.png){width=100% height=auto}
+![The roots beneath the AI Jungle, symbolizing CPUs, GPUs, accelerators, memory, and cloud infrastructure supporting visible AI capabilities above the surface.](images/chapter19_images/RootsOfNatureAndTechnology.png){width=100% height=auto}
 
 ---
 

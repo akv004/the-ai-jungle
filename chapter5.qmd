@@ -23,7 +23,7 @@ At its core, RL addresses a single profound question:
 The answer unfolds not from pre-written rules but from *trial, feedback, and adaptation*—a dance as old as life itself.
 
 :::{.figure-placeholder}
-![](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
+![The Robotic Fox entering the reinforcement learning jungle, where each action is shaped by feedback from the environment.](images/chapter5/fox_jungle.png){fig-align="center" width="80%"}
 :::
 
 ![The Fox's Toolkit: A visual map of Reinforcement Learning algorithm families—Value-Based (Q-Learning, DQN), Policy-Based (REINFORCE, Policy Gradient), Actor-Critic (PPO, SAC), Model-Based (MuZero, Dreamer), and Modern RL (RLHF, Offline RL).](images/chapter5/rl_algorithm_ecosystem_bordered.png){#fig-rl-ecosystem}
@@ -213,7 +213,7 @@ Rewards guide behavior the way evolution guides species: slowly, iteratively, un
 The Fox senses its surroundings.
 
 :::{.figure-placeholder}
-![](images/chapter5/fox_observer_state.png){fig-align="center" width="80%"}
+![Observation step: the Fox reads the current state of the jungle before choosing an action.](images/chapter5/fox_observer_state.png){fig-align="center" width="80%"}
 :::
 
 ---
@@ -222,7 +222,7 @@ The Fox senses its surroundings.
 It selects an action—sometimes from knowledge, sometimes from curiosity.
 
 :::{.figure-placeholder}
-![](images/chapter5/FoxAndLPathAward.png){fig-align="center" width="80%"}
+![Decision step: the Fox chooses a path based on current knowledge and possible reward.](images/chapter5/FoxAndLPathAward.png){fig-align="center" width="80%"}
 :::
 
 ---
@@ -231,13 +231,13 @@ It selects an action—sometimes from knowledge, sometimes from curiosity.
 The Jungle responds with reward or punishment.
 
 :::{.figure-placeholder}
-![](images/chapter5/fox_reward_catch_rabbit.png){fig-align="center" width="80%"}
+![Reward step: the Fox receives positive feedback after a successful action.](images/chapter5/fox_reward_catch_rabbit.png){fig-align="center" width="80%"}
 :::
 
 ---
 
 :::{.figure-placeholder}
-![](images/chapter5/fox_penalty.png){fig-align="center" width="80%"}
+![Penalty step: the Fox receives negative feedback when an action leads to a poor outcome.](images/chapter5/fox_penalty.png){fig-align="center" width="80%"}
 :::
 
 ---
@@ -274,7 +274,7 @@ Greatness lies in balance.
 Modern RL algorithms mathematically encode this struggle, guiding agents toward strategies that mix caution with boldness.
 
 :::{.figure-placeholder}
-![](images/chapter5/fox_at_forked_jungle_path.png){fig-align="center" width="80%"}
+![Exploration versus exploitation: the Fox pauses at a fork, balancing the safe known path against a risky unknown route.](images/chapter5/fox_at_forked_jungle_path.png){fig-align="center" width="80%"}
 :::
 ---
 

@@ -52,7 +52,7 @@ In essence, each layer transforms the data into a more refined form. The Owl’s
 
 ### Layers Inside the Owl’s Brain
 
-![](images/chapter4/layerArchRoboticOwl.png){width=100% height=auto}
+![Layered neural architecture inside the Robotic Owl, showing how inputs pass through hidden layers before becoming a final prediction.](images/chapter4/layerArchRoboticOwl.png){width=100% height=auto}
 
 ### Deep Learning in Action: An Owl’s Perspective
 

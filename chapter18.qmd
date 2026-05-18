@@ -2,7 +2,7 @@
 
 ## The Artistic Bird
 
-![The Artistic Bird](images/chapter18_images/chapter18Peacock.png){width=100% height=auto}
+![The Artistic Bird, a generative AI metaphor for systems that create new images, text, music, and designs from learned patterns.](images/chapter18_images/chapter18Peacock.png){width=100% height=auto}
 
 ---
 
@@ -861,4 +861,3 @@ output = generator(
 print(output[0]['generated_text'])
 
 ```
-

@@ -196,11 +196,30 @@ Once you know whether labels exist, match the **shape of the answer** to the met
 - **Tiger Analogy:** Predict future **battery level** from *terrain + speed*.
 - **Modern Note:** Still used widely as baseline and for interpretability.
 
+```{mermaid}
+%%| fig-cap: "Linear regression: from measured clues to one numeric prediction"
+flowchart LR
+  A["Measured clues<br/>size age distance"] --> B["Fit best line<br/>minimize error"]
+  B --> C["Prediction<br/>one numeric value"]
+  C --> D["Residual check<br/>how far off"]
+  D -->|Pattern remains| E["Try richer model<br/>or add features"]
+```
+
 ### Logistic Regression *(Supervised)*
 - **Purpose:** Binary classification (e.g., spam vs. not spam).
 - **Key Idea:** Outputs probability via sigmoid (0–1).
 - **Tiger Analogy:** “Is this **likely prey**?” *(P > 0.5)*.
 - **Modern Note:** Strong, simple baseline for many classification tasks.
+
+```{mermaid}
+%%| fig-cap: "Logistic regression: convert evidence into a probability and decision"
+flowchart LR
+  A["Input features<br/>words links sender"] --> B["Weighted score<br/>evidence total"]
+  B --> C["Sigmoid curve<br/>probability 0 to 1"]
+  C --> D{"Threshold<br/>for action"}
+  D -->|Above threshold| E["Class 1<br/>spam or high risk"]
+  D -->|Below threshold| F["Class 0<br/>not spam or low risk"]
+```
 
 ::: {.callout-note}
 ## Jargon Buster: The Sigmoid Function
@@ -252,6 +271,18 @@ print("📊 Feature Weights:", coeffs.to_dict())
 - **Key Idea:** Split features into branches (if-then rules) until a leaf decision.
 - **Tiger Analogy:** *If small → left; if fast → right; then “chase/ignore”.*
 - **Modern Note:** Interpretable; forms the basis for **ensembles**.
+
+```{mermaid}
+%%| fig-cap: "Decision tree: a trail of if-then questions leading to a prediction"
+flowchart TD
+  A["Start<br/>new example"] --> B{"Speed high"}
+  B -->|Yes| C{"Size small"}
+  B -->|No| D{"Near water"}
+  C -->|Yes| E["Leaf<br/>likely prey"]
+  C -->|No| F["Leaf<br/>ignore"]
+  D -->|Yes| G["Leaf<br/>investigate"]
+  D -->|No| H["Leaf<br/>low priority"]
+```
 
 ### Random Forest *(Supervised)*
 - **Purpose:** Combine many trees for **higher accuracy** and less overfitting.
@@ -381,6 +412,15 @@ Regularization is like teaching the tiger to focus on the most meaningful signal
 - **Key Idea:** Find new axes (**principal components**) that explain the data best.
 - **Tiger Analogy:** The tiger’s lens condenses dozens of signals into a few **essential traits**.
 - **Modern Note:** Useful for visualization, denoising, and preprocessing.
+
+```{mermaid}
+%%| fig-cap: "PCA: compress many correlated signals into fewer useful directions"
+flowchart LR
+  A["Many features<br/>height speed sound color"] --> B["Standardize<br/>same scale"]
+  B --> C["Find directions<br/>largest variance"]
+  C --> D["Keep top components<br/>PC1 PC2 PC3"]
+  D --> E["Use compressed view<br/>plot denoise model input"]
+```
 
 ### Advanced Dimensionality Reduction: t-SNE & UMAP
 

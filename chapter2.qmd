@@ -220,7 +220,7 @@ Version each transformation—so you can trace every “instinct” the tiger le
 ---
 
 ### Visualizing the Data Pipeline
-![Basic ML Workflow](images/chapter2_images/basic_ml_workflow.png){width=100% height=auto}
+![Basic machine learning workflow: data collection, cleaning, feature engineering, training, evaluation, deployment, and monitoring form a continuous learning loop.](images/chapter2_images/basic_ml_workflow.png){width=100% height=auto}
 
 The cycle never truly ends—the tiger keeps learning, refining, and adapting through every new hunt.
 

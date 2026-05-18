@@ -98,7 +98,7 @@ Understanding this hierarchy will help you make sense of the buzzwords and appre
 
 ## AI As A Robotic Tiger Learning To Hunt (Analogy)
 
-![](images/chapter1_images/TigerRoboLab.png){fig-align="center" width="80%"}
+![The Robotic Tiger in a lab, representing the full AI development cycle from sensing data to training, validation, and deployment.](images/chapter1_images/TigerRoboLab.png){fig-align="center" width="80%"}
 
 ### Overview
 

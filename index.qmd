@@ -1,5 +1,5 @@
 :::{.no-number}
-![](cover.png){width=100% height=auto}
+![Book cover for The AI Jungle: a nature-inspired guide to artificial intelligence and machine learning.](cover.png){width=100% height=auto}
 :::
 ---
 title: "The AI Jungle"
