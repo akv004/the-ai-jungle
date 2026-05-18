@@ -342,11 +342,21 @@ print("📊 Top 3 Features:", importances.nlargest(3).to_dict())
 
 **Key Insight:** XGBoost also provides `feature_importances_`, making it explainable—just like Random Forest. This is why it dominates tabular data competitions (Kaggle, etc.).
 
-### LightGBM: The Modern Successor
+Before moving on, place these tree methods on one trail:
 
-![Figure 3.1 — The Swift Fox on the Boosting Trail. LightGBM is the lean robotic fox sprinting along the same boosting trail XGBoost blazed, leaving behind the heavier predecessors of the gradient-boosting family.](images/chapter3_images/swift_fox_lightgbm.png){fig-align="center" width="80%"}
+- A **Decision Tree** is one rule-based path through the jungle.
+- A **Random Forest** grows many trees independently and lets them vote.
+- **Gradient Boosting** grows trees one after another, where each new tree focuses on earlier mistakes.
+- **XGBoost** made gradient boosting robust, regularized, and widely practical.
+- **LightGBM** keeps the same boosting idea but makes it faster and lighter for very large tabular datasets.
+
+So LightGBM is not a separate branch of machine learning. It is a modern, high-speed member of the gradient boosting family.
+
+### LightGBM: A Fast Gradient Boosting Successor
 
 LightGBM is Microsoft's open-source gradient boosting framework, released in 2017, built to train fast and use memory efficiently on large tabular datasets. If XGBoost made boosted trees practical and popular, LightGBM is the swift fox that followed the same trail with lighter footfalls: leaner, faster, and especially comfortable when the forest grows into millions of rows.
+
+![Figure 3.1 — The Swift Fox on the Boosting Trail. LightGBM is the lean robotic fox sprinting along the same boosting trail XGBoost blazed, leaving behind the heavier predecessors of the gradient-boosting family.](images/chapter3_images/swift_fox_lightgbm.png){fig-align="center" width="80%"}
 
 Like XGBoost, LightGBM builds an ensemble of decision trees sequentially. Each new tree tries to correct the mistakes left by the previous trees. The difference is not the basic idea of boosting; it is how aggressively LightGBM optimizes the mechanics of building trees.
 
